@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PageController@getIndex');
+
+Route::get('/admin-shop', 'AdminController@getAdmin');
