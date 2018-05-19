@@ -17,7 +17,7 @@ class CreateCustormersTable extends Migration
             $table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('phone_number');
             $table->integer('bill_id')->unsigned()->nullable();
             $table->foreign('bill_id')->references('id')->on('Bills');
