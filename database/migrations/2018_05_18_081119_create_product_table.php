@@ -16,6 +16,7 @@ class CreateProductTable extends Migration
         Schema::create('Products', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('image');
             $table->longText('description_detail');
             $table->longText('description_brief');
             $table->enum('hot',['1','0']);
