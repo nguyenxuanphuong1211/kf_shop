@@ -14,3 +14,7 @@
 Route::get('/', 'PageController@getIndex');
 
 Route::get('/admin-shop', 'AdminController@getAdmin');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
