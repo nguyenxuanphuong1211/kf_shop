@@ -32,11 +32,11 @@ class DatabaseSeeder extends Seeder
 	    public function run()
 	    {
 	      DB::table('brands')->insert([
-	        ['id' =>1, 'name' => 'Apple' , 'image' => 'defaut.png'],
-	        ['id' =>2, 'name' => 'Samsung' , 'image' => 'defaut.png'],
-	        ['id' =>3, 'name' => 'Sony' , 'image' => 'defaut.png'],
-	        ['id' =>4, 'name' => 'LG' , 'image' => 'defaut.png'],
-	        ['id' =>5, 'name' => 'Nokia' , 'image' => 'defaut.png']
+	        ['id' =>1, 'name' => 'Apple' , 'alias'=> 'apple', 'image' => 'defaut.png'],
+	        ['id' =>2, 'name' => 'Samsung' , 'alias'=> 'samsung', 'image' => 'defaut.png'],
+	        ['id' =>3, 'name' => 'Sony' , 'alias'=> 'sony', 'image' => 'defaut.png'],
+	        ['id' =>4, 'name' => 'LG' , 'alias'=> 'lg', 'image' => 'defaut.png'],
+	        ['id' =>5, 'name' => 'Nokia' , 'alias'=> 'nokia', 'image' => 'defaut.png']
 	      ]);
 	    }
 	}
@@ -52,10 +52,10 @@ class DatabaseSeeder extends Seeder
 	    public function run()
 	    {
 	      DB::table('categories')->insert([
-	        ['id' =>1, 'name' => 'Laptop' ],
-	        ['id' =>2, 'name' => 'tablet' ],
-	        ['id' =>3, 'name' => 'smart phone' ],
-	        ['id' =>4, 'name' => 'Watch'  ]
+	        ['id' =>1, 'name' => 'Laptop', 'alias' => 'laptop' ],
+	        ['id' =>2, 'name' => 'tablet', 'alias' => 'tablet' ],
+	        ['id' =>3, 'name' => 'smart phone', 'alias' => 'smart-phone' ],
+	        ['id' =>4, 'name' => 'Watch', 'alias' => 'watch'  ]
 	      ]);
 	    }
 	}
@@ -122,11 +122,11 @@ class DatabaseSeeder extends Seeder
 		    public function run()
 		    {
 		      DB::table('products')->insert([
-		        ['id' =>1, 'name' => 'Iphone 6', 'image' => 'default.png', 'description_detail' => 'description detail product', 'description_brief' => 'description brief product', 'hot' => '0', 'new' => '0', 'deals' =>'0', 'quantity' => '10', 'unit_price' => '14000000', 'promotion_price' =>'13500000', 'unit' => 'cay', 'brand_id'=> '1', 'category_id' =>'3' ],
-			  ['id' =>2, 'name' => 'Iphone 6S', 'image' => 'default.png', 'description_detail' => 'description detail product', 'description_brief' => 'description brief product', 'hot' => '0', 'new' => '0', 'deals' =>'0', 'quantity' => '10', 'unit_price' => '14000000', 'promotion_price' =>'13500000', 'unit' => 'cay', 'brand_id'=> '1', 'category_id' =>'3' ],
-			  ['id' =>3, 'name' => 'Iphone 5', 'image' => 'default.png', 'description_detail' => 'description detail product', 'description_brief' => 'description brief product', 'hot' => '0', 'new' => '0', 'deals' =>'0', 'quantity' => '10', 'unit_price' => '14000000', 'promotion_price' =>'13500000', 'unit' => 'cay', 'brand_id'=> '1', 'category_id' =>'3' ],
-			  ['id' =>4, 'name' => 'Iphone 5S', 'image' => 'default.png', 'description_detail' => 'description detail product', 'description_brief' => 'description brief product', 'hot' => '0', 'new' => '0', 'deals' =>'0', 'quantity' => '10', 'unit_price' => '14000000', 'promotion_price' =>'13500000', 'unit' => 'cay', 'brand_id'=> '1', 'category_id' =>'3' ],
-			  ['id' =>5, 'name' => 'Iphone 7', 'image' => 'default.png', 'description_detail' => 'description detail product', 'description_brief' => 'description brief product', 'hot' => '0', 'new' => '0', 'deals' =>'0', 'quantity' => '10', 'unit_price' => '14000000', 'promotion_price' =>'13500000', 'unit' => 'cay', 'brand_id'=> '1', 'category_id' =>'3' ]
+		        ['id' =>1, 'name' => 'Iphone 6', 'alias' => 'iphone-6', 'image' => 'default.png', 'description_detail' => 'description detail product', 'description_brief' => 'description brief product', 'hot' => '0', 'new' => '0', 'deals' =>'0', 'quantity' => '10', 'unit_price' => '14000000', 'promotion_price' =>'13500000', 'unit' => 'cay', 'brand_id'=> '1', 'category_id' =>'3' ],
+			  ['id' =>2, 'name' => 'Iphone 6S', 'alias' => 'iphone-6s', 'image' => 'default.png', 'description_detail' => 'description detail product', 'description_brief' => 'description brief product', 'hot' => '0', 'new' => '0', 'deals' =>'0', 'quantity' => '10', 'unit_price' => '14000000', 'promotion_price' =>'13500000', 'unit' => 'cay', 'brand_id'=> '1', 'category_id' =>'3' ],
+			  ['id' =>3, 'name' => 'Iphone 5', 'alias' => 'iphone-5', 'image' => 'default.png', 'description_detail' => 'description detail product', 'description_brief' => 'description brief product', 'hot' => '0', 'new' => '0', 'deals' =>'0', 'quantity' => '10', 'unit_price' => '14000000', 'promotion_price' =>'13500000', 'unit' => 'cay', 'brand_id'=> '1', 'category_id' =>'3' ],
+			  ['id' =>4, 'name' => 'Iphone 5S', 'alias' => 'iphone-5s', 'image' => 'default.png', 'description_detail' => 'description detail product', 'description_brief' => 'description brief product', 'hot' => '0', 'new' => '0', 'deals' =>'0', 'quantity' => '10', 'unit_price' => '14000000', 'promotion_price' =>'13500000', 'unit' => 'cay', 'brand_id'=> '1', 'category_id' =>'3' ],
+			  ['id' =>5, 'name' => 'Iphone 7', 'alias' => 'iphone-7', 'image' => 'default.png', 'description_detail' => 'description detail product', 'description_brief' => 'description brief product', 'hot' => '0', 'new' => '0', 'deals' =>'0', 'quantity' => '10', 'unit_price' => '14000000', 'promotion_price' =>'13500000', 'unit' => 'cay', 'brand_id'=> '1', 'category_id' =>'3' ]
 			  
 		 
 		      ]);
