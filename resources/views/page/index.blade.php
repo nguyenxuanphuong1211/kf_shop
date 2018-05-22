@@ -124,7 +124,7 @@
                 @foreach($categories as $category)
                 <div class="tab-pane  fade in" id="{{ $category ->alias }}">
                     <div id="tab-carousel-2" class="owl-carousel product-slider owl-theme">
-                        @foreach($category ->products as $product)
+                        @foreach($category ->products ->where('hot','1') as $product)
                         <div class="col-xs-12">
                             <div class="single-product">
                                 <div class="product-img">
