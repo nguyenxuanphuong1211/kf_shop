@@ -18,3 +18,7 @@ Route::get('/admin-shop', 'AdminController@getAdmin');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/view-detail-product', 'PageController@viewDetailProduct');
+
+Route::get('/view-detail-cart', 'CartController@index');//view cart
