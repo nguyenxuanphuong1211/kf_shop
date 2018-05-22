@@ -9,16 +9,21 @@
     <meta name="author" content="">
     <title>SB Admin - Start Bootstrap Template</title>
     <!-- Bootstrap core CSS-->
-    <link href="admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('admin/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Custom fonts for this template-->
-    <link href="admin/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('admin/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     <!-- Page level plugin CSS-->
-    <link href="admin/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="{{asset('admin/vendor/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet">
     <!-- Custom styles for this template-->
-    <link href="admin/css/sb-admin.css" rel="stylesheet">
+    <link href="{{asset('admin/css/sb-admin.css')}}" rel="stylesheet">
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+    {!! Toastr::render() !!}
     <!-- Navigation-->
     @include('admin.partials.side')
     <div class="content-wrapper">
@@ -56,19 +61,20 @@
             </div>
         </div>
         <!-- Bootstrap core JavaScript-->
-        <script src="admin/vendor/jquery/jquery.min.js"></script>
-        <script src="admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="{{asset('admin/vendor/jquery/jquery.min.js')}}"></script>
+        <script src="{{asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
         <!-- Core plugin JavaScript-->
-        <script src="admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="{{asset('admin/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
         <!-- Page level plugin JavaScript-->
-        <script src="admin/vendor/chart.js/Chart.min.js"></script>
-        <script src="admin/vendor/datatables/jquery.dataTables.js"></script>
-        <script src="admin/vendor/datatables/dataTables.bootstrap4.js"></script>
+        <script src="{{asset('admin/vendor/chart.js/Chart.min.js')}}"></script>
+        <script src="{{asset('admin/vendor/datatables/jquery.dataTables.js')}}"></script>
+        <script src="{{asset('admin/vendor/datatables/dataTables.bootstrap4.js')}}"></script>
         <!-- Custom scripts for all pages-->
-        <script src="admin/js/sb-admin.min.js"></script>
+        <script src="{{asset('admin/js/sb-admin.min.js')}}"></script>
         <!-- Custom scripts for this page-->
-        <script src="admin/js/sb-admin-datatables.min.js"></script>
-        <script src="admin/js/sb-admin-charts.min.js"></script>
+        <script src="{{asset('admin/js/sb-admin-datatables.min.js')}}"></script>
+        <script src="{{asset('admin/js/sb-admin-charts.min.js')}}"></script>
+
     </div>
 </body>
 

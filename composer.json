@@ -10,7 +10,8 @@
         "gloudemans/shoppingcart": "^2.5",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "oriceon/toastr-5-laravel": "dev-master"
+        "oriceon/toastr-5-laravel": "dev-master",
+        "laravelcollective/html":"^5.4.0"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
