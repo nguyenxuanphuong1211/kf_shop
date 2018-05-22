@@ -5,8 +5,9 @@
         <div class="main-slider an-si">
             <div class="bend niceties preview-2 hm-ver-1">
                 <div id="ensign-nivoslider-2" class="slides">
-                    <img src="page/img/slider/1.png" alt="" title="#slider-direction-3"  />
-                    <img src="page/img/slider/2.png" alt="" title="#slider-direction-1"  />
+                    <img src="page/img/slider/a.png" alt="" title="#slider-direction-3"  />
+                    <img src="page/img/slider/b.png" alt="" title="#slider-direction-1"  />
+                    <img src="page/img/slider/c.png" alt="" title="#slider-direction-1"  />
                 </div>
                 <!-- direction 1 -->
                 <div id="slider-direction-3" class="t-cn slider-direction Builder">
