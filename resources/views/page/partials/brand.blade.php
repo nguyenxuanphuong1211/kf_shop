@@ -5,46 +5,13 @@
             <div class="container">
                 <div class="row text-center">
                     <div id="brand-logo" class="re-owl-carousel21 owl-carousel product-slider owl-theme">
+                        @foreach($brands as $brand)
                         <div class="col-xs-12">
                             <div class="single-brand">
-                                <a href="#"><img src="page/img/brand/1.png" alt="" /></a>
+                                <a href="#"><img src="{{('page/img/brand/'.$brand->image)}}" alt="" /></a>
                             </div>
                         </div>
-                        <div class="col-xs-12">
-                            <div class="single-brand">
-                                <a href="#"><img src="{{asset('page/img/brand/2.png')}}" alt="" /></a>
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="single-brand">
-                                <a href="#"><img src="{{asset('page/img/brand/3.png')}}" alt="" /></a>
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="single-brand">
-                                <a href="#"><img src="{{asset('page/img/brand/4.png')}}" alt="" /></a>
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="single-brand">
-                                <a href="#"><img src="{{asset('page/img/brand/5.png')}}" alt="" /></a>
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="single-brand">
-                                <a href="#"><img src="{{asset('page/img/brand/6.png')}}" alt="" /></a>
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="single-brand">
-                                <a href="#"><img src="{{asset('page/img/brand/1.png')}}" alt="" /></a>
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="single-brand">
-                                <a href="#"><img src="{{asset('page/img/brand/3.png')}}" alt="" /></a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
