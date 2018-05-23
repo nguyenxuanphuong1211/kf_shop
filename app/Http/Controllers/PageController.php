@@ -17,8 +17,9 @@ class PageController extends Controller
         return view('page.index', compact('hot_products', 'new_products', 'blogs'));
     }
 
-    public function viewDetailProduct()
+    public function viewDetailProduct($alias)
     {
-    	return view('page.single_product');
+        $product = Product::where('alias',$alias)->first();
+    	return view('page.single_product', compact('product'));
     }
 }

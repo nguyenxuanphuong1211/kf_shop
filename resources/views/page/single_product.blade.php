@@ -24,8 +24,8 @@
                         <div class="pro-img-tab-content tab-content">
                             <div class="tab-pane active" id="image-1">
                                 <div class="simpleLens-big-image-container">
-                                    <a class="simpleLens-lens-image" data-lightbox="roadtrip" data-lens-image="{{ asset('page/img/products/12.jpg')}}" href="{{ asset('page/img/products/12.jpg')}}">
-                                        <img src="{{asset('page/img/products/12.jpg')}}" alt="" class="simpleLens-big-image">
+                                    <a class="simpleLens-lens-image" data-lightbox="roadtrip" data-lens-image="{{ asset('page/img/products/'.$product->image)}}" href="{{ asset('page/img/products/'.$product->image)}}">
+                                        <img src="{{asset('page/img/products/'.$product->image)}}" alt="" class="simpleLens-big-image">
                                     </a>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
                             </div>
                         </div>
                         <div class="pro-img-tab-slider indicator-style2">
-                            <div class="item"><a href="#image-1" data-toggle="tab"><img src="{{ asset('page/img/products/12.jpg')}}" alt="" /></a></div>
+                            <div class="item"><a href="#image-1" data-toggle="tab"><img src="{{ asset('page/img/products/'.$product->image)}}" alt="" /></a></div>
                             <div class="item"><a href="#image-2" data-toggle="tab"><img src="{{ asset('page/img/products/13.jpg')}}" alt="" /></a></div>
                             <div class="item"><a href="#image-3" data-toggle="tab"><img src="{{ asset('page/img/products/14.jpg')}}" alt="" /></a></div>
                             <div class="item"><a href="#image-4" data-toggle="tab"><img src="{{ asset('page/img/products/15.jpg')}}" alt="" /></a></div>
@@ -77,7 +77,7 @@
                     <div class="col-md-6 col-sm-6">
                         <div class="cras">
                             <div class="product-name">
-                                <h2>Ut wisi enim</h2>
+                                <h2>{{ $product->name }}</h2>
                             </div>
                             <div class="pro-rating cendo-pro">
                                 <div class="pro_one">
@@ -94,10 +94,10 @@
                                 Availability:In stock
                             </p>
                             <div class="short-description">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero. Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante. Fusce ultricies massa massa. Fusce aliquam, purus eget sagittis vulputate, sapien libero hendrerit est, sed commodo augue nisi non neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor, lorem et placerat vestibulum, metus nisi posuere nisl, in accumsan elit odio...</p>
+                                <p>{{ $product->description_brief }}</p>
                             </div>
                             <div class="pre-box">
-                                <span class="special-price">$155.00</span>
+                                <span class="special-price">{{ $product->promotion_price }}</span>
                             </div>
                             <div class="add-to-box1">
                                 <div class="add-to-box add-to-box2">
@@ -146,7 +146,7 @@
                             </ul>
                             <!-- Tab panes -->
                             <div class="tab-content tab-con2">
-                                <div role="tabpanel" class="tab-pane active" id="home">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero. Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante. Fusce ultricies massa massa. Fusce aliquam, purus eget sagittis vulputate, sapien libero hendrerit est, sed commodo augue nisi non neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor, lorem et placerat vestibulum, metus nisi posuere nisl, in accumsan elit odio quis mi. Cras neque metus, consequat et blandit et, luctus a nunc. Etiam gravida vehicula tellus, in imperdiet ligula euismod eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam erat mi, rutrum at sollicitudin rhoncus, ultricies posuere erat. Duis convallis, arcu nec aliquam consequat, purus felis vehicula felis, a dapibus enim lorem nec augue. Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. </div>
+                                <div role="tabpanel" class="tab-pane active" id="home">{{ $product->description_detail }} </div>
                                 <div role="tabpanel" class="tab-pane" id="profile">
                                     <form class="form-horizontal">
                                         <div id="review">

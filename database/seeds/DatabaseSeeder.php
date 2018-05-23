@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TableProductsSeeder::class);
         $this->call(TableImagesSeeder::class);
         $this->call(TableBill_detailSeeder::class);
+        $this->call(TableImagesSeeder::class);
     }
 }
 
@@ -180,4 +181,15 @@ class DatabaseSeeder extends Seeder
 		    }
 		}
 
+		class TableImageslSeeder extends Seeder
+		{
+			public function run()
+		    {
+		      DB::table('images')->insert([
+		        [ 'name' => 'default.png', 'product_id' => '1' ],
+		        [ 'name' => 'default.png', 'product_id' => '1' ],
+		        [ 'name' => 'default.png', 'product_id' => '1' ],
+		        [ 'name' => 'default.png', 'product_id' => '1' ],
+		    }
+		}
 

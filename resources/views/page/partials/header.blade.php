@@ -38,7 +38,7 @@
                         <div class="mainmenu clearfix hidden-sm hidden-xs">
                             <nav>
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="{{ url('/') }}">Home</a></li>
                                     <li><a href="#">Shop</a>
                                         <ul>
                                             @foreach($categories as $category)
@@ -78,9 +78,9 @@
                                             </ul>
                                         </div>
                                     </li> -->
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="about-us.html">About us</a></li>
-                                    <li><a href="contact.html">Contact us</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href=#">About us</a></li>
+                                    <li><a href="#">Contact us</a></li>
                                 </ul>
                             </nav>
                         </div>
