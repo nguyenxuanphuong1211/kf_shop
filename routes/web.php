@@ -47,3 +47,7 @@ Route::group(['prefix' =>'admin-shop'], function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/view-detail-product/{alias}', 'PageController@viewDetailProduct');
+
+Route::get('/view-detail-cart', 'CartController@index');//view cart

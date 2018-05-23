@@ -16,4 +16,10 @@ class PageController extends Controller
         $blogs = Blog::orderBy('id', 'desc')->get();
         return view('page.index', compact('hot_products', 'new_products', 'blogs'));
     }
+
+    public function viewDetailProduct($alias)
+    {
+        $product = Product::where('alias',$alias)->first();
+    	return view('page.single_product', compact('product'));
+    }
 }

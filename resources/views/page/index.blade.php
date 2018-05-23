@@ -54,82 +54,7 @@
         </div>
     </section>
     <!-- slider section end -->
-    <!-- collection section start -->
-    <!-- <div class="banner-area">
-        <div class="container">
-            <div class="section-padding1">
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class="banner-box banner-box-re">
-                            <a href="#">
-                                <img alt="" src="page/img/banner/2.jpg">
-                                <div>
-                                    <h2>
-                                        Dynamic
-                                        <span>Jazz</span>
-                                    </h2>
-                                    <p>When Jazz starts to chase cars, the whole world stands still.</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="banner-box res-btm">
-                            <a href="#">
-                                <img alt="" src="page/img/banner/3.jpg">
-                                <div>
-                                    <h2>
-                                        Dynamic
-                                        <span>Jazz</span>
-                                    </h2>
-                                    <p>When Jazz starts to chase cars, the whole world stands still.</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class="banner-container banner-box res-btm">
-                            <a href="#">
-                                <img alt="" src="page/img/banner/r6.png">
-                                <div>
-                                    <h2>
-                                        Dynamic
-                                        <span>Jazz</span>
-                                    </h2>
-                                    <p>When Jazz starts to chase cars, the whole world stands still.</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class="banner-box banner-box-re">
-                            <a href="#">
-                                <img alt="" src="page/img/banner/4.jpg">
-                                <div>
-                                    <h2>
-                                        Dynamic
-                                        <span>Jazz</span>
-                                    </h2>
-                                    <p>When Jazz starts to chase cars, the whole world stands still.</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="banner-box">
-                            <a href="#">
-                                <img alt="" src="page/img/banner/5.jpg">
-                                <div>
-                                    <h2>
-                                        Dynamic
-                                        <span>Jazz</span>
-                                    </h2>
-                                    <p>When Jazz starts to chase cars, the whole world stands still.</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- collection section end -->
+    
     <!-- new-products section start -->
     <section class="featured-products single-products section-padding-top">
         <div class="container">
@@ -158,7 +83,7 @@
             <div class="row tab-content">
                 <div class="tab-pane  fade in active" id="all">
                     <div id="tab-carousel-1" class="re-owl-carousel owl-carousel product-slider owl-theme">
-                        @foreach($hot_products as $hot_product)
+                        @foreach($hot_products->where('hot','1') as $hot_product)
                         <div class="col-xs-12">
                             <div class="single-product">
                                 <div class="product-img">
@@ -185,8 +110,8 @@
                                 </div>
                                 <div class="actions-btn">
                                     <a href="#" data-placement="top" data-target="#quick-view" data-trigger="hover" data-toggle="modal" data-original-title="Quick View"><i class="fa fa-eye"></i></a>
-                                    <a data-placement="top" data-toggle="tooltip" href="#" data-original-title="Add To Wishlist"><i class="fa fa-heart"></i></a>
-                                    <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Compare"><i class="fa fa-retweet"></i></a>
+                                    <a data-placement="top" data-toggle="tooltip" href="{{ url('/view-detail-product/'.$hot_product->alias) }}" data-original-title="View detail"><i class="fa fa-search-plus "></i></a>
+                                    <!-- <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Compare"><i class="fa fa-retweet"></i></a> -->
                                     <a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a>
                                 </div>
                             </div>
@@ -223,8 +148,8 @@
                                 </div>
                                 <div class="actions-btn">
                                     <a href="#" data-placement="top" data-target="#quick-view" data-trigger="hover" data-toggle="modal" data-original-title="Quick View"><i class="fa fa-eye"></i></a>
-                                    <a data-placement="top" data-toggle="tooltip" href="#" data-original-title="Add To Wishlist"><i class="fa fa-heart"></i></a>
-                                    <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Compare"><i class="fa fa-retweet"></i></a>
+                                    <a data-placement="top" data-toggle="tooltip" href="#" data-original-title="View detail"><i class="fa fa-search-plus "></i></a>
+                                    <!-- <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Compare"><i class="fa fa-retweet"></i></a> -->
                                     <a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a>
                                 </div>
                             </div>
@@ -284,8 +209,8 @@
                             </div>
                             <div class="actions-btn">
                                 <a href="#" data-placement="top" data-target="#quick-view" data-trigger="hover" data-toggle="modal" data-original-title="Quick View"><i class="fa fa-eye"></i></a>
-                                <a data-placement="top" data-toggle="tooltip" href="#" data-original-title="Add To Wishlist"><i class="fa fa-heart"></i></a>
-                                <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Compare"><i class="fa fa-retweet"></i></a>
+                                <a data-placement="top" data-toggle="tooltip" href="#" data-original-title="View detail"><i class="fa fa-search-plus "></i></a>
+                                <!-- <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Compare"><i class="fa fa-retweet"></i></a> -->
                                 <a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a>
                             </div>
                         </div>
