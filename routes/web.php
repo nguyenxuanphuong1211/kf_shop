@@ -35,6 +35,14 @@ Route::group(['prefix' =>'admin-shop'], function(){
         Route::put('edit/{brand}', 'BrandController@update');
         Route::get('delete/{brand}', 'BrandController@destroy');
     });
+    Route::group(['prefix' =>'blog'], function(){
+        Route::get('list', 'BlogController@index')->name('list-blog');
+        Route::get('add', 'BlogController@create')->name('add-blog');
+        Route::post('add', 'BlogController@store')->name('add-blog');
+        Route::get('edit/{blog}', 'BlogController@edit')->name('edit-blog');
+        Route::put('edit/{blog}', 'BlogController@update')->name('edit-blog');
+        Route::get('delete/{blog}', 'BlogController@destroy')->name('delete-blog');
+    });
 });
 Auth::routes();
 
