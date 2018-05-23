@@ -12,9 +12,15 @@
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="{{ url('admin-shop/category/list') }}">
                     <i class="fa fa-fw fa-area-chart"></i>
-                    <span class="nav-link-text">Charts</span>
+                    <span class="nav-link-text">Categories</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+                <a class="nav-link" href="{{ url('admin-shop/brand/list') }}">
+                    <i class="fa fa-fw fa-area-chart"></i>
+                    <span class="nav-link-text">Brands</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
