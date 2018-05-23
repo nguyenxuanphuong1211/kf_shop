@@ -5,12 +5,12 @@
         <li class="breadcrumb-item">
             <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Categories</li>
+        <li class="breadcrumb-item active">Brands</li>
     </ol>
     <!-- Example DataTables Card-->
     <div class="card mb-3">
         <div class="card-header">
-            <i class="fa fa-table"></i> List of categories <a href="{{ url('admin-shop/category/add') }}"><button type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Add Category</button></a></div>
+            <i class="fa fa-table"></i> List of brands <a href="{{ url('admin-shop/brand/add') }}"><button type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Add brand</button></a></div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -18,6 +18,7 @@
                         <tr>
                             <th>Index</th>
                             <th>Name</th>
+                            <th>Image</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -26,17 +27,19 @@
                         <tr>
                             <th>Index</th>
                             <th>Name</th>
+                            <th>Image</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
                     </tfoot>
                     <tbody>
-                        @foreach($categories as $index=> $category)
+                        @foreach($brands as $index=> $brand)
                         <tr>
                             <td>{{ $index+1 }}</td>
-                            <td>{{ $category ->name }}</td>
-                            <td><a href="{{url('admin-shop/category/edit')}}/{{ $category->id }}"><i class="fa fa-edit"></i> edit</a></td>
-                            <td><a href="{{url('admin-shop/category/delete')}}/{{ $category->id }}" onclick="return confirm('Are you sure ?');"><i class="fa fa-trash-o"></i> Delete</a></td>
+                            <td>{{ $brand ->name }}</td>
+                            <td><img style="height: 60px; width: 100px;" src="{{asset('page/img/brand/'.$brand ->image)}}" alt=""></td>
+                            <td><a href="{{url('admin-shop/brand/edit')}}/{{ $brand->id }}"><i class="fa fa-edit"></i> edit</a></td>
+                            <td><a href="{{url('admin-shop/brand/delete')}}/{{ $brand->id }}" onclick="return confirm('Are you sure ?');"><i class="fa fa-trash-o"></i> Delete</a></td>
                         </tr>
                         @endforeach
                     </tbody>

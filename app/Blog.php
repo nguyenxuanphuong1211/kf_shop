@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
 {
-    protected $table = 'Blogs';
+    protected $fillable = ['title', 'thumbnail', 'content', 'alias'];
 }
