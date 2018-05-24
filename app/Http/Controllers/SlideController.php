@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-use App\Brand;
+use App\Slide;
 use Toastr;
-class BrandController extends Controller
+
+class SlideController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $brands = Brand::orderBy('id', 'desc')->get();
-        return view('admin.brands.list', compact('brands'));
+        $slides = Slide::orderBy('id', 'desc')->get();
+        return view('admin.slider.list', compact('slides'));
     }
 
     /**
@@ -26,7 +27,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('admin.brands.add');
+        return view('admin.slider.add');
     }
 
     /**
@@ -39,22 +40,23 @@ class BrandController extends Controller
     {
         $this->validate($request,
         [
-            'name' => 'required|unique:brands',
+            'title_1' => 'required',
+            'title_2' => 'required',
+            'title_3' => 'required',
+            'link' => 'required',
             'image' => 'required|max:2000',
         ]);
         $data = Input::except('image');
-        $data['alias'] = str_slug($data['name']);
         $file=$request->file('image');
     	$filename=$file->getClientOriginalName('image');
     	$request->file=$filename;
     	$images=time().".".$filename;
-    	$destinationPath=public_path('/page/img/brand');
+    	$destinationPath=public_path('/page/img/slider');
     	$file->move($destinationPath,$images);
     	$data['image']=$images;
-        $brand = Brand::create($data);
-        Toastr::success('Add successful Brand', $title = null, $options = []);
-        return redirect('admin-shop/brand/list');
-
+        $brand = Slide::create($data);
+        Toastr::success('Add successful Slide', $title = null, $options = []);
+        return redirect()->route('list-slide');
     }
 
     /**
@@ -63,9 +65,9 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-
+        //
     }
 
     /**
@@ -74,9 +76,9 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Brand $brand)
+    public function edit(Slide $slide)
     {
-        return view('admin.brands.edit', compact('brand'));
+        return view('admin.slider.edit', compact('slide'));
     }
 
     /**
@@ -86,29 +88,32 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Brand $brand)
+    public function update(Request $request, Slide $slide)
     {
         $this->validate($request,
         [
-            'name' => 'required',
+            'title_1' => 'required',
+            'title_2' => 'required',
+            'title_3' => 'required',
+            'link' => 'required',
             'image' => 'max:2000',
         ]);
-        $data = Input::all();
+        $data = Input::except('image');
         if ($request->hasFile('image'))
-	{
-            $oldfile=public_path('page/img/brand/').$brand->image;
+		{
+            $oldfile=public_path('page/img/slider/').$slide->image;
             unlink($oldfile);
-			$file=$request->file('image');
-	    	$filename=$file->getClientOriginalName('image');
+            $file=$request->file('image');
+            $filename=$file->getClientOriginalName('image');
 	    	$request->file=$filename;
 	    	$images=time().".".$filename;
-	    	$destinationPath=public_path('page/img/brand');
+	    	$destinationPath=public_path('page/img/slider');
 	    	$file->move($destinationPath,$images);
 	    	$data['image']=$images;
-        $brand ->update($data);
-        Toastr::success('Edit successful brand', $title = null, $options = []);
-        return redirect('admin-shop/brand/list');
-		}
+        }
+        $slide ->update($data);
+        Toastr::success('Edit successful slide', $title = null, $options = []);
+        return redirect('admin-shop/slide/list');
     }
 
     /**
@@ -117,16 +122,15 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Brand $brand)
+    public function destroy(Slide $slide)
     {
-        if (file_exists(public_path('page/img/brand/').$brand->image))
+        if (file_exists(public_path('page/img/slider/').$slide->image))
             {
-                $oldfile=public_path('page/img/brand/').$brand->image;
+                $oldfile=public_path('page/img/slider/').$slide->image;
                 unlink($oldfile);
             }
-            $brand->products()->delete();
-        	$brand->delete();
-             Toastr::success('Delete successful Speaker', $title = null, $options = []);
-        	return redirect('admin-shop/brand/list');
+        	$slide->delete();
+             Toastr::success('Delete successful slide', $title = null, $options = []);
+        	return redirect()->route('list-slide');
     }
 }

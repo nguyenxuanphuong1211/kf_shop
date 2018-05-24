@@ -11,4 +11,5 @@
         @endif
     </div>
 </div>
-{!! Form::submit('Submit',['class'=>'btn btn-default']) !!}
+{!! Form::submit('Submit',['class'=>'btn btn-success']) !!}
+{!! Form::reset('Reset',['class'=>'btn btn-default']) !!}

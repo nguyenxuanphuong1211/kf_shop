@@ -43,6 +43,15 @@ Route::group(['prefix' =>'admin-shop'], function(){
         Route::put('edit/{blog}', 'BlogController@update')->name('edit-blog');
         Route::get('delete/{blog}', 'BlogController@destroy')->name('delete-blog');
     });
+    Route::group(['prefix' =>'slide'], function(){
+        Route::get('list', 'SlideController@index')->name('list-slide');
+        Route::get('add', 'SlideController@create')->name('add-slide');
+        Route::post('add', 'SlideController@store')->name('add-slide');
+        Route::get('edit/{slide}', 'SlideController@edit')->name('edit-slide');
+        Route::put('edit/{slide}', 'SlideController@update')->name('edit-slide');
+        Route::get('delete/{slide}', 'SlideController@destroy')->name('delete-slide');
+    });
+
 });
 Auth::routes();
 
