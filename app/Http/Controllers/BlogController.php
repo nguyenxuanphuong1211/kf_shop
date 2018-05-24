@@ -38,6 +38,12 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,
+        [
+            'title' => 'required|unique:blogs',
+            'content' => 'required',
+            'thumbnail' => 'required|max:2000',
+        ]);
         $data = Input::except('thumbnail');
         $data['alias'] = str_slug($data['title']);
         $file=$request->file('thumbnail');
@@ -84,22 +90,29 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        $data = Input::all();
+        $this->validate($request,
+        [
+            'title' => 'required',
+            'content' => 'required',
+            'thumbnail' => 'max:2000',
+        ]);
+        $data = Input::except('thumbnail');
+        $data['alias'] = str_slug($data['title']);
         if ($request->hasFile('thumbnail'))
 		{
             $oldfile=public_path('page/img/blog/').$blog->thumbnail;
             unlink($oldfile);
-			$file=$request->file('thumbnail');
-	    	$filename=$file->getClientOriginalName('thumbnail');
+            $file=$request->file('thumbnail');
+            $filename=$file->getClientOriginalName('thumbnail');
 	    	$request->file=$filename;
 	    	$images=time().".".$filename;
 	    	$destinationPath=public_path('page/img/blog');
 	    	$file->move($destinationPath,$images);
 	    	$data['thumbnail']=$images;
+        }
         $blog ->update($data);
         Toastr::success('Edit successful blog', $title = null, $options = []);
         return redirect('admin-shop/blog/list');
-		}
     }
 
     /**

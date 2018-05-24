@@ -16,7 +16,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Index</th>
+                            <th>#</th>
                             <th>Name</th>
                             <th>Edit</th>
                             <th>Delete</th>
@@ -24,7 +24,7 @@
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>Index</th>
+                            <th>#</th>
                             <th>Name</th>
                             <th>Edit</th>
                             <th>Delete</th>

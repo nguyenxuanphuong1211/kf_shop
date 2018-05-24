@@ -202,7 +202,7 @@
                                         <div class="form-group required">
                                             <div class="col-sm-12">
                                                 <label class="control-label">Rating</label>
-                                                    Bad 
+                                                    Bad
                                                 <input type="radio" value="1" name="rating">
                                                 <input type="radio" value="2" name="rating">
                                                 <input type="radio" value="3" name="rating">
@@ -355,7 +355,7 @@
 														</ul>
 													</div>
 												</div>
-											</div>							
+											</div>
 										</div>
 										<div class="col-xs-12 col-sm-7">
 											<div class="quick-right">
@@ -477,7 +477,7 @@
 														</ul>
 													</div>
 												</div>
-											</div>							
+											</div>
 										</div>
 										<div class="col-xs-12 col-sm-7">
 											<div class="quick-right">
