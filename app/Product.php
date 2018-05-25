@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $table = 'Products';
+    protected $fillable = ['name', 'alias', 'image', 'description_detail',
+     'description_brief', 'hot', 'deals', 'new', 'quantity', 'unit_price',
+      'promotion_price', 'unit', 'brand_id', 'category_id'];
 
     public function bill_detail()
     {
