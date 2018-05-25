@@ -16,16 +16,20 @@ Route::get('/', 'PageController@getIndex')->name('home');
 Route::group(['prefix' =>'admin-shop'], function(){
     Route::get('/', 'AdminController@getAdmin');
     Route::group(['prefix' =>'product'], function(){
-        Route::get('list', 'ProductController@index');
-        Route::get('add', 'ProductController@create');
+        Route::get('list', 'ProductController@index')->name('list-product');
+        Route::get('add', 'ProductController@create')->name('add-product');
+        Route::post('add', 'ProductController@store')->name('add-product');
+        Route::get('edit/{product}', 'ProductController@edit')->name('edit-product');
+        Route::put('edit/{product}', 'ProductController@update')->name('edit-product');
+        Route::get('delete/{product}', 'ProductController@destroy')->name('delete-product');
     });
     Route::group(['prefix' =>'category'], function(){
-        Route::get('list', 'CategoryController@index');
-        Route::get('add', 'CategoryController@create');
-        Route::post('add', 'CategoryController@store');
-        Route::get('edit/{category}', 'CategoryController@edit');
-        Route::put('edit/{category}', 'CategoryController@update');
-        Route::get('delete/{category}', 'CategoryController@destroy');
+        Route::get('list', 'CategoryController@index')->name('list-category');
+        Route::get('add', 'CategoryController@create')->name('add-category');
+        Route::post('add', 'CategoryController@store')->name('add-category');
+        Route::get('edit/{category}', 'CategoryController@edit')->name('edit-category');
+        Route::put('edit/{category}', 'CategoryController@update')->name('edit-category');
+        Route::get('delete/{category}', 'CategoryController@destroy')->name('delete-category');
     });
     Route::group(['prefix' =>'brand'], function(){
         Route::get('list', 'BrandController@index');
@@ -43,6 +47,15 @@ Route::group(['prefix' =>'admin-shop'], function(){
         Route::put('edit/{blog}', 'BlogController@update')->name('edit-blog');
         Route::get('delete/{blog}', 'BlogController@destroy')->name('delete-blog');
     });
+    Route::group(['prefix' =>'slide'], function(){
+        Route::get('list', 'SlideController@index')->name('list-slide');
+        Route::get('add', 'SlideController@create')->name('add-slide');
+        Route::post('add', 'SlideController@store')->name('add-slide');
+        Route::get('edit/{slide}', 'SlideController@edit')->name('edit-slide');
+        Route::put('edit/{slide}', 'SlideController@update')->name('edit-slide');
+        Route::get('delete/{slide}', 'SlideController@destroy')->name('delete-slide');
+    });
+
 });
 Auth::routes();
 

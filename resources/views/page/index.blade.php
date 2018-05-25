@@ -5,56 +5,38 @@
         <div class="main-slider an-si">
             <div class="bend niceties preview-2 hm-ver-1">
                 <div id="ensign-nivoslider-2" class="slides">
-                    <img src="page/img/slider/a.png" alt="" title="#slider-direction-3"  />
-                    <img src="page/img/slider/b.png" alt="" title="#slider-direction-1"  />
-                    <img src="page/img/slider/c.png" alt="" title="#slider-direction-1"  />
+                    @foreach($slides as $slide)
+                    <img src="{{asset('page/img/slider/'.$slide->image)}}" alt="" title="#{{ $slide->id }}"  />
+                    @endforeach
                 </div>
+                @foreach($slides as $slide)
                 <!-- direction 1 -->
-                <div id="slider-direction-3" class="t-cn slider-direction Builder">
+                <div id="{{ $slide->id }}" class="t-cn slider-direction Builder">
                     <div class="slide-all">
                         <!-- layer 1 -->
                         <div class="layer-1">
-                            <h2 class="title5">new collection</h2>
+                            <h2 class="title5">{{ $slide->title_1 }}</h2>
                         </div>
                         <!-- layer 2 -->
                         <div class="layer-2">
-                            <h2 class="title6">Men’s Fashion</h2>
+                            <h2 class="title6">{{ $slide->title_2 }}</h2>
                         </div>
                         <!-- layer 2 -->
                         <div class="layer-2">
-                            <p class="title0">Save Up To 40% Off</p>
+                            <p class="title0">{{ $slide->title_3 }}</p>
                         </div>
                         <!-- layer 3 -->
                         <div class="layer-3">
-                            <a class="min1" href="#">Shop Now</a>
+                            <a class="min1" href="{{ $slide ->link }}">Shop Now</a>
                         </div>
                     </div>
                 </div>
-                <div id="slider-direction-1" class="t-cn slider-direction Builder">
-                    <div class="slide-all slide2">
-                        <!-- layer 1 -->
-                        <div class="layer-1">
-                            <h2 class="title5">new collection</h2>
-                        </div>
-                        <!-- layer 2 -->
-                        <div class="layer-2">
-                            <h2 class="title6">Women’s Fashion</h2>
-                        </div>
-                        <!-- layer 2 -->
-                        <div class="layer-2">
-                            <p class="title0">Save Up To 40% Off</p>
-                        </div>
-                        <!-- layer 3 -->
-                        <div class="layer-3">
-                            <a class="min1" href="#">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
     <!-- slider section end -->
-    
+
     <!-- new-products section start -->
     <section class="featured-products single-products section-padding-top">
         <div class="container">

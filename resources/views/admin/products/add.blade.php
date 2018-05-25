@@ -1,5 +1,6 @@
 @extends('admin.master')
 @section('content')
+<div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">Create New product</h1>
@@ -13,7 +14,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-7">
-                            {!! Form::open(['url'=>'admin-shop/product/add']) !!}
+                            {!! Form::open(['url'=>'admin-shop/product/add','files' => true]) !!}
                                 @include('admin.products.form')
                             {!! Form::close() !!}
                         </div>
@@ -27,4 +28,5 @@
         </div>
         <!-- /.col-lg-12 -->
     </div>
+</div>
 @stop
