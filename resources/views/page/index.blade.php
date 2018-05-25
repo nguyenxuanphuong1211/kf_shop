@@ -110,9 +110,9 @@
                                 </div>
                                 <div class="actions-btn">
                                     <a href="#" data-placement="top" data-target="#quick-view" data-trigger="hover" data-toggle="modal" data-original-title="Quick View"><i class="fa fa-eye"></i></a>
-                                    <a data-placement="top" data-toggle="tooltip" href="{{ url('/view-detail-product/'.$hot_product->alias) }}" data-original-title="View detail"><i class="fa fa-search-plus "></i></a>
-                                    <!-- <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Compare"><i class="fa fa-retweet"></i></a> -->
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a>
+                                    <a data-placement="top" data-toggle="tooltip" href="{{ url('/view-detail-product/'.$hot_product->alias)}}" data-original-title="View detail"><i class="fa fa-search-plus "></i></a>
+                                    
+                                    <a class="add_to_card" href="{{ url('cart/add-cart-product/'.$hot_product->id)}}" id="{{ $hot_product->id }}" name="{{ $hot_product->name }}" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -148,7 +148,7 @@
                                 </div>
                                 <div class="actions-btn">
                                     <a href="#" data-placement="top" data-target="#quick-view" data-trigger="hover" data-toggle="modal" data-original-title="Quick View"><i class="fa fa-eye"></i></a>
-                                    <a data-placement="top" data-toggle="tooltip" href="#" data-original-title="View detail"><i class="fa fa-search-plus "></i></a>
+                                    <a data-placement="top" data-toggle="tooltip" href="{{ url('/view-detail-product/'.$hot_product->alias)}}" data-original-title="View detail"><i class="fa fa-search-plus "></i></a>
                                     <!-- <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Compare"><i class="fa fa-retweet"></i></a> -->
                                     <a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a>
                                 </div>
@@ -209,7 +209,7 @@
                             </div>
                             <div class="actions-btn">
                                 <a href="#" data-placement="top" data-target="#quick-view" data-trigger="hover" data-toggle="modal" data-original-title="Quick View"><i class="fa fa-eye"></i></a>
-                                <a data-placement="top" data-toggle="tooltip" href="#" data-original-title="View detail"><i class="fa fa-search-plus "></i></a>
+                                <a data-placement="top" data-toggle="tooltip" href="{{ url('/view-detail-product/'.$hot_product->alias)}}" data-original-title="View detail"><i class="fa fa-search-plus "></i></a>
                                 <!-- <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Compare"><i class="fa fa-retweet"></i></a> -->
                                 <a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a>
                             </div>

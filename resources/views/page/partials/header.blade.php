@@ -277,13 +277,14 @@
                                         <button type="submit"><i class="pe-7s-search"></i></button>
                                     </form>
                                 </li>
-                                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i><span class="color1">2</span></a>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i><span class="color1">{{ Cart::count() }}</span></a>
                                     <ul class="drop-cart">
+                                        @foreach(\Cart::content() as $content)
                                         <li>
-                                            <a href="cart.html"><img src="{{asset('page/img/cart/1.png')}}" alt="" /></a>
+                                            <a  href="cart.html"><img src="{{asset('page/img/products/')}}" alt="" /></a>
                                             <div class="add-cart-text">
-                                                <p><a href="#">White Shirt</a></p>
-                                                <p>$50.00</p>
+                                                <p><a href="#">{{ $content->name }}</a></p>
+                                                <p>{{ $content->price }} x {{ $content->qty }}</p>
                                                 <span>Color : Blue</span>
                                                 <span>Size   : SL</span>
                                             </div>
@@ -291,29 +292,18 @@
                                                 <i class="pe-7s-close"></i>
                                             </div>
                                         </li>
-                                        <li>
-                                            <a href="cart.html"><img src="{{asset('page/img/cart/2.png')}}" alt="" /></a>
-                                            <div class="add-cart-text">
-                                                <p><a href="#">White Shirt</a></p>
-                                                <p>$50.00 x 2</p>
-                                                <span>Color : Blue</span>
-                                                <span>Size   : SL</span>
-                                            </div>
-                                            <div class="pro-close">
-                                                <i class="pe-7s-close"></i>
-                                            </div>
-                                        </li>
+                                        @endforeach
                                         <li class="total-amount clearfix">
                                             <span class="floatleft">total</span>
-                                            <span class="floatright"><strong>= $150.00</strong></span>
+                                            <span class="floatright"><strong>= {{ \Cart::total() }}</strong></span>
                                         </li>
                                         <li>
                                             <div class="goto text-center">
-                                                <a href="cart.html"><strong>go to cart &nbsp;<i class="pe-7s-angle-right"></i></strong></a>
+                                                <a href="{{ url('cart/view-detail-cart') }}"><strong>go to cart &nbsp;<i class="pe-7s-angle-right"></i></strong></a>
                                             </div>
                                         </li>
                                         <li class="checkout-btn text-center">
-                                            <a href="checkout.html">Check out</a>
+                                            <a href="#">Check out</a>
                                         </li>
                                     </ul>
                                 </li>

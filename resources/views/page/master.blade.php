@@ -57,6 +57,7 @@
         @include('page.partials.footer')
 
 		<!-- all js here -->
+
 		<!-- jquery latest version -->
         <script src="{{asset('page/js/vendor/jquery-1.12.0.min.js')}}"></script>
 		<!-- bootstrap js -->
@@ -83,5 +84,29 @@
         <script src="{{asset('page/js/plugins.js')}}"></script>
 		<!-- main js -->
         <script src="{{asset('page/js/main.js')}}"></script>
+        
+<!-- ajax add to cart -->
+        <script>
+            $(document).ready(function(){
+                $(".add_to_card").click(function(){
+
+                    //$qty = $(this).find(".qty1").val();
+                    $rowid = $(this).attr('id');
+                    $name = 'add_product';
+                    $.ajax({
+                        type: "GET",
+                        url: 'cart/add-cart-product/'+$rowid+'/'+$name,
+                        data: {"id":$rowid, "name":$name},
+                        success:function(data){
+                            $("#cart").load("views.partials.cart");
+                            $('#qtyspcart').text(data[0]);
+                            $('#total_cart').text(data[1]);
+                        }
+                    });
+                });
+            });
+        </script>
+
+        
     </body>
 </html>

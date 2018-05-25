@@ -22,56 +22,23 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-6 none-si-pro">
                         <div class="pro-img-tab-content tab-content">
-                            <div class="tab-pane active" id="image-1">
+                            @foreach($product->images as $image)
+                            <div class="tab-pane active" id="{{'image-'.$image->id}}">
                                 <div class="simpleLens-big-image-container">
-                                    <a class="simpleLens-lens-image" data-lightbox="roadtrip" data-lens-image="{{ asset('page/img/products/'.$product->image)}}" href="{{ asset('page/img/products/'.$product->image)}}">
-                                        <img src="{{asset('page/img/products/'.$product->image)}}" alt="" class="simpleLens-big-image">
+                                    <a class="simpleLens-lens-image" data-lightbox="roadtrip" data-lens-image="{{ asset('page/img/products/'.$image->name)}}" href="{{ asset('page/img/products/'.$image->name)}}">
+                                        <img src="{{asset('page/img/products/'.$image->name)}}" alt="" class="simpleLens-big-image">
                                     </a>
                                 </div>
                             </div>
-                            <div class="tab-pane" id="image-2">
-                                <div class="simpleLens-big-image-container">
-                                    <a class="simpleLens-lens-image" data-lightbox="roadtrip" data-lens-image="{{ asset('page/img/products/13.jpg')}}" href="{{ asset('page/img/products/13.jpg')}}">
-                                        <img src="{{asset('page/img/products/13.jpg')}}" alt="" class="simpleLens-big-image">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="image-3">
-                                <div class="simpleLens-big-image-container">
-                                    <a class="simpleLens-lens-image" data-lightbox="roadtrip" data-lens-image="{{ asset('page/img/products/14.jpg')}}" href="{{ asset('page/img/products/14.jpg')}}">
-                                        <img src="{{asset('page/img/products/14.jpg')}}" alt="" class="simpleLens-big-image">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="image-4">
-                                <div class="simpleLens-big-image-container">
-                                    <a class="simpleLens-lens-image" data-lightbox="roadtrip" data-lens-image="{{ asset('page/img/products/15.jpg')}}" href="{{ asset('page/img/products/15.jpg')}}">
-                                        <img src="{{asset('page/img/products/15.jpg')}}" alt="" class="simpleLens-big-image">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="image-5">
-                                <div class="simpleLens-big-image-container">
-                                    <a class="simpleLens-lens-image" data-lightbox="roadtrip" data-lens-image="{{ asset('page/img/products/11.jpg')}}" href="{{ asset('page/img/products/11.jpg')}}">
-                                        <img src="{{asset('page/img/products/11.jpg')}}" alt="" class="simpleLens-big-image">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="image-6">
-                                <div class="simpleLens-big-image-container">
-                                    <a class="simpleLens-lens-image" data-lightbox="roadtrip" data-lens-image="{{ asset('page/img/products/10.jpg')}}" href="{{ asset('page/img/products/10.jpg')}}">
-                                        <img src="{{asset('page/img/products/10.jpg')}}" alt="" class="simpleLens-big-image">
-                                    </a>
-                                </div>
-                            </div>
+                            @endforeach
+                            
                         </div>
                         <div class="pro-img-tab-slider indicator-style2">
-                            <div class="item"><a href="#image-1" data-toggle="tab"><img src="{{ asset('page/img/products/'.$product->image)}}" alt="" /></a></div>
-                            <div class="item"><a href="#image-2" data-toggle="tab"><img src="{{ asset('page/img/products/13.jpg')}}" alt="" /></a></div>
-                            <div class="item"><a href="#image-3" data-toggle="tab"><img src="{{ asset('page/img/products/14.jpg')}}" alt="" /></a></div>
-                            <div class="item"><a href="#image-4" data-toggle="tab"><img src="{{ asset('page/img/products/15.jpg')}}" alt="" /></a></div>
-                            <div class="item"><a href="#image-5" data-toggle="tab"><img src="{{ asset('page/img/products/11.jpg')}}" alt="" /></a></div>
-                            <div class="item"><a href="#image-6" data-toggle="tab"><img src="{{ asset('page/img/products/10.jpg')}}" alt="" /></a></div>
+                            @foreach($product->images as $image)
+                            <div class="item"><a href="{{'#image-'.$image->id}}" data-toggle="tab"><img src="{{ asset('page/img/products/'.$image->name)}}" alt="" /></a></div>
+                            @endforeach
+
+                            
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
