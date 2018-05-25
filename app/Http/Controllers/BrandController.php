@@ -126,7 +126,7 @@ class BrandController extends Controller
             }
             $brand->products()->delete();
         	$brand->delete();
-             Toastr::success('Delete successful Speaker', $title = null, $options = []);
+             Toastr::success('Delete successful brand', $title = null, $options = []);
         	return redirect('admin-shop/brand/list');
     }
 }

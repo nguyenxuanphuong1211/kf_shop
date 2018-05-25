@@ -10,13 +10,13 @@
     <!-- Example DataTables Card-->
     <div class="card mb-3">
         <div class="card-header">
-            <i class="fa fa-table"></i> Data Table Example</div>
+            <i class="fa fa-table"></i> List of products <a href="{{ route('add-product') }}"><button type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Add product</button></a></div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Index</th>
+                            <th>#</th>
                             <th>Name</th>
                             <th>Image</th>
                             <th>Category</th>
@@ -25,13 +25,15 @@
                             <th>Unit Price</th>
                             <th>Promotion Price</th>
                             <th>Unit</th>
+                            <th>Featured</th>
+                            <th>Sale</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>Index</th>
+                            <th>#</th>
                             <th>Name</th>
                             <th>Image</th>
                             <th>Category</th>
@@ -40,6 +42,8 @@
                             <th>Unit Price</th>
                             <th>Promotion Price</th>
                             <th>Unit</th>
+                            <th>Featured</th>
+                            <th>Sale</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -48,16 +52,18 @@
                         @foreach($products as $index=> $product)
                         <tr>
                             <td>{{ $index+1 }}</td>
-                            <td>{{ $product ->name }}</td>
-                            <td>{{ $product ->image }}</td>
+                            <td><a target="_blank" href="{{ url('view-detail-product/'.$product->alias) }}">{{ $product ->name }}</a></td>
+                            <td> <img src="{{asset('page/img/products/'.$product ->image)}}" style="height:90px; width:60px;"> </td>
                             <td>{{ $product ->category->name }}</td>
                             <td>{{ $product ->brand->name }}</td>
                             <td>{{ $product ->quantity }}</td>
                             <td>{{ $product ->unit_price }}</td>
                             <td>{{ $product ->promotion_price}}</td>
                             <td>{{ $product ->unit}}</td>
-                            <td>Edit</td>
-                            <td>Delete</td>
+                            <td>@if($product->hot==1) Yes @else No @endif</td>
+                            <td>@if($product->deals==1) Yes @else No @endif</td>
+                            <td><a href="{{url('admin-shop/product/edit')}}/{{ $product->id }}"><i class="fa fa-edit"></i> edit</a></td>
+                            <td><a href="{{url('admin-shop/product/delete')}}/{{ $product->id }}"><i class="fa fa-edit"></i> delete</a></td>
                         </tr>
                         @endforeach
                     </tbody>

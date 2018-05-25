@@ -146,7 +146,7 @@
                             </ul>
                             <!-- Tab panes -->
                             <div class="tab-content tab-con2">
-                                <div role="tabpanel" class="tab-pane active" id="home">{{ $product->description_detail }} </div>
+                                <div role="tabpanel" class="tab-pane active" id="home">{!! $product->description_detail !!} </div>
                                 <div role="tabpanel" class="tab-pane" id="profile">
                                     <form class="form-horizontal">
                                         <div id="review">
