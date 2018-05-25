@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'PageController@getIndex');
+Route::get('/', 'PageController@getIndex')->name('home');
 
 Route::group(['prefix' =>'admin-shop'], function(){
     Route::get('/', 'AdminController@getAdmin');
@@ -59,8 +59,24 @@ Route::group(['prefix' =>'admin-shop'], function(){
 });
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('homeadmin');
 
 Route::get('/view-detail-product/{alias}', 'PageController@viewDetailProduct');
 
-Route::get('/view-detail-cart', 'CartController@index');//view cart
+Route::group(['prefix'=>'cart'],function(){
+    Route::get('/', 'CartController@home');
+    Route::get('/view-detail-cart', 'CartController@index')->name('view-cart');//view cart
+    Route::GET('/add-cart-product/{id}','CartController@addCartProduct');
+    Route::GET('/delete-product-cart/{rowId}','CartController@remove');
+    Route::GET('/update_qty_cart/{rowid}/{qty}','CartController@update');
+
+
+    // Route::GET('add-product_view','CartController@addCart_view');
+    // Route::GET('cart','CartController@cart');
+    // Route::GET('deletecart/{rowId}', 'CartController@delete');
+    // Route::GET('viewcheckout', 'CartController@getcheckout')->name('cart');
+    // Route::GET('checkout', 'CartController@checkout');
+    // Route::GET('update_qty_cart/{id}/{qty}','CartController@update_qty_cart');
+    });
+
+

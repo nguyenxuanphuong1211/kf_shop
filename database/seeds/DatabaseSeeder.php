@@ -185,11 +185,12 @@ class DatabaseSeeder extends Seeder
 		{
 			public function run()
 		    {
-		      DB::table('images')->insert([
-		        [ 'name' => 'default.png', 'product_id' => '1' ],
-		        [ 'name' => 'default.png', 'product_id' => '1' ],
-		        [ 'name' => 'default.png', 'product_id' => '1' ],
-		        [ 'name' => 'default.png', 'product_id' => '1' ],
+		    	DB::table('images')->insert([
+			        [ 'name' => 'default.png', 'product_id' => '1' ],
+			        [ 'name' => 'default.png', 'product_id' => '1' ],
+			        [ 'name' => 'default.png', 'product_id' => '1' ],
+			        [ 'name' => 'default.png', 'product_id' => '1' ]
+		    	]);
 		    }
 		}
 

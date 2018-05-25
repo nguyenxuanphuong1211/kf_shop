@@ -28,57 +28,37 @@
                                 <th class="low7">Price</th>
                                 <th class="low7">Total</th>
                             </tr>
+                            @foreach(\Cart::content() as $content)
                             <tr>
                                 <td class="sop-cart an-shop-cart">
-                                    <a href="#"><img class="primary-image" alt="" src="{{ asset('page/img/products/10.jpg')}}"</a>
-                                    <a href="#">Vintage Lambskin</a>
+                                    <a href="#"><img class="primary-image" alt="" src="{{ asset('page/img/products/'.$content->options->image)}}"</a>
+                                    <a href="#">{{ $content->name }}</a>
                                 </td>
-                                <td class="sop-cart an-sh">
-                                    <div class="quantity ray">
-                                        <input class="input-text qty text" type="number" size="4" title="Qty" value="2" min="0" step="1">
+                                <td class="sop-cart an-sh" >
+                                    <div class=" ray qty " id="{{$content->rowId}}">
+                                        <input class="input-text  qty1 text" name="qty1" type="number" size="4" title="Qty" value="{{ $content->qty }}" min="1" step="1">
                                     </div>
-                                    <a class="remove" href="#">
+                                    <a class="remove" href="{{ url('cart/delete-product-cart/'.$content->rowId) }}">
                                         <span>x</span>
                                     </a>
                                 </td>
                                 <td class="sop-cart">
                                     <div class="tb-product-price font-noraure-3">
-                                        <span class="amount">$180.00</span>
+                                        <span class="amount">{{ $content->price }}</span>
                                     </div>
                                 </td>
-                                <td class="cen">
-                                    <span class="amount">$180.00</span>
+                                <td class="cen" >
+                                    <span id="price_pro{{$content->rowId}}" class="amount">{{ $content->price * $content->qty }}</span>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="sop-cart an-shop-cart">
-                                    <a href="#"><img class="primary-image" alt="" src="{{ asset('page/img/products/1.jpg')}}"/a>
-                                    <a href="#">Vintage Lambskin</a>
-                                </td>
-                                <td class="sop-cart an-sh">
-                                    <div class="quantity ray">
-                                        <input class="input-text qty text" type="number" size="4" title="Qty" value="2" min="0" step="1">
-                                    </div>
-                                    <a class="remove" href="#">
-                                        <span>x</span>
-                                    </a>
-                                </td>
-                                <td class="sop-cart">
-                                    <div class="tb-product-price font-noraure-3">
-                                        <span class="amount2 ana">$79.00 - </span>
-                                        <span class="amount2 ana">$100.00</span>
-                                    </div>
-                                </td>
-                                <td class="cen">
-                                    <span class="amount">$180.00</span>
-                                </td>
-                            </tr>
+                            @endforeach
+                            
                         </table>
                     </div>
                     <div class="last-check1">
                         <div class="yith-wcwl-share yit">
                             <p class="checkout-coupon an-cop">
-                                <input type="submit" value="Update Cart">
+                               <a href=""> <input type="submit" value="Update Cart"></a>
                             </p>
                         </div>
                     </div>
@@ -164,14 +144,14 @@
                                 <tr class="cart-subtotal">
                                     <th>Subtotal:</th>
                                     <td>
-                                        <span class="amount">$297.00</span>
+                                        <span id="total" class="amount">{{ \Cart::total() }}</span>
                                     </td>
                                 </tr>
                                 <tr class="order-total">
                                     <th>Total:</th>
                                     <td>
                                         <strong>
-                                            <span class="amount">$297.00</span>
+                                            <span id="total1" class="amount">{{ \Cart::total() }}</span>
                                         </strong>
                                     </td>
                                 </tr>
@@ -444,4 +424,29 @@
 	</div>
 </div>
 <!-- quick view end -->
+<!-- jquery latest version -->
+        <script src="{{asset('page/js/vendor/jquery-1.12.0.min.js')}}"></script>
+<script>
+    $(document).ready(function(){
+        $(".qty").change(function(){
+
+            $qty = $(this).find(".qty1").val();
+            $rowid = $(this).attr('id');
+            // alert($qty);
+            $.ajax({
+                type: "GET",
+                url: 'update_qty_cart/'+$rowid+'/'+$qty,
+                data: {"id":$rowid, "qty":$qty},
+                success:function(data){
+
+                   $('#price_pro'+$rowid).text(data[0]);
+                   $('#total').text(data[2]);
+                   $('#total1').text(data[2]);
+                   $('#total_cart').text(data[2]);
+                   $('#qtyspcart').text(data[1]);
+                }
+            });
+        });
+    });
+</script>
 @stop
