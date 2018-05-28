@@ -31,14 +31,14 @@
                                 </div>
                             </div>
                             @endforeach
-                            
+
                         </div>
                         <div class="pro-img-tab-slider indicator-style2">
                             @foreach($product->images as $image)
                             <div class="item"><a href="{{'#image-'.$image->id}}" data-toggle="tab"><img src="{{ asset('page/img/products/'.$image->name)}}" alt="" /></a></div>
                             @endforeach
 
-                            
+
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6">

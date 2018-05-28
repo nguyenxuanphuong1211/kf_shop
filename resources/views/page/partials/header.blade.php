@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col-sm-2 col-md-2 col-xs-4">
                     <div class="logo">
-                        <a href="index.html"><img src="{{asset('page/img/logo.png')}}" alt="" /></a>
+                        <a href="{{ url('/') }}"><img src="{{asset('page/img/logo.png')}}" alt="" /></a>
                     </div>
                 </div>
                 <div class="col-sm-10 col-md-10 col-xs-8 static">
@@ -79,7 +79,7 @@
                                         </div>
                                     </li> -->
                                     <li><a href="#">Blog</a></li>
-                                    <li><a href=#">About us</a></li>
+                                    <li><a href="#">About us</a></li>
                                     <li><a href="#">Contact us</a></li>
                                 </ul>
                             </nav>
