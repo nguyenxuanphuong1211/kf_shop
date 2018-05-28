@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Input;
 use App\Product;
 use App\Category;
 use App\Brand;
+use App\Image;
 use Toastr;
 
 class ProductController extends Controller
@@ -52,6 +53,22 @@ class ProductController extends Controller
     	$file->move($destinationPath,$images);
     	$data['image']=$images;
         $product = Product::create($data);
+
+        $images_rel = array();
+        if($files_rel = $request->file('image-rel'))
+        {
+            foreach($files_rel as $file_rel)
+            {
+                $dt = new Image;
+                $dt->product_id = $product->id;
+                $name = time()."_".$file_rel->getClientOriginalName();
+                $destinationPath = public_path('/page/img/products');
+                $file_rel->move($destinationPath, $name);
+                $images_rel[]=$name;
+                $dt ->name = $name;
+                $dt ->save();
+            }
+        }
         Toastr::success('Add successful product', $title = null, $options = []);
         return redirect()->route('list-product');
     }
@@ -92,8 +109,11 @@ class ProductController extends Controller
         $data = Input::except('image');
         if ($request->hasFile('image'))
 	       {
-            $oldfile=public_path('page/img/products/').$product->image;
-            unlink($oldfile);
+               if(file_exists(public_path('page/img/products/').$product->image))
+               {
+                   $oldfile=public_path('page/img/products/').$product->image;
+                   unlink($oldfile);
+               }
 			$file=$request->file('image');
 	    	$filename=$file->getClientOriginalName('image');
 	    	$request->file=$filename;
@@ -103,6 +123,33 @@ class ProductController extends Controller
 	    	$data['image']=$images;
             }
         $product ->update($data);
+
+        $images_rel = $product->images()->get();
+        foreach($images_rel as $image_rel)
+            {
+                if (file_exists(public_path('page/img/products/').$image_rel->name))
+                    {
+                        $old_rel_file=public_path('page/img/products/').$image_rel->name;
+                        unlink($old_rel_file);
+                    }
+            }
+
+        $images_rel = array();
+        if($files_rel = $request->file('image-rel'))
+        {
+            foreach($files_rel as $file_rel)
+            {
+                $dt = new Image;
+                $dt->product_id = $product->id;
+                $name = time()."_".$file_rel->getClientOriginalName();
+                $destinationPath = public_path('/page/img/products');
+                $file_rel->move($destinationPath, $name);
+                $images_rel[]=$name;
+                $dt ->name = $name;
+                $dt ->save();
+            }
+        }
+
         Toastr::success('Edit successful product', $title = null, $options = []);
         return redirect()->route('list-product');
     }
@@ -115,12 +162,22 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        $images_rel = $product->images()->get();
         if (file_exists(public_path('page/img/products/').$product->image))
             {
                 $oldfile=public_path('page/img/products/').$product->image;
                 unlink($oldfile);
             }
-        $product->images()->delete();
+            foreach($images_rel as $image_rel)
+            {
+                if (file_exists(public_path('page/img/products/').$image_rel->name))
+                    {
+                        $old_rel_file=public_path('page/img/products/').$image_rel->name;
+                        unlink($old_rel_file);
+                    }
+            }
+
+        $product-> images()->delete();
     	$product->delete();
         Toastr::success('Delete successful product', $title = null, $options = []);
     	return redirect()->route('list-product');

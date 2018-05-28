@@ -52,7 +52,7 @@
                         @foreach($products as $index=> $product)
                         <tr>
                             <td>{{ $index+1 }}</td>
-                            <td><a target="_blank" href="{{ url('view-detail-product/'.$product->alias) }}">{{ $product ->name }}</a></td>
+                            <td><a style="overflow: hidden; width:100px;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;" target="_blank" href="{{ url('view-detail-product/'.$product->alias) }}">{{ $product ->name }}</a></td>
                             <td> <img src="{{asset('page/img/products/'.$product ->image)}}" style="height:90px; width:60px;"> </td>
                             <td>{{ $product ->category->name }}</td>
                             <td>{{ $product ->brand->name }}</td>
@@ -63,7 +63,7 @@
                             <td>@if($product->hot==1) Yes @else No @endif</td>
                             <td>@if($product->deals==1) Yes @else No @endif</td>
                             <td><a href="{{url('admin-shop/product/edit')}}/{{ $product->id }}"><i class="fa fa-edit"></i> edit</a></td>
-                            <td><a href="{{url('admin-shop/product/delete')}}/{{ $product->id }}"><i class="fa fa-edit"></i> delete</a></td>
+                            <td><a href="{{url('admin-shop/product/delete')}}/{{ $product->id }}" onclick="return confirm('Are you sure ?');"><i class="fa fa-edit" ></i> delete</a></td>
                         </tr>
                         @endforeach
                     </tbody>
