@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Brand;
+use App\Product;
 use Toastr;
 class BrandController extends Controller
 {
@@ -63,9 +64,10 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Brand $brand)
     {
-
+        $products_br = Product::where('brand_id', $brand->id)->orderBy('id', 'desc')->get();
+        return view('admin.brands.products', compact('products_br', 'brand'));
     }
 
     /**
@@ -95,9 +97,12 @@ class BrandController extends Controller
         ]);
         $data = Input::all();
         if ($request->hasFile('image'))
-	{
-            $oldfile=public_path('page/img/brand/').$brand->image;
-            unlink($oldfile);
+    	{
+            if (file_exists(public_path('page/img/brand/').$brand->image))
+                {
+                    $oldfile=public_path('page/img/brand/').$brand->image;
+                    unlink($oldfile);
+                }
 			$file=$request->file('image');
 	    	$filename=$file->getClientOriginalName('image');
 	    	$request->file=$filename;

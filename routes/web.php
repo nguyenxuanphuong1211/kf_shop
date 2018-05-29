@@ -25,6 +25,7 @@ Route::group(['prefix' =>'admin-shop'], function(){
     });
     Route::group(['prefix' =>'category'], function(){
         Route::get('list', 'CategoryController@index')->name('list-category');
+        Route::get('list/{category}', 'CategoryController@show');
         Route::get('add', 'CategoryController@create')->name('add-category');
         Route::post('add', 'CategoryController@store')->name('add-category');
         Route::get('edit/{category}', 'CategoryController@edit')->name('edit-category');
@@ -33,6 +34,7 @@ Route::group(['prefix' =>'admin-shop'], function(){
     });
     Route::group(['prefix' =>'brand'], function(){
         Route::get('list', 'BrandController@index');
+        Route::get('list/{brand}', 'BrandController@show');
         Route::get('add', 'BrandController@create');
         Route::post('add', 'BrandController@store');
         Route::get('edit/{brand}', 'BrandController@edit');
@@ -78,5 +80,3 @@ Route::group(['prefix'=>'cart'],function(){
     // Route::GET('checkout', 'CartController@checkout');
     // Route::GET('update_qty_cart/{id}/{qty}','CartController@update_qty_cart');
     });
-
-
