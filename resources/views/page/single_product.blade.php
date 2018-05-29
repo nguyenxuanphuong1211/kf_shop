@@ -22,8 +22,15 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-6 none-si-pro">
                         <div class="pro-img-tab-content tab-content">
+                            <div class="tab-pane active" id="image-active">
+                                <div class="simpleLens-big-image-container">
+                                    <a class="simpleLens-lens-image" data-lightbox="roadtrip" data-lens-image="{{asset('page/img/products/'.$product->image)}}" href="{{asset('page/img/products/'.$product->image)}}">
+                                        <img src="{{asset('page/img/products/'.$product->image)}}" alt="" class="simpleLens-big-image">
+                                    </a>
+                                </div>
+                            </div>
                             @foreach($product->images as $image)
-                            <div class="tab-pane active" id="{{'image-'.$image->id}}">
+                            <div class="tab-pane " id="{{'image-'.$image->id}}">
                                 <div class="simpleLens-big-image-container">
                                     <a class="simpleLens-lens-image" data-lightbox="roadtrip" data-lens-image="{{ asset('page/img/products/'.$image->name)}}" href="{{ asset('page/img/products/'.$image->name)}}">
                                         <img src="{{asset('page/img/products/'.$image->name)}}" alt="" class="simpleLens-big-image">
@@ -34,11 +41,10 @@
 
                         </div>
                         <div class="pro-img-tab-slider indicator-style2">
+                            <div class="item"><a href="#image-active" data-toggle="tab"><img src="{{asset('page/img/products/'.$product->image)}}" alt="" /></a></div>
                             @foreach($product->images as $image)
                             <div class="item"><a href="{{'#image-'.$image->id}}" data-toggle="tab"><img src="{{ asset('page/img/products/'.$image->name)}}" alt="" /></a></div>
                             @endforeach
-
-
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
