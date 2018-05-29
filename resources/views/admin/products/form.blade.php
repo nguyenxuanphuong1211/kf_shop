@@ -17,7 +17,7 @@
         <div class="form-group">
             {!! Form::label('category_id', 'Category') !!}
             <div class="form-controls {{ $errors->has('category_id') ? 'has-error' : '' }}">
-                {!! Form::select('category_id', $categories, null,['placeholder'=>'Select'])!!}
+                {!! Form::select('category_id', $categories_pr, null,['placeholder'=>'Select'])!!}
                 @if ( $errors->has('category_id') )
                     <span style="color: red;" class="text-warning">
                         <strong> {{ $errors->first('category_id') }} </strong>
@@ -30,7 +30,7 @@
         <div class="form-group">
             {!! Form::label('brand_id', 'Brand') !!}
             <div class="form-controls {{ $errors->has('brand_id') ? 'has-error' : '' }}">
-                {!! Form::select('brand_id', $brands,null,['placeholder'=>'Select'])!!}
+                {!! Form::select('brand_id', $brands_pr,null,['placeholder'=>'Select'])!!}
                 @if ( $errors->has('brand_id') )
                     <span style="color: red;" class="text-warning">
                         <strong> {{ $errors->first('brand_id') }} </strong>

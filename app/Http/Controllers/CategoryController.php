@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Category;
+use App\Product;
 use Toastr;
 
 class CategoryController extends Controller
@@ -56,9 +57,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Category $category)
     {
-        //
+        $products_cate = Product::where('category_id', $category->id)->orderBy('id', 'desc')->get();
+        return view('admin.categories.products', compact('products_cate', 'category'));
     }
 
     /**
