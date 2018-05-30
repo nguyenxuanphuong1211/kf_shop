@@ -162,7 +162,7 @@
             </div>
             <div class="row">
                 <div id="new-products" class="owl-carousel product-slider owl-theme">
-                    @foreach($new_products as $new_product)
+                    @foreach($deals_products as $deals_product)
                     <div class="col-xs-12">
                         <div class="single-product">
                             <div class="product-img">
@@ -170,12 +170,12 @@
                                     <span>sale</span>
                                 </div>
                                 <a href="#">
-                                    <img src="{{asset('page/img/products/'.$new_product->image)}}" alt="Product Title" />
-                                    <img class="secondary-image" alt="Product Title" src="{{asset('page/img/products/'.$new_product->image)}}">
+                                    <img src="{{asset('page/img/products/'.$deals_product->image)}}" alt="Product Title" />
+                                    <img class="secondary-image" alt="Product Title" src="{{asset('page/img/products/'.$deals_product->image)}}">
                                 </a>
                             </div>
                             <div class="product-dsc">
-                                <h3><a href="#">{{ $new_product ->name }}</a></h3>
+                                <h3><a href="#">{{ $deals_product ->name }}</a></h3>
                                 <div class="star-price">
                                     <span class="price-left">$52.00</span>
                                     <span class="star-right">
@@ -189,8 +189,8 @@
                             </div>
                             <div class="actions-btn">
                                 <a href="#" data-placement="top" data-target="#quick-view" data-trigger="hover" data-toggle="modal" data-original-title="Quick View"><i class="fa fa-eye"></i></a>
-                                <a data-placement="top" data-toggle="tooltip" href="{{ url('/view-detail-product/'.$hot_product->alias)}}" data-original-title="View detail"><i class="fa fa-search-plus "></i></a>
-                                <a class="add_to_card" href="{{ url('cart/add-cart-product/'.$hot_product->id)}}" id="{{ $hot_product->id }}" name="{{ $hot_product->name }}" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a>
+                                <a data-placement="top" data-toggle="tooltip" href="{{ url('/view-detail-product/'.$deals_product->alias)}}" data-original-title="View detail"><i class="fa fa-search-plus "></i></a>
+                                <a class="add_to_card" href="{{ url('cart/add-cart-product/'.$deals_product->id)}}" id="{{ $deals_product->id }}" name="{{ $deals_product ->name }}" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a>
                             </div>
                         </div>
                     </div>
