@@ -19,6 +19,36 @@
             </div>
         </div>
 
+
+        <div class="form-group">
+            {!! Form::label('description_brief', 'Brief description') !!}
+            <div class="form-controls {{ $errors->has('description_brief') ? 'has-error' : '' }}">
+                {!! Form::textarea('description_brief', null, ['class'=>'form-control', 'rows'=>'4']) !!}
+                @if ( $errors->has('description_brief') )
+                    <span style="color: red!important;" class="text-warning">
+                        <strong> {{ $errors->first('description_brief') }} </strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('description_detail', 'Detail description') !!}
+            <div class="form-controls {{ $errors->has('description_detail') ? 'has-error' : '' }}">
+                {!! Form::textarea('description_detail', null, ['class'=>'form-control', 'id'=>'description_detail']) !!}
+                @if ( $errors->has('description_detail') )
+                    <span style="color: red!important;" class="text-warning">
+                        <strong> {{ $errors->first('description_detail') }} </strong>
+                    </span>
+                @endif
+                <script>CKEDITOR.replace('description_detail');</script>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
         <div class="row">
             <div class="col-lg-5">
                 <div class="form-group">
@@ -76,37 +106,6 @@
             </div>
         </div>
 
-
-
-        <div class="form-group">
-            {!! Form::label('description_brief', 'Brief description') !!}
-            <div class="form-controls {{ $errors->has('description_brief') ? 'has-error' : '' }}">
-                {!! Form::textarea('description_brief', null, ['class'=>'form-control', 'rows'=>'4']) !!}
-                @if ( $errors->has('description_brief') )
-                    <span style="color: red!important;" class="text-warning">
-                        <strong> {{ $errors->first('description_brief') }} </strong>
-                    </span>
-                @endif
-            </div>
-        </div>
-
-        <div class="form-group">
-            {!! Form::label('description_detail', 'Detail description') !!}
-            <div class="form-controls {{ $errors->has('description_detail') ? 'has-error' : '' }}">
-                {!! Form::textarea('description_detail', null, ['class'=>'form-control', 'id'=>'description_detail']) !!}
-                @if ( $errors->has('description_detail') )
-                    <span style="color: red!important;" class="text-warning">
-                        <strong> {{ $errors->first('description_detail') }} </strong>
-                    </span>
-                @endif
-                <script>CKEDITOR.replace('description_detail');</script>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="col-lg-6">
-
         <div class="form-group">
             {!! Form::label('quantity', 'Quantity') !!}
             <div class="form-controls {{ $errors->has('quantity') ? 'has-error' : '' }}">
@@ -114,17 +113,6 @@
                 @if ( $errors->has('quantity') )
                     <span style="color: red!important;" class="text-warning">
                         <strong> {{ $errors->first('quantity') }} </strong>
-                    </span>
-                @endif
-            </div>
-        </div>
-        <div class="form-group">
-            {!! Form::label('unit', 'Unit') !!}
-            <div class="form-controls {{ $errors->has('unit') ? 'has-error' : '' }}">
-                {!! Form::text('unit', null, ['class'=>'form-control']) !!}
-                @if ( $errors->has('unit') )
-                    <span style="color: red!important;" class="text-warning">
-                        <strong> {{ $errors->first('unit') }} </strong>
                     </span>
                 @endif
             </div>
