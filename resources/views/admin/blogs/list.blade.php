@@ -19,8 +19,7 @@
                             <th>#</th>
                             <th>Title</th>
                             <th>Thumbnail</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>Tool</th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -28,8 +27,7 @@
                             <th>#</th>
                             <th>Title</th>
                             <th>Thumbnail</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>Tool</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -38,15 +36,15 @@
                             <td>{{ $index+1 }}</td>
                             <td>{{ $blog ->title }}</td>
                             <td><img style="height: 60px; width: 100px;" src="{{asset('page/img/blog/'.$blog ->thumbnail)}}" alt=""></td>
-                            <td><a href="{{ url('admin-shop/blog/edit/'.$blog->id) }}"><i class="fa fa-edit"></i> edit</a></td>
-                            <td><a href="{{ url('admin-shop/blog/delete/'.$blog->id) }}" onclick="return confirm('Are you sure ?');"><i class="fa fa-trash-o"></i> Delete</a></td>
-                        </tr>
+                            <td>
+                                <a href="{{ url('admin-shop/blog/edit/'.$blog->id) }}"><i class="fa fa-edit"></i> Edit</a><br>
+                                <a style="color: red;" href="{{ url('admin-shop/blog/delete/'.$blog->id) }}" onclick="return confirm('Are you sure ?');"><i class="fa fa-trash-o"></i> Delete</a>
+                            </td>
                         @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
-        <div class="card-footer small text-muted">Updated at {{ $blog->orderBy('updated_at', 'desc')->first()->updated_at->format('H:i:s d-M-Y') }}</div>
     </div>
 </div>
 @stop

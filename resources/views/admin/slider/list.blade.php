@@ -17,45 +17,44 @@
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th>Image</th>
                             <th>Title 1</th>
                             <th>Title 2</th>
                             <th>Title 3</th>
                             <th>Link</th>
-                            <th>Image</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>Tool</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                             <th>#</th>
+                            <th>Image</th>
                             <th>Title 1</th>
                             <th>Title 2</th>
                             <th>Title 3</th>
                             <th>Link</th>
-                            <th>Image</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>Tool</th>
                         </tr>
                     </tfoot>
                     <tbody>
                         @foreach($slides as $index=> $slide)
                         <tr>
                             <td>{{ $index+1 }}</td>
+                            <td><img style="height: 60px; width: 100px;" src="{{asset('page/img/slider/'.$slide ->image)}}" alt=""></td>
                             <td>{{ $slide ->title_1 }}</td>
                             <td>{{ $slide ->title_2 }}</td>
                             <td>{{ $slide ->title_3 }}</td>
                             <td>{{ $slide ->link }}</td>
-                            <td><img style="height: 60px; width: 100px;" src="{{asset('page/img/slider/'.$slide ->image)}}" alt=""></td>
-                            <td><a href="{{url('admin-shop/slide/edit')}}/{{ $slide->id }}"><i class="fa fa-edit"></i> edit</a></td>
-                            <td><a href="{{url('admin-shop/slide/delete')}}/{{ $slide->id }}" onclick="return confirm('Are you sure ?');"><i class="fa fa-trash-o"></i> Delete</a></td>
+                            <td>
+                                <a href="{{url('admin-shop/slide/edit')}}/{{ $slide->id }}"><i class="fa fa-edit"></i> Edit</a><br>
+                                <a style="color: red;" href="{{url('admin-shop/slide/delete')}}/{{ $slide->id }}" onclick="return confirm('Are you sure ?');"><i class="fa fa-trash-o"></i> Delete</a>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
-        <div class="card-footer small text-muted">Updated at {{ $slide->orderBy('updated_at', 'desc')->first()->updated_at->format('H:i:s d-M-Y') }}</div>
     </div>
 </div>
 @stop

@@ -13,7 +13,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-lg-7">
+                            <div class="col-lg-12">
                                 {!! Form::model($slide, ['url'=>'admin-shop/slide/edit/'.$slide->id,'files' => true,'method'=>'put']) !!}
                                     @include('admin.slider.form')
                                 {!! Form::close() !!}

@@ -21,7 +21,6 @@ class CreateProductTable extends Migration
             $table->longText('description_detail');
             $table->longText('description_brief');
             $table->enum('hot',['1','0']);
-            $table->enum('new',['1','0']);
             $table->enum('deals',['1','0']);
             $table->integer('quantity');
             $table->float('unit_price',30);

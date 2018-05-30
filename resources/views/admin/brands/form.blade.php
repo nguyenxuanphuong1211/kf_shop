@@ -1,3 +1,8 @@
+<style media="screen">
+    label{
+        font-weight: bold;
+    }
+</style>
 {!!csrf_field()!!}
 
 <div class="form-group">

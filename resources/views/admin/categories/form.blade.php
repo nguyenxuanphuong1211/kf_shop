@@ -1,6 +1,11 @@
+<style media="screen">
+    label{
+        font-weight: bold;
+    }
+</style>
 {!!csrf_field()!!}
 
-<div class="form-group">
+<div class="form-group" >
     {!! Form::label('name', 'Name of category') !!}
     <div class="form-controls {{ $errors->has('name') ? 'has-error' : '' }}">
         {!! Form::text('name', null, ['class'=>'form-control']) !!}

@@ -26,8 +26,7 @@
                             <th>Promotion Price</th>
                             <th>Featured</th>
                             <th>Sale</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>Tool</th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -42,8 +41,7 @@
                             <th>Promotion Price</th>
                             <th>Featured</th>
                             <th>Sale</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>Tool</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -59,15 +57,15 @@
                             <td>${{ $product ->promotion_price}}</td>
                             <td>@if($product->hot==1) Yes @else No @endif</td>
                             <td>@if($product->deals==1) Yes @else No @endif</td>
-                            <td><a href="{{url('admin-shop/product/edit')}}/{{ $product->id }}"><i class="fa fa-edit"></i> edit</a></td>
-                            <td><a href="{{url('admin-shop/product/delete')}}/{{ $product->id }}" onclick="return confirm('Are you sure ?');"><i class="fa fa-edit" ></i> delete</a></td>
+                            <td><a href="{{url('admin-shop/product/edit')}}/{{ $product->id }}"><i class="fa fa-edit"></i> Edit</a><br>
+                                <a style="color: red;" href="{{url('admin-shop/product/delete')}}/{{ $product->id }}" onclick="return confirm('Are you sure ?');"><i class="fa fa-trash-o" ></i> Delete</a>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
-        <div class="card-footer small text-muted">Updated at {{ $product->orderBy('updated_at', 'desc')->first()->updated_at->format('H:i:s d-M-Y') }}</div>
     </div>
 </div>
 @stop

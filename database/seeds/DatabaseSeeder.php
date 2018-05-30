@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TableProductsSeeder::class);
         $this->call(TableImagesSeeder::class);
         $this->call(TableBill_detailSeeder::class);
-        $this->call(TableImagesSeeder::class);
     }
 }
 
@@ -122,11 +121,11 @@ class DatabaseSeeder extends Seeder
 		    public function run()
 		    {
 		      DB::table('products')->insert([
-		        ['id' =>1, 'name' => 'Iphone 6', 'alias' => 'iphone-6', 'image' => 'default.png', 'description_detail' => 'description detail product', 'description_brief' => 'description brief product', 'hot' => '0', 'new' => '0', 'deals' =>'0', 'quantity' => '10', 'unit_price' => '14000000', 'promotion_price' =>'13500000', 'unit' => 'cay', 'brand_id'=> '1', 'category_id' =>'3' ],
-			  ['id' =>2, 'name' => 'Iphone 6S', 'alias' => 'iphone-6s', 'image' => 'default.png', 'description_detail' => 'description detail product', 'description_brief' => 'description brief product', 'hot' => '0', 'new' => '0', 'deals' =>'0', 'quantity' => '10', 'unit_price' => '14000000', 'promotion_price' =>'13500000', 'unit' => 'cay', 'brand_id'=> '1', 'category_id' =>'3' ],
-			  ['id' =>3, 'name' => 'Iphone 5', 'alias' => 'iphone-5', 'image' => 'default.png', 'description_detail' => 'description detail product', 'description_brief' => 'description brief product', 'hot' => '0', 'new' => '0', 'deals' =>'0', 'quantity' => '10', 'unit_price' => '14000000', 'promotion_price' =>'13500000', 'unit' => 'cay', 'brand_id'=> '1', 'category_id' =>'3' ],
-			  ['id' =>4, 'name' => 'Iphone 5S', 'alias' => 'iphone-5s', 'image' => 'default.png', 'description_detail' => 'description detail product', 'description_brief' => 'description brief product', 'hot' => '0', 'new' => '0', 'deals' =>'0', 'quantity' => '10', 'unit_price' => '14000000', 'promotion_price' =>'13500000', 'unit' => 'cay', 'brand_id'=> '1', 'category_id' =>'3' ],
-			  ['id' =>5, 'name' => 'Iphone 7', 'alias' => 'iphone-7', 'image' => 'default.png', 'description_detail' => 'description detail product', 'description_brief' => 'description brief product', 'hot' => '0', 'new' => '0', 'deals' =>'0', 'quantity' => '10', 'unit_price' => '14000000', 'promotion_price' =>'13500000', 'unit' => 'cay', 'brand_id'=> '1', 'category_id' =>'3' ]
+		       ['id' =>1, 'name' => 'Iphone 6', 'alias' => 'iphone-6', 'image' => 'default.png', 'description_detail' => 'description detail product', 'description_brief' => 'description brief product', 'hot' => '0', 'deals' => '0', 'quantity' => '10', 'unit_price' => '14000000', 'promotion_price' =>'13500000', 'unit' => 'cay', 'brand_id'=> '1', 'category_id' =>'3' ],
+			  ['id' =>2, 'name' => 'Iphone 6S', 'alias' => 'iphone-6s', 'image' => 'default.png', 'description_detail' => 'description detail product', 'description_brief' => 'description brief product', 'hot' => '0', 'deals' => '0', 'quantity' => '10', 'unit_price' => '14000000', 'promotion_price' =>'13500000', 'unit' => 'cay', 'brand_id'=> '1', 'category_id' =>'3' ],
+			  ['id' =>3, 'name' => 'Iphone 5', 'alias' => 'iphone-5', 'image' => 'default.png', 'description_detail' => 'description detail product', 'description_brief' => 'description brief product', 'hot' => '0', 'deals' => '0', 'quantity' => '10', 'unit_price' => '14000000', 'promotion_price' =>'13500000', 'unit' => 'cay', 'brand_id'=> '1', 'category_id' =>'3' ],
+			  ['id' =>4, 'name' => 'Iphone 5S', 'alias' => 'iphone-5s', 'image' => 'default.png', 'description_detail' => 'description detail product', 'description_brief' => 'description brief product', 'hot' => '0', 'deals' => '0', 'quantity' => '10', 'unit_price' => '14000000', 'promotion_price' =>'13500000', 'unit' => 'cay', 'brand_id'=> '1', 'category_id' =>'3' ],
+			  ['id' =>5, 'name' => 'Iphone 7', 'alias' => 'iphone-7', 'image' => 'default.png', 'description_detail' => 'description detail product', 'description_brief' => 'description brief product', 'hot' => '0', 'deals' => '0', 'quantity' => '10', 'unit_price' => '14000000', 'promotion_price' =>'13500000', 'unit' => 'cay', 'brand_id'=> '1', 'category_id' =>'3' ]
 
 
 		      ]);
@@ -177,18 +176,5 @@ class DatabaseSeeder extends Seeder
 		        ['id' =>4, 'quantity' => '13500000', 'unit_price' => '13500000', 'bill_id' => '1', 'product_id' => '1' ]
 
 		      ]);
-		    }
-		}
-
-		class TableImageslSeeder extends Seeder
-		{
-			public function run()
-		    {
-		    	DB::table('images')->insert([
-			        [ 'name' => 'default.png', 'product_id' => '1' ],
-			        [ 'name' => 'default.png', 'product_id' => '1' ],
-			        [ 'name' => 'default.png', 'product_id' => '1' ],
-			        [ 'name' => 'default.png', 'product_id' => '1' ]
-		    	]);
 		    }
 		}

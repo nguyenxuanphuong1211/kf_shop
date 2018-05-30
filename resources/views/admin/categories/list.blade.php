@@ -18,16 +18,14 @@
                         <tr>
                             <th>#</th>
                             <th>Name</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>Tool</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                             <th>#</th>
                             <th>Name</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>Tool</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -35,19 +33,20 @@
                         <tr>
                             <td>{{ $index+1 }}</td>
                             <td><a href="{{ url('admin-shop/category/list')}}/{{ $category->id }}">{{ $category ->name }}</a>  ({{ count($category->products) }} products)</td>
-                            <td><a href="{{ url('admin-shop/category/edit')}}/{{ $category->id }}"><i class="fa fa-edit"></i> edit</a></td>
-                            @if(count($category->products)==0)
-                            <td><a style="color: red;" href="{{url('admin-shop/category/delete')}}/{{ $category->id }}" onclick="return confirm('Are you sure ?');"><i class="fa fa-trash-o"></i> Delete</a></td>
-                            @else
-                            <td><i class="fa fa-ban  "></i> Cannot delete</td>
-                            @endif
+                            <td>
+                                <a href="{{ url('admin-shop/category/edit')}}/{{ $category->id }}"><i class="fa fa-edit"></i> Edit</a><br>
+                                @if(count($category->products)==0)
+                                <a style="color: red;" href="{{url('admin-shop/category/delete')}}/{{ $category->id }}" onclick="return confirm('Are you sure ?');"><i class="fa fa-trash-o"></i> Delete</a>
+                                @else
+                                <i class="fa fa-ban  "></i> Cannot delete
+                                @endif
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
-        <div class="card-footer small text-muted">Updated at {{ $category->orderBy('updated_at', 'desc')->first()->updated_at->format('H:i:s d-M-Y') }}</div>
     </div>
 </div>
 @stop

@@ -75,7 +75,6 @@
         <!-- Custom scripts for this page-->
         <script src="{{asset('admin/js/sb-admin-datatables.min.js')}}"></script>
         <script src="{{asset('admin/js/sb-admin-charts.min.js')}}"></script>
-
     </div>
 </body>
 
