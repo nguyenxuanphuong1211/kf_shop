@@ -74,27 +74,25 @@
                             </div>
                             <div class="add-to-box1">
                                 <div class="add-to-box add-to-box2">
-                                    <div class="add-to-cart">
-                                        <div class="input-content">
-                                            <label>Quantity:</label>
-                                            <div class="quantity">
-                                                <div class="cart-plus-minus">
-                                                  <input type="text" value="0" name="qtybutton" class="cart-plus-minus-box">
-                                                 </div>
+                                    <form action="add_product_view" method="GET">
+                                        <div class="add-to-cart">
+                                            <div class="input-content">
+                                                <label>Quantity:</label>
+                                                <div class="quantity">
+                                                    <div class="cart-plus-minus">
+                                                      <input type="text" value="1" name="qtybutton" class="cart-plus-minus-box">
+                                                     </div>
+                                                </div>
                                             </div>
+                                            <div class="product-icon">
+                                               
+                                                <br><br><br>
+                                                <input type="submit" value="add to cart">
+                                            </div>
+
                                         </div>
-                                        <div class="product-icon">
-                                            <a href="#">
-                                                <i class="fa fa-shopping-cart"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-heart"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa fa-retweet"></i>
-                                            </a>
-                                        </div>
-                                    </div>
+                                         
+                                    </form>
                                 </div>
                             </div>
                             <div class="s-cart-img">

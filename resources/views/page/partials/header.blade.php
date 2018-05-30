@@ -277,7 +277,7 @@
                                         <button type="submit"><i class="pe-7s-search"></i></button>
                                     </form>
                                 </li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i><span class="color1">{{ Cart::count() }}</span></a>
+                                <li><a href="{{ url('cart/view-detail-cart') }}"><i  class="fa fa-shopping-cart"></i><span id="qtyspcart" class="color1">{{ Cart::count() }}</span></a>
                                     <ul class="drop-cart">
                                         @foreach(\Cart::content() as $content)
                                         <li>
@@ -288,9 +288,9 @@
                                                 <span>Color : Blue</span>
                                                 <span>Size   : SL</span>
                                             </div>
-                                            <div class="pro-close">
-                                                <i class="pe-7s-close"></i>
-                                            </div>
+                                            <!-- <div class="pro-close">
+                                                <a href="{{ url('cart/delete-product-cart/'.$content->rowId) }}"><i class="pe-7s-close"></i></a>
+                                            </div> -->
                                         </li>
                                         @endforeach
                                         <li class="total-amount clearfix">
@@ -298,12 +298,12 @@
                                             <span class="floatright"><strong>= {{ \Cart::total() }}</strong></span>
                                         </li>
                                         <li>
-                                            <div class="goto text-center">
+                                            <!-- <div class="goto text-center">
                                                 <a href="{{ url('cart/view-detail-cart') }}"><strong>go to cart &nbsp;<i class="pe-7s-angle-right"></i></strong></a>
-                                            </div>
+                                            </div> -->
                                         </li>
                                         <li class="checkout-btn text-center">
-                                            <a href="#">Check out</a>
+                                            <a href="{{ url('cart/view-detail-cart') }}">Update/Check out</a>
                                         </li>
                                     </ul>
                                 </li>

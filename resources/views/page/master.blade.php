@@ -57,9 +57,9 @@
         @include('page.partials.footer')
 
 		<!-- all js here -->
-
+        
 		<!-- jquery latest version -->
-        <script src="{{asset('page/js/vendor/jquery-1.12.0.min.js')}}"></script>
+        <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 		<!-- bootstrap js -->
         <script src="{{asset('page/js/bootstrap.min.js')}}"></script>
         <!-- parallax js -->
@@ -89,7 +89,7 @@
         <script>
             $(document).ready(function(){
                 $(".add_to_card").click(function(){
-
+                    // alert(23456);
                     //$qty = $(this).find(".qty1").val();
                     $rowid = $(this).attr('id');
                     $name = 'add_product';
@@ -106,7 +106,29 @@
                 });
             });
         </script>
+        <script>
+            $(document).ready(function(){
+                $(".qty").change(function(){
 
+                    $qty = $(this).find(".qty1").val();
+                    $rowid = $(this).attr('id');
+                    $.ajax({
+                        type: "GET",
+                        url: 'update_qty_cart/'+$rowid+'/'+$qty,
+                        data: {"id":$rowid, "qty":$qty},
+                        success:function(data){
+
+                           $('#price_pro'+$rowid).text(data[0]);
+                           $('#total').text(data[2]);
+                           $('#total1').text(data[2]);
+                           $('#total_cart').text(data[2]);
+                           $('#qtyspcart').text(data[1]);
+                        }
+                    });
+                });
+                
+            });
+        </script>
         
     </body>
 </html>
