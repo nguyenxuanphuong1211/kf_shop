@@ -55,7 +55,7 @@
                 </table>
             </div>
         </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        <div class="card-footer small text-muted">Updated at {{ $slide->orderBy('updated_at', 'desc')->first()->updated_at->format('H:i:s d-M-Y') }}</div>
     </div>
 </div>
 @stop

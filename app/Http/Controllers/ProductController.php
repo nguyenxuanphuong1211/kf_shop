@@ -30,9 +30,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = Category::all()->pluck('name', 'id');
-        $brands = Brand::all()->pluck('name', 'id');
-        return view('admin.products.add', compact('categories', 'brands'));
+        $categories_pr = Category::all()->pluck('name', 'id');
+        $brands_pr = Brand::all()->pluck('name', 'id');
+        return view('admin.products.add', compact('categories_pr', 'brands_pr'));
     }
 
     /**
@@ -92,9 +92,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $categories = Category::all()->pluck('name', 'id');
-        $brands = Brand::all()->pluck('name', 'id');
-        return view('admin.products.edit', compact('product', 'categories', 'brands'));
+        $categories_pr = Category::all()->pluck('name', 'id');
+        $brands_pr = Brand::all()->pluck('name', 'id');
+        return view('admin.products.edit', compact('product', 'categories_pr', 'brands_pr'));
     }
 
     /**

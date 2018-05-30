@@ -101,8 +101,11 @@ class SlideController extends Controller
         $data = Input::except('image');
         if ($request->hasFile('image'))
 		{
-            $oldfile=public_path('page/img/slider/').$slide->image;
-            unlink($oldfile);
+            if (file_exists(public_path('page/img/slider/').$slide->image))
+                {
+                    $oldfile=public_path('page/img/slider/').$slide->image;
+                    unlink($oldfile);
+                }
             $file=$request->file('image');
             $filename=$file->getClientOriginalName('image');
 	    	$request->file=$filename;

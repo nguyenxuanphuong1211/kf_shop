@@ -6,116 +6,99 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" target="_blank" href="{{ url('/') }}">
+                    <i class="fa fa-home"></i>
+                    <span class="nav-link-text">Domain</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                <a class="nav-link" href="{{ url('admin-shop') }}">
                     <i class="fa fa-fw fa-dashboard"></i>
                     <span class="nav-link-text">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                <a class="nav-link" href="{{ url('admin-shop/category/list') }}">
-                    <i class="fa fa-fw fa-area-chart"></i>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Categories">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseCategories" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-sitemap"></i>
                     <span class="nav-link-text">Categories</span>
                 </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                <a class="nav-link" href="{{ url('admin-shop/brand/list') }}">
-                    <i class="fa fa-fw fa-area-chart"></i>
-                    <span class="nav-link-text">Brands</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                <a class="nav-link" href="{{ route('list-blog') }}">
-                    <i class="fa fa-fw fa-area-chart"></i>
-                    <span class="nav-link-text">Blogs</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                <a class="nav-link" href="{{ route('list-slide') }}">
-                    <i class="fa fa-fw fa-area-chart"></i>
-                    <span class="nav-link-text">Slides</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                <a class="nav-link" href="{{ route('list-product') }}">
-                    <i class="fa fa-fw fa-area-chart"></i>
-                    <span class="nav-link-text">Products</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="tables.html">
-                    <i class="fa fa-fw fa-table"></i>
-                    <span class="nav-link-text">Tables</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-                    <i class="fa fa-fw fa-wrench"></i>
-                    <span class="nav-link-text">Components</span>
-                </a>
-                <ul class="sidenav-second-level collapse" id="collapseComponents">
+                <ul class="sidenav-second-level collapse" id="collapseCategories">
                     <li>
-                        <a href="navbar.html">Navbar</a>
+                        <a href="{{ url('admin-shop/category/list') }}">Manager</a>
                     </li>
                     <li>
-                        <a href="cards.html">Cards</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
-                    <i class="fa fa-fw fa-file"></i>
-                    <span class="nav-link-text">Example Pages</span>
-                </a>
-                <ul class="sidenav-second-level collapse" id="collapseExamplePages">
-                    <li>
-                        <a href="login.html">Login Page</a>
+                        <a href="{{ url('admin-shop/category/add') }}">Add</a>
                     </li>
                     <li>
-                        <a href="register.html">Registration Page</a>
-                    </li>
-                    <li>
-                        <a href="forgot-password.html">Forgot Password Page</a>
-                    </li>
-                    <li>
-                        <a href="blank.html">Blank Page</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
-                    <i class="fa fa-fw fa-sitemap"></i>
-                    <span class="nav-link-text">Menu Levels</span>
-                </a>
-                <ul class="sidenav-second-level collapse" id="collapseMulti">
-                    <li>
-                        <a href="#">Second Level Item</a>
-                    </li>
-                    <li>
-                        <a href="#">Second Level Item</a>
-                    </li>
-                    <li>
-                        <a href="#">Second Level Item</a>
-                    </li>
-                    <li>
-                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>
-                        <ul class="sidenav-third-level collapse" id="collapseMulti2">
+                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseListCate">List</a>
+                        <ul class="sidenav-third-level collapse" id="collapseListCate">
+                            @foreach($categories as $category)
                             <li>
-                                <a href="#">Third Level Item</a>
+                                <a href="{{url('admin-shop/category/list')}}/{{ $category->id }}">{{ $category->name }}</a>
                             </li>
-                            <li>
-                                <a href="#">Third Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level Item</a>
-                            </li>
+                            @endforeach
                         </ul>
                     </li>
                 </ul>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Brands">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseBrands" data-parent="#exampleAccordion">
+                    <i class="fa fa-apple"></i>
+                    <span class="nav-link-text">Brands</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseBrands">
+                    <li>
+                        <a href="{{ url('admin-shop/brand/list') }}">Manager</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('admin-shop/brand/add') }}">Add</a>
+                    </li>
+                    <li>
+                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseListBrand">List</a>
+                        <ul class="sidenav-third-level collapse" id="collapseListBrand">
+                            @foreach($brands as $brand)
+                            <li>
+                                <a href="{{url('admin-shop/brand/list')}}/{{ $brand->id }}">{{ $brand->name }}</a>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Products">
+                <a class="nav-link" href="{{ route('list-product') }}">
+                    <i class="fa fa-product-hunt"></i>
+                    <span class="nav-link-text">Products</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Blogs">
+                <a class="nav-link" href="{{ route('list-blog') }}">
+                    <i class="fa fa-pencil-square-o"></i>
+                    <span class="nav-link-text">Blogs</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Slides">
+                <a class="nav-link" href="{{ route('list-slide') }}">
+                    <i class="fa fa-sliders"></i>
+                    <span class="nav-link-text">Slides</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Contact">
                 <a class="nav-link" href="#">
-                    <i class="fa fa-fw fa-link"></i>
-                    <span class="nav-link-text">Link</span>
+                    <i class="fa fa-address-book"></i>
+                    <span class="nav-link-text">Contact</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Banner">
+                <a class="nav-link" href="#">
+                    <i class="fa fa-image"></i>
+                    <span class="nav-link-text">Banner</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="administrator">
+                <a class="nav-link" href="#">
+                    <i class="fa fa-user"></i>
+                    <span class="nav-link-text">Administrator</span>
                 </a>
             </li>
         </ul>

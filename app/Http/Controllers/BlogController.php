@@ -100,8 +100,11 @@ class BlogController extends Controller
         $data['alias'] = str_slug($data['title']);
         if ($request->hasFile('thumbnail'))
 		{
-            $oldfile=public_path('page/img/blog/').$blog->thumbnail;
-            unlink($oldfile);
+            if(file_exists(public_path('page/img/blog/').$blog->thumbnail))
+            {
+                $oldfile=public_path('page/img/blog/').$blog->thumbnail;
+                unlink($oldfile);
+            }
             $file=$request->file('thumbnail');
             $filename=$file->getClientOriginalName('thumbnail');
 	    	$request->file=$filename;
