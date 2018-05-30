@@ -42,6 +42,7 @@ class BlogController extends Controller
         [
             'title' => 'required|unique:blogs',
             'content' => 'required',
+            'description'=>'required',
             'thumbnail' => 'required|max:2000',
         ]);
         $data = Input::except('thumbnail');
@@ -94,6 +95,7 @@ class BlogController extends Controller
         [
             'title' => 'required',
             'content' => 'required',
+            'description'=> 'required',
             'thumbnail' => 'max:2000',
         ]);
         $data = Input::except('thumbnail');

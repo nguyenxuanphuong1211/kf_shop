@@ -43,11 +43,11 @@ class CategoryController extends Controller
             [
                 'name' => 'required|unique:categories'
             ]);
-            $data = Input::all();
-            $data['alias'] = str_slug($data['name']) ;
-            $category = Category::create($data);
-            Toastr::success('Add successful Category', $title = null, $options = []);
-            return redirect('admin-shop/category/list');
+        $data = Input::all();
+        $data['alias'] = str_slug($data['name']) ;
+        $category = Category::create($data);
+        Toastr::success('Add successful Category', $title = null, $options = []);
+        return redirect('admin-shop/category/list');
 
     }
 

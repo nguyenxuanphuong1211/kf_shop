@@ -1,48 +1,72 @@
+<style media="screen">
+    label{
+        font-weight: bold;
+    }
+</style>
 {!!csrf_field()!!}
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+            {!! Form::label('title', 'Title') !!}
+            <div class="form-controls {{ $errors->has('title') ? 'has-error' : '' }}">
+                {!! Form::text('title', null, ['class'=>'form-control']) !!}
+                @if ( $errors->has('title') )
+                    <span style="color: red !important;" class="text-warning">
+                        <strong> {{ $errors->first('title') }} </strong>
+                    </span>
+                @endif
+            </div>
+        </div>
 
-<div class="form-group">
-    {!! Form::label('title', 'Title') !!}
-    <div class="form-controls {{ $errors->has('title') ? 'has-error' : '' }}">
-        {!! Form::text('title', null, ['class'=>'form-control']) !!}
-        @if ( $errors->has('title') )
-            <span style="color: red !important;" class="text-warning">
-                <strong> {{ $errors->first('title') }} </strong>
-            </span>
+        @if(isset($blog))
+        <div class="form-group">
+            <label>Image</label>
+            <input type="file" id="image1" name="thumbnail" value="{{$blog->thumbnail}}"><br>
+            <img src="{{asset('page/img/blog/'.$blog->thumbnail)}}" id="image" style="width: 300px; height: 300px;">
+        </div>
+        @else
+        <div class="form-group">
+            <label>Image</label>
+            <input type="file" id="image1" name="thumbnail"><br>
+            <img id="image" style="width: 300px; height: 300px;">
+        </div>
         @endif
+        @if ($errors->has('thumbnail'))
+              <span class="help-block" style="color:red;">
+                  <strong>{{ $errors->first('thumbnail') }}</strong>
+              </span>
+         @endif
+
+
+    </div>
+    <div class="col-lg-6">
+        <div class="form-group">
+            {!! Form::label('description', 'Description') !!}
+            <div class="form-controls {{ $errors->has('description') ? 'has-error' : '' }}">
+                {!! Form::textarea('description', null, ['class'=>'form-control', 'rows'=>'4']) !!}
+                @if ( $errors->has('description') )
+                    <span style="color: red !important;" class="text-warning">
+                        <strong> {{ $errors->first('description') }} </strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+         <div class="form-group">
+             {!! Form::label('content', 'Content') !!}
+             <div class="form-controls {{ $errors->has('content') ? 'has-error' : '' }}">
+                 {!! Form::textarea('content', null, ['class'=>'form-control', 'id'=>'content']) !!}
+                 <script>CKEDITOR.replace('content');</script>
+                 @if ( $errors->has('content') )
+                     <span style="color: red !important;" class="text-warning">
+                         <strong> {{ $errors->first('content') }} </strong>
+                     </span>
+                 @endif
+             </div>
+         </div>
+
     </div>
 </div>
-@if(isset($blog))
-<div class="form-group">
-    <label>Image</label>
-    <input type="file" id="image1" name="thumbnail" value="{{$blog->thumbnail}}"><br>
-    <img src="{{asset('page/img/blog/'.$blog->thumbnail)}}" id="image" style="width: 300px; height: 300px;">
-</div>
-@else
-<div class="form-group">
-    <label>Image</label>
-    <input type="file" id="image1" name="thumbnail"><br>
-    <img id="image" style="width: 300px; height: 300px;">
-</div>
-@endif
-@if ($errors->has('thumbnail'))
-      <span class="help-block" style="color:red;">
-          <strong>{{ $errors->first('thumbnail') }}</strong>
-      </span>
- @endif
 
-
-<div class="form-group">
-    {!! Form::label('content', 'Content') !!}
-    <div class="form-controls {{ $errors->has('content') ? 'has-error' : '' }}">
-        {!! Form::textarea('content', null, ['class'=>'form-control', 'id'=>'content']) !!}
-        <script>CKEDITOR.replace('content');</script>
-        @if ( $errors->has('content') )
-            <span style="color: red !important;" class="text-warning">
-                <strong> {{ $errors->first('content') }} </strong>
-            </span>
-        @endif
-    </div>
-</div>
 {!! Form::submit('Submit',['class'=>'btn btn-success']) !!}
 {!! Form::reset('Reset',['class'=>'btn btn-default']) !!}
 <br><br>

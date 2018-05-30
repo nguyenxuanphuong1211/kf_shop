@@ -43,6 +43,22 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,
+        [
+            'name' => 'required|unique:products',
+            'category_id' => 'required',
+            'brand_id' => 'required',
+            'hot' => 'required',
+            'deals' => 'required',
+            'quantity' => 'required',
+            'unit' => 'required',
+            'unit_price' => 'required',
+            'promotion_price' => 'required',
+            'description_brief' => 'required',
+            'description_detail' => 'required',
+            'image' => 'required|max:2000',
+            'image-rel' => 'required|max:2000',
+        ]);
         $data = Input::except('image');
         $data['alias'] = str_slug($data['name']);
         $file=$request->file('image');
@@ -106,6 +122,21 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+        $this->validate($request,
+        [
+            'name' => 'required',
+            'category_id' => 'required',
+            'brand_id' => 'required',
+            'hot' => 'required',
+            'deals' => 'required',
+            'quantity' => 'required',
+            'unit' => 'required',
+            'unit_price' => 'required',
+            'promotion_price' => 'required',
+            'description_brief' => 'required',
+            'description_detail' => 'required',
+            'image' => 'max:2000',
+        ]);
         $data = Input::except('image');
         if ($request->hasFile('image'))
 	       {
