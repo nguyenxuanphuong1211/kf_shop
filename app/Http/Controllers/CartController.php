@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use Cart;
+use App\Bill;
+use App\Customer;
+use App\Bill_detail;
+use App\Mail\OrderShipped;
+use Toastr;
+use Mail;
 
 class CartController extends Controller
 {
@@ -23,6 +29,10 @@ class CartController extends Controller
         $product = Product::find($id);
         Cart::add(['id' => $id, 'name' => $product->name, 'qty' => 1, 'price' => $product->promotion_price, 'options' => ['image' => $product->image, 'quantity' => $product->quantity]]);
         return redirect()->route('home');
+    }
+
+    public function addProductView(Request $rq){
+        
     }
 
     public function remove($rowId)
@@ -95,7 +105,7 @@ class CartController extends Controller
             $cart = Cart::get($rowId);
             $price = $cart->price * $cart->qty;
         }
-       return Response([number_format($price),Cart::count(),number_format(Cart::total())]);
+       return Response([$price,Cart::count(),Cart::total()]);
     }
 
     /**
@@ -107,5 +117,58 @@ class CartController extends Controller
     public function destroy($id)
     {
         
+    }
+
+    public function checkout(Request $rq)
+    {
+        if(Cart::total() > 0)
+        {
+            $char ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            $order_code = substr(str_shuffle($char),0,6);
+            $order_address = $rq->input('order_address');
+            $note = $rq->input('note');
+            $date_order = $rq->input('date_order');
+            $bill = new Bill();
+            $bill->date_order = $date_order;
+            $bill->total = Cart::total(2,'.','');
+            $bill->order_address = $order_address;
+            $bill->note = $note;
+            $bill->status = '0';
+            $bill->order_code = $order_code;
+            $bill->save();
+
+            $first_name = $rq->input('first_name');
+            $last_name = $rq->input('last_name');
+            $email = $rq->input('email');
+            $phone_number = $rq->input('phone_number');
+            $custormer = new Customer();
+            $custormer->first_name = $first_name;
+            $custormer->last_name = $last_name;
+            $custormer->email = $email;
+            $custormer->phone_number = $phone_number;
+            $custormer->bill_id = $bill->id;
+            $custormer->save();
+            Toastr::success('Checkout successful', $title = null, $options = []);
+
+            foreach(Cart::content() as $content)
+            {
+                $billdetail = new Bill_detail();
+                $billdetail->quantity = $content->qty;
+                $billdetail->bill_id = $bill->id;
+                $billdetail->product_id = $content->id;
+                $billdetail->unit_price = $content->price;
+                $billdetail->save();
+                //auto down quantity when checkout
+                $product = Product::find($content->id);
+                $product->quantity = $product->quantity - $content->qty;
+                $product->update();
+            }
+            
+            
+            $billtomail = Bill::find($bill->id);
+            Mail::to($rq->input('email'))->send(new OrderShipped($billtomail,$custormer));
+
+            return view('page.success_checkout');
+        }
     }
 }
