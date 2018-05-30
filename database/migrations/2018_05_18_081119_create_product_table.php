@@ -25,7 +25,6 @@ class CreateProductTable extends Migration
             $table->integer('quantity');
             $table->float('unit_price',30);
             $table->float('promotion_price',30);
-            $table->string('unit');
 
             $table->integer('brand_id')->unsigned()->nullable();
             $table->foreign('brand_id')->references('id')->on('Brands');

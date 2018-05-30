@@ -19,65 +19,6 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-lg-5">
-                <div class="form-group">
-                    {!! Form::label('category_id', 'Category') !!}
-                    <div class="form-controls {{ $errors->has('category_id') ? 'has-error' : '' }}">
-                        {!! Form::select('category_id', $categories_pr, null,['placeholder'=>'Select', 'style'=>'width: 150px;'])!!}<br>
-                        @if ( $errors->has('category_id') )
-                            <span style="color: red!important;" class="text-warning">
-                                <strong> {{ $errors->first('category_id') }} </strong>
-                            </span>
-                        @endif
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5">
-                <div class="form-group">
-                    {!! Form::label('brand_id', 'Brand') !!}
-                    <div class="form-controls {{ $errors->has('brand_id') ? 'has-error' : '' }}">
-                        {!! Form::select('brand_id', $brands_pr,null,['placeholder'=>'Select', 'style'=>'width: 150px;'])!!}<br>
-                        @if ( $errors->has('brand_id') )
-                            <span style="color: red!important;" class="text-warning">
-                                <strong> {{ $errors->first('brand_id') }} </strong>
-                            </span>
-                        @endif
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-5">
-                <div class="form-group">
-                    {!! Form::label('hot', 'Featured') !!}
-                    <div class="form-controls {{ $errors->has('hot') ? 'has-error' : '' }}">
-                        {!! Form::select('hot' , ['1' => 'Yes', '0' => 'No'], null, ['placeholder'=>'Select'])!!}
-                        @if ( $errors->has('hot') )
-                            <span style="color: red!important;" class="text-warning">
-                                <strong> {{ $errors->first('hot') }} </strong>
-                            </span>
-                        @endif
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5">
-                <div class="form-group">
-                    {!! Form::label('deals', 'Sale') !!}
-                    <div class="form-controls {{ $errors->has('deals') ? 'has-error' : '' }}">
-                        {!! Form::select('deals' , ['1' => 'Yes', '0' => 'No'], null, ['placeholder'=>'Select'])!!}
-                        @if ( $errors->has('deals') )
-                            <span style="color: red!important;" class="text-warning">
-                                <strong> {{ $errors->first('deals') }} </strong>
-                            </span>
-                        @endif
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
         <div class="form-group">
             {!! Form::label('description_brief', 'Brief description') !!}
             <div class="form-controls {{ $errors->has('description_brief') ? 'has-error' : '' }}">
@@ -107,6 +48,65 @@
 
     <div class="col-lg-6">
 
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="form-group">
+                            {!! Form::label('category_id', 'Category') !!}
+                            <div class="form-controls {{ $errors->has('category_id') ? 'has-error' : '' }}">
+                                {!! Form::select('category_id', $categories_pr, null,['placeholder'=>'Select', 'style'=>'width: 150px;'])!!}<br>
+                                @if ( $errors->has('category_id') )
+                                    <span style="color: red!important;" class="text-warning">
+                                        <strong> {{ $errors->first('category_id') }} </strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="form-group">
+                            {!! Form::label('brand_id', 'Brand') !!}
+                            <div class="form-controls {{ $errors->has('brand_id') ? 'has-error' : '' }}">
+                                {!! Form::select('brand_id', $brands_pr,null,['placeholder'=>'Select', 'style'=>'width: 150px;'])!!}<br>
+                                @if ( $errors->has('brand_id') )
+                                    <span style="color: red!important;" class="text-warning">
+                                        <strong> {{ $errors->first('brand_id') }} </strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="form-group">
+                            {!! Form::label('hot', 'Featured') !!}
+                            <div class="form-controls {{ $errors->has('hot') ? 'has-error' : '' }}">
+                                {!! Form::select('hot' , ['1' => 'Yes', '0' => 'No'], null, ['placeholder'=>'Select'])!!}
+                                @if ( $errors->has('hot') )
+                                    <span style="color: red!important;" class="text-warning">
+                                        <strong> {{ $errors->first('hot') }} </strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="form-group">
+                            {!! Form::label('deals', 'Sale') !!}
+                            <div class="form-controls {{ $errors->has('deals') ? 'has-error' : '' }}">
+                                {!! Form::select('deals' , ['1' => 'Yes', '0' => 'No'], null, ['placeholder'=>'Select'])!!}
+                                @if ( $errors->has('deals') )
+                                    <span style="color: red!important;" class="text-warning">
+                                        <strong> {{ $errors->first('deals') }} </strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
         <div class="form-group">
             {!! Form::label('quantity', 'Quantity') !!}
             <div class="form-controls {{ $errors->has('quantity') ? 'has-error' : '' }}">
@@ -114,17 +114,6 @@
                 @if ( $errors->has('quantity') )
                     <span style="color: red!important;" class="text-warning">
                         <strong> {{ $errors->first('quantity') }} </strong>
-                    </span>
-                @endif
-            </div>
-        </div>
-        <div class="form-group">
-            {!! Form::label('unit', 'Unit') !!}
-            <div class="form-controls {{ $errors->has('unit') ? 'has-error' : '' }}">
-                {!! Form::text('unit', null, ['class'=>'form-control']) !!}
-                @if ( $errors->has('unit') )
-                    <span style="color: red!important;" class="text-warning">
-                        <strong> {{ $errors->first('unit') }} </strong>
                     </span>
                 @endif
             </div>
