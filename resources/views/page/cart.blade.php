@@ -58,7 +58,7 @@
                     <div class="last-check1">
                         <div class="yith-wcwl-share yit">
                             <p class="checkout-coupon an-cop">
-                               <a href=""> <input type="submit" value="Update Cart"></a>
+                               <!-- <a href=""> <input type="submit" value="CONTINUE SHOPPING"></a> -->
                             </p>
                         </div>
                     </div>
@@ -76,47 +76,59 @@
                         <div class="tab-content another-cen">
                             <div role="tabpanel" class="tab-pane active" id="home">
                                 <div class="top-shopping4">
-                                    <p class="shop9">Shipping Local Pickup (Free)</p>
+                                    <p class="shop9">Information Order</p>
                                     <p class="down-shop">Enter your destination to get a shipping estimate</p>
                                 </div>
-                                <form action="#" class="woocommerce-shipping-calculator">
+                                <form  action="{{url('cart/checkout')}}" method="GET">
+                                    <input type="hidden" name="token" value="{{ csrf_token() }}">
                                     <p class="form-row form-row-wide">
                                         <label>
-                                            Country
-                                            <span class="required">*</span>
+                                            <span class="required">* required</span>
                                         </label>
-                                        <select class="email s-email s-wid">
-                                            <option>Bangladesh</option>
-                                            <option>Albania</option>
-                                            <option>Åland Islands</option>
-                                            <option>Afghanistan</option>
-                                            <option>Belgium</option>
-                                        </select>
+                                        <input type="text" placeholder="Enter First Name" name="first_name">
                                     </p>
+                                    <br>
                                     <p class="form-row form-row-wide">
                                         <label>
-                                            District 
-                                            <span class="required">*</span>
+                                            <span class="required">* required</span>
                                         </label>
-                                        <select class="email s-email s-wid">
-                                            <option>mymensingh</option>
-                                            <option>dhaka</option>
-                                            <option>khulna</option>
-                                            <option>kumillah</option>
-                                            <option>chadpur</option>
-                                        </select>
+                                        <input type="text" placeholder="Enter Last Name" name="last_name">
                                     </p>
+                                    <br>
                                     <p class="form-row form-row-wide">
                                         <label>
-                                            Post Code  
-                                            <span class="required">*</span>
+                                            <span class="required">* required</span>
                                         </label>
-                                        <input class="form-control" type="text" name="name" required="" placeholder="1234567">
+                                        <input type="text" placeholder="Enter Email" name="email">
+                                    </p>
+                                    <br>
+                                    <p class="form-row form-row-wide">
+                                        <label>
+                                            <span class="required">* required</span>
+                                        </label>
+                                        <input type="text" placeholder="Enter Phone Number" name="phone_number">
+                                    </p>
+                                    <br>
+                                    <p class="form-row form-row-wide">
+                                        <label>
+                                            <span class="required">* required</span>
+                                        </label>
+                                        <input type="text" placeholder="Enter Order Address" name="order_address">
+                                    </p>
+                                    <br>
+                                    <p class="form-row form-row-wide">
+                                        <label class="control-label">Date Order </label><br>
+                                        <input class="form-control" name="date_order" type="date" id="date" value="<?php echo date('Y-m-d'); ?>">
+                                    </p>
+                                    <br>
+                                    <p class="form-row form-row-wide">
+                                        <label class="control-label">Note </label><br>
+                                        <textarea rows="3" cols="47" placeholder="Enter Note" name="note"></textarea>
                                     </p>
                                     <p class="checkout-coupon two">
-                                        <input type="submit" value="Get Quotes">
+                                        <input type="submit" value="Checkout">
                                     </p>
-                                </form>
+                                </form>        
                             </div>
                             <div role="tabpanel" class="tab-pane" id="profile">
                                 <div class="2nd-copun-code">
@@ -160,9 +172,10 @@
                     </div>
                     <div class="wc-proceed-to-checkout">
                         <p class="return-to-shop">
-                            <a class="button wc-backward" href="#">Continue Shopping</a>
+                            <a class="button wc-backward" href="{{url('/')}}">Continue Shopping</a>
                         </p>
-                        <a class="wc-forward" href="#">Confirm Order</a>
+                        <input type="submit" value="Confirm Order">
+                        <!-- <a class="wc-forward" href="{{ url('checkout') }}"></a> -->
                     </div>
                 </div>
             </div>
@@ -423,30 +436,10 @@
 		</div>
 	</div>
 </div>
+</form>
 <!-- quick view end -->
 <!-- jquery latest version -->
-        <script src="{{asset('page/js/vendor/jquery-1.12.0.min.js')}}"></script>
-<script>
-    $(document).ready(function(){
-        $(".qty").change(function(){
+<!-- <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script> -->
+        <!-- <script src="{{asset('page/js/vendor/jquery-1.12.0.min.js')}}"></script> -->
 
-            $qty = $(this).find(".qty1").val();
-            $rowid = $(this).attr('id');
-            // alert($qty);
-            $.ajax({
-                type: "GET",
-                url: 'update_qty_cart/'+$rowid+'/'+$qty,
-                data: {"id":$rowid, "qty":$qty},
-                success:function(data){
-
-                   $('#price_pro'+$rowid).text(data[0]);
-                   $('#total').text(data[2]);
-                   $('#total1').text(data[2]);
-                   $('#total_cart').text(data[2]);
-                   $('#qtyspcart').text(data[1]);
-                }
-            });
-        });
-    });
-</script>
 @stop

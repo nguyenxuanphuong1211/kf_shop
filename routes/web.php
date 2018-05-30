@@ -71,6 +71,9 @@ Route::group(['prefix'=>'cart'],function(){
     Route::GET('/add-cart-product/{id}','CartController@addCartProduct');
     Route::GET('/delete-product-cart/{rowId}','CartController@remove');
     Route::GET('/update_qty_cart/{rowid}/{qty}','CartController@update');
+    Route::GET('/add_product_view','CartController@addProductView');
+    Route::GET('/checkout','CartController@checkout');
+
 
 
     // Route::GET('add-product_view','CartController@addCart_view');
