@@ -41,6 +41,8 @@
         <link rel="stylesheet" href="{{asset('page/css/responsive.css')}}">
 		<!-- modernizr css -->
         <script src="{{asset('page/js/vendor/modernizr-2.8.3.min.js')}}"></script>
+
+        
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -85,6 +87,7 @@
         <script src="{{asset('page/js/plugins.js')}}"></script>
 		<!-- main js -->
         <script src="{{asset('page/js/main.js')}}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
         
 <!-- ajax add to cart -->
         <script>

@@ -168,7 +168,7 @@ class CartController extends Controller
             $billdetail = $billtomail->bill_detail;
             $billdetail= $billtomail;
             Mail::to($rq->input('email'))->send(new OrderShipped($billtomail,$custormer,$billdetail));
-
+            Cart::destroy();
             return view('page.success_checkout');
         }
     }
