@@ -79,41 +79,42 @@
                                     <p class="shop9">Information Order</p>
                                     <p class="down-shop">Enter your destination to get a shipping estimate</p>
                                 </div>
-                                <form  action="{{url('cart/checkout')}}" method="GET">
+                                <form  action="{{url('cart/checkout')}}" method="GET" id="form-checkout">
                                     <input type="hidden" name="token" value="{{ csrf_token() }}">
                                     <p class="form-row form-row-wide">
                                         <label>
                                             <span class="required">* required</span>
                                         </label>
-                                        <input type="text" placeholder="Enter First Name" name="first_name">
+                                        <input type="text" placeholder="Enter First Name" name="first_name" >
                                     </p>
                                     <br>
                                     <p class="form-row form-row-wide">
                                         <label>
                                             <span class="required">* required</span>
                                         </label>
-                                        <input type="text" placeholder="Enter Last Name" name="last_name">
+                                        <input type="text" placeholder="Enter Last Name" name="last_name" required>
                                     </p>
                                     <br>
                                     <p class="form-row form-row-wide">
                                         <label>
                                             <span class="required">* required</span>
                                         </label>
-                                        <input type="text" placeholder="Enter Email" name="email">
+                                        <input type="text" placeholder="Enter Email" name="email" required>
+                                        
                                     </p>
                                     <br>
                                     <p class="form-row form-row-wide">
                                         <label>
                                             <span class="required">* required</span>
                                         </label>
-                                        <input type="text" placeholder="Enter Phone Number" name="phone_number">
+                                        <input type="text" placeholder="Enter Phone Number" name="phone_number" required>
                                     </p>
                                     <br>
                                     <p class="form-row form-row-wide">
                                         <label>
                                             <span class="required">* required</span>
                                         </label>
-                                        <input type="text" placeholder="Enter Order Address" name="order_address">
+                                        <input type="text" placeholder="Enter Order Address" name="order_address" required>
                                     </p>
                                     <br>
                                     <p class="form-row form-row-wide">
@@ -123,7 +124,7 @@
                                     <br>
                                     <p class="form-row form-row-wide">
                                         <label class="control-label">Note </label><br>
-                                        <textarea rows="3" cols="47" placeholder="Enter Note" name="note"></textarea>
+                                        <textarea rows="3" cols="47" placeholder="Enter Note" name="note" required></textarea>
                                     </p>
                                     <p class="checkout-coupon two">
                                         <input type="submit" value="Checkout">
@@ -441,5 +442,33 @@
 <!-- jquery latest version -->
 <!-- <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script> -->
         <!-- <script src="{{asset('page/js/vendor/jquery-1.12.0.min.js')}}"></script> -->
+        <script src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#form-checkout').validate({
+            rules: {
 
+                first_name: {
+                    required:true,
+                    minlength: 6,
+                },
+                last_name: {
+                    required:true,
+                    minlength: 6,
+                },
+                email: {
+                    email: true,
+                    required: true,
+                },
+            },
+            submitHandler: function() {
+            // do other things for a valid form
+            console.log('xxx');
+  }
+        });
+    });
+</script>
 @stop
