@@ -8,9 +8,9 @@ class Bill extends Model
 {
     protected $table = 'Bills';
 
-    public function customers()
+    public function customer()
         {
-        	return $this->hasMany('App\Customer','bill_id','id');
+        	return $this->hasOne('App\Customer','bill_id','id');
         }
 
     public function bill_detail()

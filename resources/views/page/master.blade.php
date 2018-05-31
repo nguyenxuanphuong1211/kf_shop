@@ -15,6 +15,7 @@
 		<!-- all css here -->
 		<!-- bootstrap v3.3.6 css -->
         <link rel="stylesheet" href="{{asset('page/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<!-- animate css -->
         <link rel="stylesheet" href="{{asset('page/css/animate.css')}}">
 		<!-- pe-icon-7-stroke -->
