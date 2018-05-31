@@ -57,6 +57,10 @@ Route::group(['prefix' =>'admin-shop'], function(){
         Route::put('edit/{slide}', 'SlideController@update')->name('edit-slide');
         Route::get('delete/{slide}', 'SlideController@destroy')->name('delete-slide');
     });
+    Route::group(['prefix' =>'order'], function(){
+        Route::get('list', 'OrderController@index')->name('list-order');
+        Route::get('detail/{order}', 'OrderController@detailOrder');
+    });
 
 });
 Auth::routes();
@@ -64,6 +68,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('homeadmin');
 
 Route::get('/view-detail-product/{alias}', 'PageController@viewDetailProduct');
+
+Route::get('blogs', 'PageController@allBlog');
+
+Route::get('blog/{alias}', 'PageController@blogDetail');
 
 Route::group(['prefix'=>'cart'],function(){
     Route::get('/', 'CartController@home');

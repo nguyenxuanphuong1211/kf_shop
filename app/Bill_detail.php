@@ -12,8 +12,8 @@ class Bill_detail extends Model
     {
     	return $this->belongsTo('App\Bill','bill_id', 'id');
     }
-    public function products()
+    public function product()
     {
-    	return $this->hasMany('App\Product', 'product_id','id');
+    	return $this->belongsTo('App\Product', 'product_id','id');
     }
 }

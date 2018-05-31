@@ -34,7 +34,7 @@
                         @foreach($blogs as $index=> $blog)
                         <tr>
                             <td>{{ $index+1 }}</td>
-                            <td>{{ $blog ->title }}</td>
+                            <td><a href="{{ url('blog/'.$blog->alias) }}">{{ $blog ->title }}</a></td>
                             <td><img style="height: 60px; width: 100px;" src="{{asset('page/img/blog/'.$blog ->thumbnail)}}" alt=""></td>
                             <td>
                                 <a href="{{ url('admin-shop/blog/edit/'.$blog->id) }}"><i class="fa fa-edit"></i> Edit</a><br>

@@ -215,7 +215,7 @@
                 </div>
             </div>
             <div class="row">
-                <div id="blog" class="owl-carousel product-slider owl-theme re-blog">\
+                <div id="blog" class="owl-carousel product-slider owl-theme re-blog">
                     @foreach($blogs as $blog)
                     <div class="col-xs-12">
                         <div class="blog-container-inner">
@@ -224,15 +224,13 @@
                             </div>
                             <div class="visual-inner">
                                 <h2 class="blog-title">
-                                    <a href="#">{{ $blog ->title }}</a>
+                                    <a href="{{ url('blog/'.$blog->alias) }}">{{ $blog ->title }}</a>
                                 </h2>
                                 <div class="blog-meta">
 
-                                    <span class="published">
                                         <i class="fa fa-clock-o"></i>
-                                        Oct 31, 2014
-                                    </span>
-                                    <span class="published2">0 comment</span>
+                                        {{ $blog->created_at->format('d-M-Y') }}
+                                    <div style="overflow: hidden; width:350px;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;" class="blog-content"> {{ $blog->description }} </div>
                                 </div>
 
                             </div>

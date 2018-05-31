@@ -65,6 +65,12 @@
                     <span class="nav-link-text">Products</span>
                 </a>
             </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Order">
+                <a class="nav-link" href="{{ route('list-order') }}">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span class="nav-link-text">Order</span>
+                </a>
+            </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Blogs">
                 <a class="nav-link" href="{{ route('list-blog') }}">
                     <i class="fa fa-pencil-square-o"></i>
