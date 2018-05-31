@@ -10,9 +10,9 @@ class Product extends Model
      'description_brief', 'hot', 'deals', 'new', 'quantity', 'unit_price',
       'promotion_price', 'unit', 'brand_id', 'category_id'];
 
-    public function bill_detail()
+    public function bill_details()
     {
-    	return $this->belongsTo('App\bill_detail','product_id', 'id');
+    	return $this->hasMany('App\bill_detail','product_id', 'id');
     }
     public function category()
     {

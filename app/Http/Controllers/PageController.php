@@ -24,4 +24,17 @@ class PageController extends Controller
         $product = Product::where('alias',$alias)->first();
     	return view('page.single_product', compact('product'));
     }
+
+    public function allBlog()
+    {
+        $blogs = Blog::orderBy('id', 'desc')->get();
+        return view('page.blog', compact('blogs'));
+    }
+
+    public function blogDetail($alias)
+    {
+        $blog = Blog::where('alias', $alias)->first();
+        $blogs_last = Blog::orderBy('id', 'desc')->take(10)->get();
+        return view('page.blog-detail', compact('blog', 'blogs_last'));
+    }
 }
