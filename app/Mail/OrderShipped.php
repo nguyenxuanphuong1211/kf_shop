@@ -15,15 +15,18 @@ class OrderShipped extends Mailable
 
     protected $billtomail;
     protected $custormer;
+    public $billdetail;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Bill $billtomail, Customer $custormer)
+    public function __construct(Bill $billtomail, Customer $custormer, Bill $billdetail)
     {
         $this->billtomail = $billtomail;
         $this->custormer = $custormer;
+        $this->billdetail = $billdetail;
+        
     }
 
     /**
@@ -46,6 +49,7 @@ class OrderShipped extends Mailable
                        'total' => $this->billtomail->total,
                        'address' => $this->billtomail->order_address,
                        'order_code' => $this->billtomail->order_code,
+
                    ]);
     }
 }
