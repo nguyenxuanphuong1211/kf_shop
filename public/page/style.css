@@ -181,7 +181,7 @@ input:focus, textarea:focus {outline: 0px;}
 ---------------------------------------*/
 /* header section */
 header {
-	background: rgba(225, 225, 225, 0.1) none repeat scroll 0 0;
+	background: rgba(37, 42, 60, 0.6) none repeat scroll 0 0;
 	position: absolute;
 	top: 0;
 	width: 100%;

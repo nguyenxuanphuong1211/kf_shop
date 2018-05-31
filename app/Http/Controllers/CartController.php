@@ -124,7 +124,7 @@ class CartController extends Controller
         if(Cart::total() > 0)
         {
             $char ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            $order_code = substr(str_shuffle($char),0,6);
+            $order_code = strtoupper(substr(str_shuffle($char),0,6));
             $order_address = $rq->input('order_address');
             $note = $rq->input('note');
             $date_order = $rq->input('date_order');
@@ -164,10 +164,11 @@ class CartController extends Controller
                 $product->update();
             }
             
-            
             $billtomail = Bill::find($bill->id);
-            Mail::to($rq->input('email'))->send(new OrderShipped($billtomail,$custormer));
-
+            $billdetail = $billtomail->bill_detail;
+            $billdetail= $billtomail;
+            Mail::to($rq->input('email'))->send(new OrderShipped($billtomail,$custormer,$billdetail));
+            Cart::destroy();
             return view('page.success_checkout');
         }
     }
