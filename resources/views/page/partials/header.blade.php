@@ -39,10 +39,10 @@
                             <nav>
                                 <ul>
                                     <li><a href="{{ url('/') }}">Home</a></li>
-                                    <li><a href="#">Shop</a>
+                                    <li><a href="{{ url('all-product') }}">Shop</a>
                                         <ul>
                                             @foreach($categories as $category)
-                                            <li><a href="#">{{ $category ->name }}</a></li>
+                                            <li><a href="{{ url('category/'.$category->alias) }}">{{ $category ->name }}</a></li>
                                             @endforeach
                                         </ul>
                                     </li>
@@ -89,181 +89,49 @@
                             <div class="mobile-menu">
                                 <nav id="dropdown">
                                     <ul>
-                                        <li><a href="index.html">Home</a>
+                                        <li><a href="{{ url('/') }}">Home</a></li>
+                                        <li><a href="{{ url('all-product') }}">Shop</a>
                                             <ul>
-                                                <li><a href="index.html">Home Version One</a></li>
-                                                <li><a href="index-2.html">Home Version Two</a></li>
+                                                @foreach($categories as $category)
+                                                <li><a href="#">{{ $category ->name }}</a></li>
+                                                @endforeach
                                             </ul>
                                         </li>
-                                        <li><a href="shop.html">Shop</a>
-                                            <ul>
-                                                <li><a href="#">all products</a>
-                                                    <ul>
-                                                        <li>
-                                                            <span>men’s wear</span>
-                                                            <a href="#">shirts & top</a>
-                                                            <a href="#">shoes</a>
-                                                            <a href="#">dresses</a>
-                                                            <a href="#">shwmwear</a>
-                                                            <a href="#">jeans</a>
-                                                            <a href="#">sweaters</a>
-                                                            <a href="#">jacket</a>
-                                                        </li>
-                                                        <li>
-                                                            <span>women’s wear</span>
-                                                            <a href="#">shirts & tops</a>
-                                                            <a href="#">shoes</a>
-                                                            <a href="#">dresses</a>
-                                                            <a href="#">shwmwear</a>
-                                                            <a href="#">jeans</a>
-                                                            <a href="#">sweaters</a>
-                                                            <a href="#">jacket</a>
-                                                        </li>
-                                                        <li>
-                                                            <span>accessories</span>
-                                                            <a href="#">sunglasses</a>
-                                                            <a href="#">leather</a>
-                                                            <a href="#">belts</a>
-                                                            <a href="#">rings</a>
-                                                            <a href="#">sweaters</a>
-                                                            <a href="#">persess</a>
-                                                            <a href="#">bags</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">New products</a>
-                                                    <ul>
-                                                        <li>
-                                                            <span>men’s wear</span>
-                                                            <a href="#">shirts & top</a>
-                                                            <a href="#">shoes</a>
-                                                            <a href="#">jeans</a>
-                                                            <a href="#">jacket</a>
-                                                        </li>
-                                                        <li>
-                                                            <span>women’s wear</span>
-                                                            <a href="#">shirts & tops</a>
-                                                            <a href="#">shoes</a>
-                                                            <a href="#">dresses</a>
-                                                            <a href="#">shwmwear</a>
-                                                            <a href="#">jeans</a>
-                                                            <a href="#">sweaters</a>
-                                                            <a href="#">jacket</a>
-                                                        </li>
-                                                        <li>
-                                                            <span>accessories</span>
-                                                            <a href="#">sunglasses</a>
-                                                            <a href="#">leather</a>
-                                                            <a href="#">belts</a>
-                                                            <a href="#">sweaters</a>
-                                                            <a href="#">persess</a>
-                                                            <a href="#">bags</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">best sell</a>
-                                                    <ul>
-                                                        <li>
-                                                            <span>men’s wear</span>
-                                                            <a href="#">shirts & top</a>
-                                                            <a href="#">shoes</a>
-                                                            <a href="#">dresses</a>
-                                                            <a href="#">shwmwear</a>
-                                                            <a href="#">jeans</a>
-                                                            <a href="#">sweaters</a>
-                                                            <a href="#">jacket</a>
-                                                        </li>
-                                                        <li>
-                                                            <span>accessories</span>
-                                                            <a href="#">sunglasses</a>
-                                                            <a href="#">leather</a>
-                                                            <a href="#">belts</a>
-                                                            <a href="#">rings</a>
-                                                            <a href="#">sweaters</a>
-                                                            <a href="#">persess</a>
-                                                            <a href="#">bags</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">features products</a>
-                                                    <ul>
-                                                        <li>
-                                                            <span>men’s wear</span>
-                                                            <a href="#">shirts & top</a>
-                                                            <a href="#">shoes</a>
-                                                            <a href="#">sweaters</a>
-                                                            <a href="#">jacket</a>
-                                                        </li>
-                                                        <li>
-                                                            <span>women’s wear</span>
-                                                            <a href="#">shirts & tops</a>
-                                                            <a href="#">shoes</a>
-                                                            <a href="#">dresses</a>
-                                                            <a href="#">jacket</a>
-                                                        </li>
-                                                        <li>
-                                                            <span>accessories</span>
-                                                            <a href="#">sunglasses</a>
-                                                            <a href="#">leather</a>
-                                                            <a href="#">belts</a>
-                                                            <a href="#">rings</a>
-                                                            <a href="#">sweaters</a>
-                                                            <a href="#">persess</a>
-                                                            <a href="#">bags</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">popular products</a>
-                                                    <ul>
-                                                        <li>
-                                                            <span>men’s wear</span>
-                                                            <a href="#">shirts & top</a>
-                                                            <a href="#">shoes</a>
-                                                            <a href="#">dresses</a>
-                                                            <a href="#">jeans</a>
-                                                            <a href="#">sweaters</a>
-                                                            <a href="#">jacket</a>
-                                                        </li>
-                                                        <li>
-                                                            <span>women’s wear</span>
-                                                            <a href="#">shirts & tops</a>
-                                                            <a href="#">shoes</a>
-                                                            <a href="#">dresses</a>
-                                                        </li>
-                                                        <li>
-                                                            <span>accessories</span>
-                                                            <a href="#">sunglasses</a>
-                                                            <a href="#">leather</a>
-                                                            <a href="#">belts</a>
-                                                            <a href="#">rings</a>
-                                                            <a href="#">sweaters</a>
-                                                            <a href="#">persess</a>
-                                                            <a href="#">bags</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="shop.html">Lookbook</a></li>
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="#">Pages</a>
-                                            <ul>
-                                                <li><a href="about-us.html">About</a></li>
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="blog-details.html">Blog Details</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="login.html">Login</a></li>
-                                                <li><a href="my-account.html">My Account</a></li>
-                                                <li><a href="shop.html">shop</a></li>
-                                                <li><a href="shop-list.html">Shop List</a></li>
-                                                <li><a href="shopping-cart.html">Shopping-Cart</a></li>
-                                                <li><a href="single-product.html">Single Product</a></li>
-                                                <li><a href="wishlist.html">Wishlist</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="about-us.html">About</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <!-- <li><a href="shop.html">Shop</a>
+                                            <div class="magamenu ">
+                                                <ul class="again">
+                                                    <li class="single-menu colmd4">
+                                                        <span>men’s wear</span>
+                                                        <a href="#">shirts & top</a>
+                                                        <a href="#">shoes</a>
+                                                        <a href="#">dresses</a>
+                                                        <a href="#">shwmwear</a>
+                                                    </li>
+                                                    <li class="single-menu colmd4">
+                                                        <span>women’s wear</span>
+                                                        <a href="#">shirts & tops</a>
+                                                        <a href="#">shoes</a>
+                                                        <a href="#">dresses</a>
+                                                        <a href="#">shwmwear</a>
+                                                    </li>
+                                                    <li class="single-menu colmd4">
+                                                        <span>accessories</span>
+                                                        <a href="#">sunglasses</a>
+                                                        <a href="#">leather</a>
+                                                        <a href="#">belts</a>
+                                                        <a href="#">rings</a>
+                                                    </li>
+                                                    <li class="single-menu colmd4 colmd5">
+                                                        <a href="#">
+                                                            <img alt="" srassetc="{{asset('page/img/maga-banner.png')}}">
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li> -->
+                                        <li><a href="{{ url('blogs') }}">Blog</a></li>
+                                        <li><a href="#">About us</a></li>
+                                        <li><a href="#">Contact us</a></li>
                                     </ul>
                                 </nav>
                             </div>

@@ -37,4 +37,17 @@ class PageController extends Controller
         $blogs_last = Blog::orderBy('id', 'desc')->take(10)->get();
         return view('page.blog-detail', compact('blog', 'blogs_last'));
     }
+
+    public function allProduct()
+    {
+        $products = Product::orderBy('id', 'desc')->get();
+        return view('page.all-products', compact('products'));
+    }
+
+    public function category_products($alias)
+    {
+        $category = Category::where('alias', $alias)->first();
+        $products = Product::where('category_id', $category->id)->orderBy('id', 'desc')->get();
+        return view('page.products', compact('products'));
+    }
 }
