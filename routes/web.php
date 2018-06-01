@@ -61,6 +61,11 @@ Route::group(['prefix' =>'admin-shop'], function(){
         Route::get('list', 'OrderController@index')->name('list-order');
         Route::get('detail/{order}', 'OrderController@detailOrder');
     });
+    Route::group(['prefix' =>'user'], function(){
+        Route::get('list', 'UserController@index')->name('list_user');
+        Route::get('change_roles/{id}', 'UserController@edit');
+        Route::post('update_user/{id}', 'UserController@update');
+    });
 
 });
 Auth::routes();
