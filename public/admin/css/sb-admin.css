@@ -2,6 +2,9 @@ html {
   position: relative;
   min-height: 100%;
 }
+.box-body {
+    padding: 20px;
+}
 
 body {
   overflow-x: hidden;

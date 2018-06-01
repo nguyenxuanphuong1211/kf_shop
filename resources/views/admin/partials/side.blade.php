@@ -84,9 +84,9 @@
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Contact">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ url('admin-shop/user/list') }}">
                     <i class="fa fa-address-book"></i>
-                    <span class="nav-link-text">Contact</span>
+                    <span class="nav-link-text">Users</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Banner">
