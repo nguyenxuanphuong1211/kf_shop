@@ -32,7 +32,11 @@ class CartController extends Controller
     }
 
     public function addProductView(Request $rq){
-        
+        $id = $rq->id;
+        $qty = $rq->qty;
+        $product_buy = Product::find($id);
+        Cart::add(['id' => $product_buy->id, 'name' => $product_buy->name, 'qty' => $qty, 'price' => $product_buy->promotion_price, 'options' => ['image' => $product_buy->image, 'quantity' => $product_buy->quantity]]);
+        return redirect()->route('view-cart');
     }
 
     public function remove($rowId)
@@ -121,6 +125,15 @@ class CartController extends Controller
 
     public function checkout(Request $rq)
     {
+        $this->validate($rq,
+        [
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'email'=>'required|email',
+            'order_address'=>'required',
+            'note'=>'required|max:300',
+            'phone_number'=>'required',
+        ]);
         if(Cart::total() > 0)
         {
             $char ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

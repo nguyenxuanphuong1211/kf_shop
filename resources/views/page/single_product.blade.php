@@ -70,24 +70,25 @@
                                 <p>{{ $product->description_brief }}</p>
                             </div>
                             <div class="pre-box">
-                                <span class="special-price">{{ $product->promotion_price }}</span>
+                                <span class="special-price">$ {{ $product->promotion_price }}</span>
                             </div>
                             <div class="add-to-box1">
                                 <div class="add-to-box add-to-box2">
-                                    <form action="add_product_view" method="GET">
+                                    <form action="{{url('cart/add_product_view')}}" method="GET">
+                                        <input type="hidden" name="id" value="{{$product->id}}">
                                         <div class="add-to-cart">
                                             <div class="input-content">
                                                 <label>Quantity:</label>
                                                 <div class="quantity">
                                                     <div class="cart-plus-minus">
-                                                      <input type="text" value="1" name="qtybutton" class="cart-plus-minus-box">
+                                                      <input type="text" value="1" name="qty" class="cart-plus-minus-box">
                                                      </div>
                                                 </div>
                                             </div>
                                             <div class="product-icon">
                                                
                                                 <br><br><br>
-                                                <input type="submit" value="add to cart">
+                                                <input class="btn btn-danger btn-cart" type="submit" value="add to cart">
                                             </div>
 
                                         </div>
