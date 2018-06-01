@@ -58,14 +58,14 @@
                         @foreach($blogs_last as $blog_last)
                         <li>
                             <div class="tb-recent-thumbb">
-                                <a href="">
+                                <a href="{{ url('blog/'.$blog_last->alias) }}">
                                     <img class="attachment" src="{{asset('page/img/blog/'.$blog_last->thumbnail)}}" alt="">
                                 </a>
                                 <div class="recent-thumb-overlay"></div>
                             </div>
                             <div class="tb-recentb">
                                 <div class="tb-postb">
-                                    <p>{{ $blog_last->title }}</p>
+                                    <a href="{{ url('blog/'.$blog_last->alias) }}"><p>{{ $blog_last->title }}</p></a>
                                 </div>
                                 <div class="tb-postd">
                                     <span class="author-name">

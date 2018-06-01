@@ -78,6 +78,10 @@ Route::get('blogs', 'PageController@allBlog');
 
 Route::get('blog/{alias}', 'PageController@blogDetail');
 
+Route::get('all-product', 'PageController@allProduct');
+
+Route::get('category/{alias}', 'PageController@category_products');
+
 Route::group(['prefix'=>'cart'],function(){
     Route::get('/', 'CartController@home');
     Route::get('/view-detail-cart', 'CartController@index')->name('view-cart');//view cart
