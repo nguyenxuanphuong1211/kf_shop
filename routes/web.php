@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,9 +9,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', 'PageController@getIndex')->name('home');
-
 Route::group(['prefix' =>'admin-shop'], function(){
     Route::get('/', 'AdminController@getAdmin');
     Route::group(['prefix' =>'product'], function(){
@@ -60,20 +57,18 @@ Route::group(['prefix' =>'admin-shop'], function(){
     Route::group(['prefix' =>'order'], function(){
         Route::get('list', 'OrderController@index')->name('list-order');
         Route::get('detail/{order}', 'OrderController@detailOrder');
-        Route::get('change-status/{order}', 'OrderController@changeStatus');
     });
-
+    Route::group(['prefix' =>'user'], function(){
+        Route::get('list', 'UserController@index')->name('list_user');
+        Route::get('change_roles/{id}', 'UserController@edit');
+        Route::post('update_user/{id}', 'UserController@update');
+    });
 });
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('homeadmin');
-
 Route::get('/view-detail-product/{alias}', 'PageController@viewDetailProduct');
-
 Route::get('blogs', 'PageController@allBlog');
-
 Route::get('blog/{alias}', 'PageController@blogDetail');
-
 Route::group(['prefix'=>'cart'],function(){
     Route::get('/', 'CartController@home');
     Route::get('/view-detail-cart', 'CartController@index')->name('view-cart');//view cart
@@ -82,9 +77,6 @@ Route::group(['prefix'=>'cart'],function(){
     Route::GET('/update_qty_cart/{rowid}/{qty}','CartController@update');
     Route::GET('/add_product_view','CartController@addProductView');
     Route::GET('/checkout','CartController@checkout');
-
-
-
     // Route::GET('add-product_view','CartController@addCart_view');
     // Route::GET('cart','CartController@cart');
     // Route::GET('deletecart/{rowId}', 'CartController@delete');

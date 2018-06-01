@@ -72,7 +72,7 @@
                                     <div class="pro-type">
                                         <span>sale</span>
                                     </div>
-                                    <a href="#">
+                                    <a href="{{ url('/view-detail-product/'.$hot_product->alias)}}">
                                         <img src="{{asset('page/img/products/'.$hot_product->image)}}" alt="Product Title" />
                                         <img class="secondary-image" alt="Product Title" src="{{asset('page/img/products/'.$hot_product->image)}}">
                                     </a>
@@ -109,7 +109,7 @@
                         <div class="col-xs-12">
                             <div class="single-product">
                                 <div class="product-img">
-                                    <a href="#">
+                                    <a href="{{ url('/view-detail-product/'.$product->alias)}}">
                                         <img src="{{asset('page/img/products/'.$product ->image )}}" alt="Product Title" />
                                         <img class="secondary-image" alt="Product Title" src="{{asset('page/img/products/'.$product ->image )}}">
                                     </a>
@@ -169,7 +169,7 @@
                                 <div class="pro-type">
                                     <span>sale</span>
                                 </div>
-                                <a href="#">
+                                <a href="{{ url('/view-detail-product/'.$deals_product->alias)}}">
                                     <img src="{{asset('page/img/products/'.$deals_product->image)}}" alt="Product Title" />
                                     <img class="secondary-image" alt="Product Title" src="{{asset('page/img/products/'.$deals_product->image)}}">
                                 </a>

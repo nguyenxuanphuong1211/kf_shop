@@ -87,7 +87,7 @@
         <script src="{{asset('page/js/plugins.js')}}"></script>
 		<!-- main js -->
         <script src="{{asset('page/js/main.js')}}"></script>
-        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+        
         
 <!-- ajax add to cart -->
         <script>
@@ -133,6 +133,48 @@
                 
             });
         </script>
+
+     <!--    <script
+  src="http://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script> -->
+        <script src="{{asset('page/js/jsvalidate/jquery.validate.js')}}"></script>
+    
+<script type="text/javascript">
+ 
+    $().ready(function() {
+        $("#form-checkout").validate({
+            rules: {
+                first_name: "required",
+                last_name: "required",
+                email: {
+                    required: true,
+                    email: true
+                },
+                phone_number: "required",
+                order_address: "required",
+                note: {
+                    required: true,
+                    maxlength: 200
+                },            },
+            messages: {
+                first_name: "Please enter a first name",
+                last_name: "Please enter a last name",
+                email: {
+                    required: "Please enter a email",
+                    email: "Please enter a valid email address"
+                },
+                phone_number: "Please enter a phone number",
+                order_address: "Please enter a order address",
+                note: {
+                    required: "Please enter a note",
+                    maxlength: "Please enter maxlegth 200"
+                },
+                
+            }
+        });
+    });
+</script>
         
     </body>
 </html>
