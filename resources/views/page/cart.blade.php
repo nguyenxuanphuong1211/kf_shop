@@ -79,7 +79,7 @@
                                     <p class="shop9">Information Order</p>
                                     <p class="down-shop">Enter your destination to get a shipping estimate</p>
                                 </div>
-                                <form  action="{{url('cart/checkout')}}" method="GET" id="form-checkout">
+                                <form  action="{{url('cart/checkout')}}" method="GET" id="form-checkout" >
                                     <input type="hidden" name="token" value="{{ csrf_token() }}">
                                     <p class="form-row form-row-wide">
                                         <label>
@@ -87,35 +87,60 @@
                                         </label>
                                         <input type="text" placeholder="Enter First Name" name="first_name" >
                                     </p>
+                                    @if ($errors->has('first_name'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('first_name') }}</strong>
+                                        </span>
+                                    @endif
                                     <br>
                                     <p class="form-row form-row-wide">
                                         <label>
                                             <span class="required">* required</span>
                                         </label>
-                                        <input type="text" placeholder="Enter Last Name" name="last_name" required>
+                                        <input type="text" placeholder="Enter Last Name" name="last_name" >
                                     </p>
+                                    @if ($errors->has('last_name'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('last_name') }}</strong>
+                                        </span>
+                                    @endif
                                     <br>
                                     <p class="form-row form-row-wide">
                                         <label>
                                             <span class="required">* required</span>
                                         </label>
-                                        <input type="text" placeholder="Enter Email" name="email" required>
+                                        <input type="text" placeholder="Enter Email" name="email" >
                                         
                                     </p>
+                                    @if ($errors->has('email'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                                    @endif
                                     <br>
                                     <p class="form-row form-row-wide">
                                         <label>
                                             <span class="required">* required</span>
                                         </label>
-                                        <input type="text" placeholder="Enter Phone Number" name="phone_number" required>
+                                        <input type="text" placeholder="Enter Phone Number" name="phone_number" >
                                     </p>
+                                    @if ($errors->has('phone_number'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('phone_number') }}</strong>
+                                        </span>
+                                    @endif
                                     <br>
                                     <p class="form-row form-row-wide">
                                         <label>
                                             <span class="required">* required</span>
                                         </label>
-                                        <input type="text" placeholder="Enter Order Address" name="order_address" required>
+                                        <input type="text" placeholder="Enter Order Address" name="order_address" >
                                     </p>
+                                    @if ($errors->has('order_address'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('order_address') }}</strong>
+                                        </span>
+                                    @endif
                                     <br>
                                     <p class="form-row form-row-wide">
                                         <label class="control-label">Date Order </label><br>
@@ -124,8 +149,13 @@
                                     <br>
                                     <p class="form-row form-row-wide">
                                         <label class="control-label">Note </label><br>
-                                        <textarea rows="3" cols="47" placeholder="Enter Note" name="note" required></textarea>
+                                        <textarea rows="3" cols="47" placeholder="Enter Note" name="note" ></textarea>
                                     </p>
+                                    @if ($errors->has('note'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('note') }}</strong>
+                                        </span>
+                                    @endif
                                     <p class="checkout-coupon two">
                                         <input type="submit" value="Checkout">
                                     </p>
@@ -441,34 +471,9 @@
 <!-- quick view end -->
 <!-- jquery latest version -->
 <!-- <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script> -->
-        <!-- <script src="{{asset('page/js/vendor/jquery-1.12.0.min.js')}}"></script> -->
-        <script src="https://code.jquery.com/jquery-2.2.4.js"
-  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-  crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#form-checkout').validate({
-            rules: {
+<!-- <script src="{{asset('page/js/vendor/jquery-1.12.0.min.js')}}"></script> -->
 
-                first_name: {
-                    required:true,
-                    minlength: 6,
-                },
-                last_name: {
-                    required:true,
-                    minlength: 6,
-                },
-                email: {
-                    email: true,
-                    required: true,
-                },
-            },
-            submitHandler: function() {
-            // do other things for a valid form
-            console.log('xxx');
-  }
-        });
-    });
-</script>
+
+<!-- <script src="{{asset('page/js/jsvalidate/jquery.js')}}"></script> -->
+
 @stop
