@@ -52,7 +52,7 @@
                                 </td>
                             </tr>
                             @endforeach
-                            
+
                         </table>
                     </div>
                     <div class="last-check1">
@@ -100,7 +100,7 @@
                                             <span class="required">* required</span>
                                         </label>
                                         <input type="text" placeholder="Enter Email" name="email" required>
-                                        
+
                                     </p>
                                     <br>
                                     <p class="form-row form-row-wide">
@@ -129,14 +129,14 @@
                                     <p class="checkout-coupon two">
                                         <input type="submit" value="Checkout">
                                     </p>
-                                </form>        
+                                </form>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="profile">
                                 <div class="2nd-copun-code">
                                     <form action="#">
                                         <p class="form-row form-row-wide">
                                             <label>
-                                                Coupon:  
+                                                Coupon:
                                                 <span class="required">*</span>
                                             </label>
                                             <input class="form-control again" type="text" name="name" required="" placeholder="Coupon code">
@@ -146,7 +146,7 @@
                                         </p>
                                     </form>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -224,7 +224,7 @@
 														</ul>
 													</div>
 												</div>
-											</div>							
+											</div>
 										</div>
 										<div class="col-xs-12 col-sm-7">
 											<div class="quick-right">
@@ -346,7 +346,7 @@
 														</ul>
 													</div>
 												</div>
-											</div>							
+											</div>
 										</div>
 										<div class="col-xs-12 col-sm-7">
 											<div class="quick-right">
@@ -464,10 +464,6 @@
                     required: true,
                 },
             },
-            submitHandler: function() {
-            // do other things for a valid form
-            console.log('xxx');
-  }
         });
     });
 </script>

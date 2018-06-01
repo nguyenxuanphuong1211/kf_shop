@@ -57,7 +57,7 @@
                             <td>{{ $order ->order_address }}</td>
                             <td>{{ $order->date_order }}</td>
                             <td>{{ $order->total }}</td>
-                            <td>@if($order->status==0) Undelivery @elseif($order->status==1) Delivery @else Cancelled @endif <br> <a href="#"><button class="btn btn-success" >Change</button></a>  </td>
+                            <td>@if($order->status==0) <i class="fa fa-frown-o" style="color: red; font-weight: bold;">Undelivery</i>  @elseif($order->status==1) <i class="fa fa-smile-o" style="color: blue;font-weight: bold;"> Delivery</i> @else Cancelled @endif <br> <a href="{{ url('admin-shop/order/change-status/'.$order->id) }}"><button class="btn btn-success" >Change</button></a>  </td>
                         </tr>
                         @endforeach
                     </tbody>

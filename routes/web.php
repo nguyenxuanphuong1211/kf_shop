@@ -60,6 +60,7 @@ Route::group(['prefix' =>'admin-shop'], function(){
     Route::group(['prefix' =>'order'], function(){
         Route::get('list', 'OrderController@index')->name('list-order');
         Route::get('detail/{order}', 'OrderController@detailOrder');
+        Route::get('change-status/{order}', 'OrderController@changeStatus');
     });
 
 });
