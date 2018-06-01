@@ -41,7 +41,7 @@ class PageController extends Controller
     public function allProduct()
     {
         $products = Product::orderBy('id', 'desc')->get();
-        return view('page.all-products', compact('products'));
+        return view('page.products', compact('products'));
     }
 
     public function category_products($alias)
