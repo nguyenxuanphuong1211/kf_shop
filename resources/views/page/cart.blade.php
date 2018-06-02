@@ -44,11 +44,11 @@
                                 </td>
                                 <td class="sop-cart">
                                     <div class="tb-product-price font-noraure-3">
-                                        <span class="amount">{{ $content->price }}</span>
+                                        <span class="amount">${{ $content->price }}</span>
                                     </div>
                                 </td>
                                 <td class="cen" >
-                                    <span id="price_pro{{$content->rowId}}" class="amount">{{ $content->price * $content->qty }}</span>
+                                    <span id="price_pro{{$content->rowId}}" class="amount">$ {{ $content->price * $content->qty }}</span>
                                 </td>
                             </tr>
                             @endforeach
@@ -187,14 +187,14 @@
                                 <tr class="cart-subtotal">
                                     <th>Subtotal:</th>
                                     <td>
-                                        <span id="total" class="amount">{{ \Cart::total() }}</span>
+                                        <span id="total" class="amount">${{ \Cart::total() }}</span>
                                     </td>
                                 </tr>
                                 <tr class="order-total">
                                     <th>Total:</th>
                                     <td>
                                         <strong>
-                                            <span id="total1" class="amount">{{ \Cart::total() }}</span>
+                                            <span id="total1" class="amount">${{ \Cart::total() }}</span>
                                         </strong>
                                     </td>
                                 </tr>
