@@ -56,7 +56,7 @@
                             <td>{{ $order ->note }}</td>
                             <td>{{ $order ->order_address }}</td>
                             <td>{{ $order->date_order }}</td>
-                            <td>{{ $order->total }}</td>
+                            <td>${{ number_format($order->total) }}</td>
                             <td>@if($order->status==0) Undelivery @elseif($order->status==1) Delivery @else Cancelled @endif <br> <a href="#"><button class="btn btn-success" >Change</button></a>  </td>
                         </tr>
                         @endforeach

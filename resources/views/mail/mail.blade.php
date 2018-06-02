@@ -16,7 +16,7 @@
             <h4>Order code: <b>{{ $order_code }}</b></h4>
             <p>ID Order: <b>{{$bill_id}}</b></p>
             <p>Date Order: <b>{{$date_order}}</b></p>
-            <p>Total: <b>{{number_format($total)}}</b></p>
+            <p>Total: <b>${{number_format($total)}}</b></p>
             <p>Order Address: <b>{{$address}}</b></p>
             <hr>
             <h1>VIEW DETAIL ORDER</h1>
@@ -37,12 +37,12 @@
                             
                             <td style="border: 1px solid gray;">{{ $bill_detail->product->name }}</td>
                             <td style="border: 1px solid gray;">{{ $bill_detail->quantity }}</td>
-                            <td style="border: 1px solid gray;">{{ $bill_detail->unit_price }}</td>
-                            <td style="border: 1px solid gray;">{{ $bill_detail->quantity * $bill_detail->unit_price }}</td>
+                            <td style="border: 1px solid gray;">${{ $bill_detail->unit_price }}</td>
+                            <td style="border: 1px solid gray;">${{ $bill_detail->quantity * $bill_detail->unit_price }}</td>
                         </tr>
                     @endforeach
                 </tbody>
-                <p>Total: <b>{{ $total }}</b></p>
+                <p>Total: <b>${{ $total }}</b></p>
             </table>
         </div>
             <p>Thank you for your purchase at KF Shop, staff will contact you soonest.</p>

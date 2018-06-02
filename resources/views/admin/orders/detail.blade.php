@@ -38,8 +38,8 @@
                             <td>{{$index+1}}</td>
                             <td>{{ $order_detail ->product->name }}</td>
                             <td>{{ $order_detail ->quantity }}</td>
-                            <td>{{ $order_detail ->unit_price }}</td>
-                            <td>{{ $order_detail ->quantity * $order_detail ->unit_price }}</td>
+                            <td>${{ number_format($order_detail ->unit_price) }}</td>
+                            <td>${{ number_format($order_detail ->quantity * $order_detail ->unit_price) }}</td>
                         </tr>
                         @endforeach
                     </tbody>
