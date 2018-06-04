@@ -79,9 +79,19 @@ Route::get('blogs', 'PageController@allBlog');
 
 Route::get('blog/{alias}', 'PageController@blogDetail');
 
-Route::get('all-product', 'PageController@allProduct');
+Route::get('products', 'PageController@allProduct');
 
 Route::get('category/{alias}', 'PageController@category_products');
+
+Route::get('products/sort-by-price=desc', 'PageController@priceDesc');
+Route::get('products/sort-by-price=asc', 'PageController@priceAsc');
+Route::get('products/sort-by-name=desc', 'PageController@nameDesc');
+Route::get('products/sort-by-name=asc', 'PageController@nameAsc');
+
+Route::get('category/sort-by-price=desc/{alias}', 'PageController@catPriceDesc');
+Route::get('category/sort-by-price=asc/{alias}', 'PageController@catPriceAsc');
+Route::get('category/sort-by-name=desc/{alias}', 'PageController@catNameDesc');
+Route::get('category/sort-by-name=asc/{alias}', 'PageController@catNameAsc');
 
 Route::group(['prefix'=>'cart'],function(){
     Route::get('/', 'CartController@home');
