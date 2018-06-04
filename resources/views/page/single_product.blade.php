@@ -204,68 +204,25 @@
             <div class="col-md-3">
                 <div class="single-sidebar">
                     <div class="single-sidebar an-shop">
-                        <h3 class="wg-title">BEST SELLER</h3>
+                        <h3 class="wg-title">RELATED PRODUCTS</h3>
                         <ul>
+                            @foreach($product->category->products as $productresionship)
                            <li class="b-none7">
                                 <div class="tb-recent-thumbb">
                                     <a href="">
-                                        <img class="attachment" src="{{ asset('page/img/products/6.jpg')}}" alt="">
+                                        <img class="attachment" src="{{ asset('page/img/products/'.$productresionship->image)}}" alt="">
                                     </a>
                                 </div>
                                 <div class="tb-recentb7">
                                     <div class="tb-beg">
-                                        <a href="#">Lambskin Shoe</a>
+                                        <a href="#">{{ $productresionship->name }}</a>
                                     </div>
                                     <div class="tb-product-price font-noraure-3">
-                                        <span class="amount">$180.00</span>
+                                        <span class="amount">${{number_format($productresionship->promotion_price)}}</span>
                                     </div>
                                 </div>
                             </li>
-                            <li class="b-none7">
-                                <div class="tb-recent-thumbb">
-                                    <a href="">
-                                        <img class="attachment" src="{{ asset('page/img/products/10.jp')}}g" alt="">
-                                    </a>
-                                </div>
-                                <div class="tb-recentb7">
-                                    <div class="tb-beg">
-                                        <a href="#">Lambskin Shoe</a>
-                                    </div>
-                                    <div class="tb-product-price font-noraure-3">
-                                        <span class="amount">$180.00</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="b-none7">
-                                <div class="tb-recent-thumbb">
-                                    <a href="">
-                                        <img class="attachment" src="{{ asset('page/img/products/8.jpg')}}" alt="">
-                                    </a>
-                                </div>
-                                <div class="tb-recentb7">
-                                    <div class="tb-beg">
-                                        <a href="#">Lambskin Shoe</a>
-                                    </div>
-                                    <div class="tb-product-price font-noraure-3">
-                                        <span class="amount">$180.00</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="b-none7">
-                                <div class="tb-recent-thumbb">
-                                    <a href="">
-                                        <img class="attachment" src="{{ asset('page/img/products/9.jpg')}}" alt="">
-                                    </a>
-                                </div>
-                                <div class="tb-recentb7">
-                                    <div class="tb-beg">
-                                        <a href="#">Lambskin Shoe</a>
-                                    </div>
-                                    <div class="tb-product-price font-noraure-3">
-                                        <span class="amount">$180.00</span>
-                                    </div>
-                                </div>
-                            </li>
+                           @endforeach 
                        </ul>
                     </div>
                     <div class="ro-info-box-wrap tpl3 st">
