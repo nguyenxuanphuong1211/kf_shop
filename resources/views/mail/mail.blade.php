@@ -34,7 +34,7 @@
                 <tfoot>
                     <tr>
                         <td>Total</td>
-                        <td><b>${{ number_format($billtomail->total) }}</b></td>
+                        <td><b>${{ number_format($total) }}</b></td>
                     </tr>
                 </tfoot>
                 <tbody >
@@ -48,7 +48,7 @@
                         </tr>
                     @endforeach
                 </tbody>
-                <p>Total: <b>${{ number_format($total) }}</b></p>
+
             </table>
         </div>
             <p>Thank you for your purchase at KF Shop, staff will contact you soonest.</p>
