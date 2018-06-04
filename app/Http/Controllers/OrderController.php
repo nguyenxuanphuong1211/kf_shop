@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Bill;
+use Toastr;
 use App\Bill_detail;
 
 class OrderController extends Controller
@@ -36,9 +37,19 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function changeStatus($order)
     {
-        //
+        $bill = Bill::find($order);
+        if($bill ->status == 0)
+        {
+            $bill ->status = '1';
+        }
+        elseif ($bill ->status ==1) {
+            $bill ->status ='0';
+        }
+        $bill ->save();
+        Toastr::success('Change Order status successful', $title = null, $options = []);
+        return redirect()->back();
     }
 
     /**
