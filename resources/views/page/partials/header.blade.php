@@ -39,7 +39,7 @@
                             <nav>
                                 <ul>
                                     <li><a href="{{ url('/') }}">Home</a></li>
-                                    <li><a href="{{ url('all-product') }}">Shop</a>
+                                    <li><a href="{{ url('products') }}">Shop</a>
                                         <ul>
                                             @foreach($categories as $category)
                                             <li><a href="{{ url('category/'.$category->alias) }}">{{ $category ->name }}</a></li>

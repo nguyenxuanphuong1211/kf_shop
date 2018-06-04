@@ -86,13 +86,13 @@
                                                 </div>
                                             </div>
                                             <div class="product-icon">
-                                               
+
                                                 <br><br><br>
                                                 <input class="btn btn-danger btn-cart" type="submit" value="add to cart">
                                             </div>
 
                                         </div>
-                                         
+
                                     </form>
                                 </div>
                             </div>
@@ -206,23 +206,23 @@
                     <div class="single-sidebar an-shop">
                         <h3 class="wg-title">RELATED PRODUCTS</h3>
                         <ul>
-                            @foreach($product->category->products as $productresionship)
+                            @foreach($product->category->products->where('id', '<>', $product->id) as $productresionship)
                            <li class="b-none7">
                                 <div class="tb-recent-thumbb">
-                                    <a href="">
+                                    <a href="{{ url('view-detail-product/'.$productresionship->alias) }}">
                                         <img class="attachment" src="{{ asset('page/img/products/'.$productresionship->image)}}" alt="">
                                     </a>
                                 </div>
                                 <div class="tb-recentb7">
                                     <div class="tb-beg">
-                                        <a href="#">{{ $productresionship->name }}</a>
+                                        <a href="{{ url('view-detail-product/'.$productresionship->alias) }}">{{ $productresionship->name }}</a>
                                     </div>
                                     <div class="tb-product-price font-noraure-3">
                                         <span class="amount">${{number_format($productresionship->promotion_price)}}</span>
                                     </div>
                                 </div>
                             </li>
-                           @endforeach 
+                           @endforeach
                        </ul>
                     </div>
                     <div class="ro-info-box-wrap tpl3 st">

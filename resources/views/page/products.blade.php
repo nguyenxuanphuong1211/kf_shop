@@ -6,8 +6,7 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="con-text">
-                    <h2 class="page-title">Shop</h2>
-                    <p><a href="#">Home</a> | shop</p>
+                    <h2 class="page-title">All products</h2>
                 </div>
             </div>
         </div>
@@ -27,15 +26,7 @@
                         <h3 class="wg-title2">Categories</h3>
                         <ul>
                             @foreach($categories as $category)
-                            <li><a href="#">{{ $category ->name }}</a></li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    <div class="shop-one">
-                        <h3 class="wg-title2">Our Brand</h3>
-                        <ul>
-                            @foreach($brands as $brand)
-                            <li><a href="#">{{ $brand ->name }}</a></li>
+                            <li><a href="{{ url('category/'.$category->alias) }}">{{ $category ->name }} ( {{ count($category->products) }} )</a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -97,23 +88,23 @@
                                    <div class="sort-by">
                                         <div class="shop6">
                                             <label>Sort By :</label>
-                                            <select>
+                                            <select id="dynamic_select">
                                                 <option value="">Default sorting</option>
-                                                <option value="">Sort by popularity</option>
-                                                <option value="">Sort by average rating</option>
-                                                <option value="">Sort by newness</option>
-                                                <option value="">Sort by price: low to high</option>
+                                                <option value="{{ url('products/sort-by-name=asc') }}">Alphabetically: A-Z</option>
+                                                <option value="{{ url('products/sort-by-name=desc') }}">Alphabetically: Z-A</option>
+                                                <option value="{{ url('products/sort-by-price=asc') }}">Sort by price: low to high</option>
+                                                <option value="{{ url('products/sort-by-price=desc') }}">Sort by price: high to low</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="shop5">
+                                    <!-- <div class="shop5">
                                         <label>Show :</label>
                                         <select>
                                             <option value="">12</option>
                                             <option value="">24</option>
                                             <option value="">36</option>
                                         </select>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                           <!-- Tab panes -->
@@ -137,7 +128,7 @@
                                                     <div class="product-dsc">
                                                         <h3><a href="{{ url('view-detail-product/'.$product->alias) }}">{{ $product->name }}</a></h3>
                                                         <div class="star-price">
-                                                            <span class="price-left">$52.00</span>
+                                                            <span class="price-left">{{ $product->unit_price }}</span>
                                                             <span class="star-right">
                                                                 <i class="fa fa-star"></i>
                                                                 <i class="fa fa-star"></i>
@@ -149,9 +140,8 @@
                                                     </div>
                                                     <div class="actions-btn">
                                                         <a href="#" data-placement="top" data-target="#quick-view" data-trigger="hover" data-toggle="modal" data-original-title="Quick View"><i class="fa fa-eye"></i></a>
-                                                        <a data-placement="top" data-toggle="tooltip" href="#" data-original-title="Add To Wishlist"><i class="fa fa-heart"></i></a>
-                                                        <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Compare"><i class="fa fa-retweet"></i></a>
-                                                        <a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a>
+                                                        <a data-placement="top" data-toggle="tooltip" href="{{ url('/view-detail-product/'.$product->alias)}}" data-original-title="View detail"><i class="fa fa-search-plus "></i></a>
+                                                        <a class="add_to_card" href="{{ url('cart/add-cart-product/'.$product->id)}}" id="{{ $product->id }}" name="{{ $product->name }}" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -490,4 +480,16 @@
     </div>
 </div>
 <!-- quick view end -->
+<script>
+    $(function(){
+      // bind change event to select
+      $('#dynamic_select').on('change', function () {
+          var url = $(this).val(); // get selected value
+          if (url) { // require a URL
+              window.location = url; // redirect
+          }
+          return false;
+      });
+    });
+</script>
 @stop
