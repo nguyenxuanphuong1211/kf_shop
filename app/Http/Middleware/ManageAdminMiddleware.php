@@ -22,11 +22,11 @@ class ManageAdminMiddleware
                 return $next($request);
             else
                 Toastr::error('You can not access this function', $title = null, $options = []);
-                return redirect('/');
+                return redirect('/login-admin');
         }
         else{
             Toastr::error('You can not access this function', $title = null, $options = []);
-            return redirect('/');
+            return redirect('/login-admin');
         }
     }
 }

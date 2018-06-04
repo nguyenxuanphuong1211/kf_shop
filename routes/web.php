@@ -13,9 +13,11 @@
 
 Route::get('/', 'PageController@getIndex')->name('home');
 
-Route::group(['prefix' =>'admin-shop', 'middleware'=>'ManageAdmin'], function(){
-    Route::get('/', 'AdminController@getAdmin');
-    Route::group(['prefix' =>'product'], function(){
+Route::group(['prefix' =>'admin-shop'], function(){
+    Route::get('/', 'AdminController@getAdmin')->name('manageadmin')->middleware('Adminlogin');
+    Route::get('/logout', 'AdminController@logout');
+
+    Route::group(['prefix' =>'product', 'middleware'=>'ManageAdmin'], function(){
         Route::get('list', 'ProductController@index')->name('list-product');
         Route::get('add', 'ProductController@create')->name('add-product');
         Route::post('add', 'ProductController@store')->name('add-product');
@@ -23,7 +25,7 @@ Route::group(['prefix' =>'admin-shop', 'middleware'=>'ManageAdmin'], function(){
         Route::put('edit/{product}', 'ProductController@update')->name('edit-product');
         Route::get('delete/{product}', 'ProductController@destroy')->name('delete-product');
     });
-    Route::group(['prefix' =>'category'], function(){
+    Route::group(['prefix' =>'category', 'middleware'=>'ManageAdmin'], function(){
         Route::get('list', 'CategoryController@index')->name('list-category');
         Route::get('list/{category}', 'CategoryController@show');
         Route::get('add', 'CategoryController@create')->name('add-category');
@@ -32,7 +34,7 @@ Route::group(['prefix' =>'admin-shop', 'middleware'=>'ManageAdmin'], function(){
         Route::put('edit/{category}', 'CategoryController@update')->name('edit-category');
         Route::get('delete/{category}', 'CategoryController@destroy')->name('delete-category');
     });
-    Route::group(['prefix' =>'brand'], function(){
+    Route::group(['prefix' =>'brand', 'middleware'=>'ManageAdmin'], function(){
         Route::get('list', 'BrandController@index');
         Route::get('list/{brand}', 'BrandController@show');
         Route::get('add', 'BrandController@create');
@@ -41,7 +43,7 @@ Route::group(['prefix' =>'admin-shop', 'middleware'=>'ManageAdmin'], function(){
         Route::put('edit/{brand}', 'BrandController@update');
         Route::get('delete/{brand}', 'BrandController@destroy');
     });
-    Route::group(['prefix' =>'blog'], function(){
+    Route::group(['prefix' =>'blog', 'middleware'=>'ManageAdmin'], function(){
         Route::get('list', 'BlogController@index')->name('list-blog');
         Route::get('add', 'BlogController@create')->name('add-blog');
         Route::post('add', 'BlogController@store')->name('add-blog');
@@ -49,7 +51,7 @@ Route::group(['prefix' =>'admin-shop', 'middleware'=>'ManageAdmin'], function(){
         Route::put('edit/{blog}', 'BlogController@update')->name('edit-blog');
         Route::get('delete/{blog}', 'BlogController@destroy')->name('delete-blog');
     });
-    Route::group(['prefix' =>'slide'], function(){
+    Route::group(['prefix' =>'slide', 'middleware'=>'ManageAdmin'], function(){
         Route::get('list', 'SlideController@index')->name('list-slide');
         Route::get('add', 'SlideController@create')->name('add-slide');
         Route::post('add', 'SlideController@store')->name('add-slide');
@@ -57,12 +59,12 @@ Route::group(['prefix' =>'admin-shop', 'middleware'=>'ManageAdmin'], function(){
         Route::put('edit/{slide}', 'SlideController@update')->name('edit-slide');
         Route::get('delete/{slide}', 'SlideController@destroy')->name('delete-slide');
     });
-    Route::group(['prefix' =>'order'], function(){
+    Route::group(['prefix' =>'order', 'middleware'=>'ManageAdmin'], function(){
         Route::get('list', 'OrderController@index')->name('list-order');
         Route::get('detail/{order}', 'OrderController@detailOrder');
         Route::get('change-status/{order}', 'OrderController@changeStatus');
     });
-    Route::group(['prefix' =>'user'], function(){
+    Route::group(['prefix' =>'user', 'middleware'=>'ManageAdmin'], function(){
         Route::get('list', 'UserController@index')->name('list_user');
         Route::get('change_roles/{id}', 'UserController@edit');
         Route::post('update_user/{id}', 'UserController@update');

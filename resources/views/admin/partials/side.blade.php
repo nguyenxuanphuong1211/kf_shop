@@ -24,7 +24,7 @@
                         <a href="{{ url('admin-shop/category/add') }}">Add</a>
                     </li>
                     <li>
-                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseListCate">List</a>
+                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="{{url('logout-admin')}}">List</a>
                         <ul class="sidenav-third-level collapse" id="collapseListCate">
                             @foreach($categories as $category)
                             <li>
@@ -200,7 +200,8 @@
                 </form>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                <!-- <a href="{{ url('admin-shop/logout') }}">Logout</a> -->
+                <a class="nav-link" href="{{ url('admin-shop/logout') }}">
                     <i class="fa fa-fw fa-sign-out"></i>Logout</a>
             </li>
         </ul>
