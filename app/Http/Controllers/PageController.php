@@ -78,25 +78,25 @@ class PageController extends Controller
     {
         $category = Category::where('alias', $alias)->first();
         $products = Product::where('category_id', $category->id)->orderBy('unit_price', 'desc')->get();
-        return view('page.category-products', compact('products'));
+        return view('page.category-products', compact('products', 'category' ));
     }
     public function catPriceAsc($alias)
     {
         $category = Category::where('alias', $alias)->first();
         $products = Product::where('category_id', $category->id)->orderBy('unit_price', 'asc')->get();
-        return view('page.category-products', compact('products'));
+        return view('page.category-products', compact('products', 'category' ));
     }
     public function catNameDesc($alias)
     {
         $category = Category::where('alias', $alias)->first();
         $products = Product::where('category_id', $category->id)->orderBy('name', 'desc')->get();
-        return view('page.category-products', compact('products'));
+        return view('page.category-products', compact('products', 'category' ));
     }
     public function catNameAsc($alias)
     {
         $category = Category::where('alias', $alias)->first();
         $products = Product::where('category_id', $category->id)->orderBy('name', 'asc')->get();
-        return view('page.category-products', compact('products'));
+        return view('page.category-products', compact('products', 'category' ));
     }
 
 }
