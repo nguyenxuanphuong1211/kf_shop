@@ -42,9 +42,13 @@
 		<!-- modernizr css -->
         <script src="{{asset('page/js/vendor/modernizr-2.8.3.min.js')}}"></script>
 
-        
+        <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="//cdn.ckeditor.com/4.7.3/full/ckeditor.js"></script>
     </head>
     <body>
+        {!! Toastr::render() !!}
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->

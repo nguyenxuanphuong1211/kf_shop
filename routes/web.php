@@ -13,7 +13,7 @@
 
 Route::get('/', 'PageController@getIndex')->name('home');
 
-Route::group(['prefix' =>'admin-shop'], function(){
+Route::group(['prefix' =>'admin-shop', 'middleware'=>'ManageAdmin'], function(){
     Route::get('/', 'AdminController@getAdmin');
     Route::group(['prefix' =>'product'], function(){
         Route::get('list', 'ProductController@index')->name('list-product');

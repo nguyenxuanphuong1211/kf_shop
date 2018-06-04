@@ -31,18 +31,24 @@
                         <th style="border: 1px solid gray;">Price</th>
                     </tr>
                 </thead>
+                <tfoot>
+                    <tr>
+                        <td>Total</td>
+                        <td><b>${{ number_format($billtomail->total) }}</b></td>
+                    </tr>
+                </tfoot>
                 <tbody >
                     @foreach($billdetail->bill_detail as $bill_detail)
                         <tr >
                             
                             <td style="border: 1px solid gray;">{{ $bill_detail->product->name }}</td>
                             <td style="border: 1px solid gray;">{{ $bill_detail->quantity }}</td>
-                            <td style="border: 1px solid gray;">${{ $bill_detail->unit_price }}</td>
-                            <td style="border: 1px solid gray;">${{ $bill_detail->quantity * $bill_detail->unit_price }}</td>
+                            <td style="border: 1px solid gray;">${{ number_format($bill_detail->unit_price) }}</td>
+                            <td style="border: 1px solid gray;">${{ number_format($bill_detail->quantity * $bill_detail->unit_price) }}</td>
                         </tr>
                     @endforeach
                 </tbody>
-                <p>Total: <b>${{ $total }}</b></p>
+                <p>Total: <b>${{ number_format($total) }}</b></p>
             </table>
         </div>
             <p>Thank you for your purchase at KF Shop, staff will contact you soonest.</p>

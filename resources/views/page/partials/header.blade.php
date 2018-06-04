@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-8">
-                    <div class="right-header">
+                    <!-- <div class="right-header">
                         <ul>
                             <li><a href="my-account.html"><i class="fa fa-user"></i>My account</a></li>
                             <li><a href="cart.html"><i class="fa fa-shopping-cart"></i>My cart</a></li>
@@ -20,7 +20,7 @@
                             <li><a href="checkout.html"><i class="fa fa-usd"></i>Creck out</a></li>
                             <li><a href="login.html"><i class="fa fa-lock"></i>Login</a></li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
