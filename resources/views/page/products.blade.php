@@ -75,7 +75,11 @@
                                         <a href="{{ url('view-detail-product/'.$product->alias) }}">{{ $product ->name }}</a>
                                     </div>
                                     <div class="tb-product-price font-noraure-3">
-                                        <span class="amount">$180.00</span>
+                                        @if(isset($product->promotion_price))
+                                        <span class="price-left" style="color:#EF6644;">${{ $product ->promotion_price }}</span>
+                                        @else
+                                        <span class="price-left" style="color:#EF6644;">${{ $product ->unit_price }}</span>
+                                        @endif
                                     </div>
                                 </div>
                             </li>
@@ -131,9 +135,11 @@
                                             <div class="col-md-4 col-lg-4 col-sm-6">
                                                 <div class="single-product">
                                                     <div class="product-img">
+                                                        @if($product->deals ==1)
                                                         <div class="pro-type">
-                                                            <span>new</span>
+                                                            <span>sale</span>
                                                         </div>
+                                                        @endif
                                                         <a href="{{ url('view-detail-product/'.$product->alias) }}">
                                                             <img src="{{asset('page/img/products/'.$product->image)}}" alt="{{ $product->name }}" />
                                                             <img class="secondary-image" alt="{{ $product->name }}" src="{{asset('page/img/products/'.$product->image)}}">
@@ -142,7 +148,12 @@
                                                     <div class="product-dsc">
                                                         <h3><a href="{{ url('view-detail-product/'.$product->alias) }}">{{ $product->name }}</a></h3>
                                                         <div class="star-price">
-                                                            <span class="price-left">{{ $product->unit_price }}</span>
+                                                            @if(isset($product->promotion_price))
+                                                            <span class="price-left" style="color:#EF6644;">${{ $product ->promotion_price }}</span>&nbsp&nbsp&nbsp&nbsp
+                                                            <span class="price-right" style="color:grey; text-decoration: line-through;">${{ $product->unit_price }}</span>
+                                                            @else
+                                                            <span class="price-left" style="color:#EF6644;">${{ $product ->unit_price }}</span>
+                                                            @endif
                                                             <span class="star-right">
                                                                 <i class="fa fa-star"></i>
                                                                 <i class="fa fa-star"></i>
@@ -170,9 +181,11 @@
                                         <div class="li-item">
                                             <div class="col-md-4 col-sm-4">
                                                 <div class="tb-product-item-inner tb2 pct-last">
+                                                    @if($product->deals ==1)
                                                     <div class="pro-type">
-                                                        <span>new</span>
+                                                        <span>sale</span>
                                                     </div>
+                                                    @endif
                                                     <div class="re-img">
                                                         <a href="{{ url('view-detail-product/'.$product->alias) }}"><img alt="" src="{{asset('page/img/products/'.$product->image)}}"></a>
                                                     </div>
@@ -190,8 +203,12 @@
                                                     </div>
                                                     <div class="tb-product-wrap-price-rating">
                                                         <div class="tb-product-price font-noraure-3">
-                                                            <span class="amount2 ana">$79.00 - </span>
-                                                            <span class="amount2 ana">$100.00</span>
+                                                            @if(isset($product->promotion_price))
+                                                            <span class="price-left" style="color:#EF6644;">${{ $product ->promotion_price }}</span>&nbsp&nbsp&nbsp&nbsp
+                                                            <span class="price-right" style="color:grey; text-decoration: line-through;">${{ $product->unit_price }}</span>
+                                                            @else
+                                                            <span class="price-left" style="color:#EF6644;">${{ $product ->unit_price }}</span>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                     <p class="desc">{{ $product->description_brief }}</p>
