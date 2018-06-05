@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="con-text">
-                    <h2 class="page-title">{{ $category ->name }}</h2>
+                    <h2 class="page-title">{{ $brand ->name }}</h2>
                 </div>
             </div>
         </div>
@@ -63,7 +63,6 @@
                     <div class="top-shop-sidebar an-shop">
                         <h3 class="wg-title">RECENT PRODUCTS</h3>
                         <ul>
-                            @if(isset($products))
                             @foreach($products ->take(5) as $product)
                            <li class="b-none">
                                 <div class="tb-recent-thumbb">
@@ -81,7 +80,6 @@
                                 </div>
                             </li>
                             @endforeach
-                            @endif
                        </ul>
                     </div>
 
@@ -106,10 +104,10 @@
                                             <label>Sort By :</label>
                                             <select id="dynamic_select">
                                                 <option value="">Default sorting</option>
-                                                <option value="{{ url('category/sort-by-name=asc/'.$category->alias) }}">Alphabetically: A-Z</option>
-                                                <option value="{{ url('category/sort-by-name=desc/'.$category->alias) }}">Alphabetically: Z-A</option>
-                                                <option value="{{ url('category/sort-by-price=asc/'.$category->alias) }}">Sort by price: low to high</option>
-                                                <option value="{{ url('category/sort-by-price=desc/'.$category->alias) }}">Sort by price: high to low</option>
+                                                <option value="{{ url('brand/sort-by-name=asc/'.$brand->alias) }}">Alphabetically: A-Z</option>
+                                                <option value="{{ url('brand/sort-by-name=desc/'.$brand->alias) }}">Alphabetically: Z-A</option>
+                                                <option value="{{ url('brand/sort-by-price=asc/'.$brand->alias) }}">Sort by price: low to high</option>
+                                                <option value="{{ url('brand/sort-by-price=desc/'.$brand->alias) }}">Sort by price: high to low</option>
                                             </select>
                                         </div>
                                     </div>
@@ -128,7 +126,6 @@
                                 <div role="tabpanel" class="tab-pane active" id="home">
                                     <div class="row">
                                         <div class="shop-tab">
-                                            @if(isset($products))
                                             @foreach($products as $product)
                                             <!-- single-product start -->
                                             <div class="col-md-4 col-lg-4 col-sm-6">
@@ -156,23 +153,19 @@
                                                         </div>
                                                     </div>
                                                     <div class="actions-btn">
-                                                        <div class="actions-btn">
-                                                            <a href="#" data-placement="top" data-target="#quick-view" data-trigger="hover" data-toggle="modal" data-original-title="Quick View"><i class="fa fa-eye"></i></a>
-                                                            <a data-placement="top" data-toggle="tooltip" href="{{ url('/view-detail-product/'.$product->alias)}}" data-original-title="View detail"><i class="fa fa-search-plus "></i></a>
-                                                            <a class="add_to_card" href="{{ url('cart/add-cart-product/'.$product->id)}}" id="{{ $product->id }}" name="{{ $product->name }}" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a>
-                                                        </div>
+                                                        <a href="#" data-placement="top" data-target="#quick-view" data-trigger="hover" data-toggle="modal" data-original-title="Quick View"><i class="fa fa-eye"></i></a>
+                                                        <a data-placement="top" data-toggle="tooltip" href="{{ url('/view-detail-product/'.$product->alias)}}" data-original-title="View detail"><i class="fa fa-search-plus "></i></a>
+                                                        <a class="add_to_card" href="{{ url('cart/add-cart-product/'.$product->id)}}" id="{{ $product->id }}" name="{{ $product->name }}" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- single-product end -->
                                             @endforeach
-                                            @endif
                                         </div>
                                     </div>
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="profile">
                                     <div class="row">
-                                        @if(isset($products))
                                         @foreach($products as $product)
                                         <div class="li-item">
                                             <div class="col-md-4 col-sm-4">
@@ -220,7 +213,6 @@
                                             </div>
                                         </div>
                                         @endforeach
-                                        @endif
                                     </div>
                                 </div>
                             </div>

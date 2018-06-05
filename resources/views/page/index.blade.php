@@ -25,10 +25,12 @@
                         <div class="layer-2">
                             <p class="title0">{{ $slide->title_3 }}</p>
                         </div>
+                        @if(isset($slide ->link))
                         <!-- layer 3 -->
                         <div class="layer-3">
                             <a class="min1" href="{{ $slide ->link }}">Shop Now</a>
                         </div>
+                        @endif
                     </div>
                 </div>
                 @endforeach

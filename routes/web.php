@@ -85,15 +85,23 @@ Route::get('products', 'PageController@allProduct');
 
 Route::get('category/{alias}', 'PageController@category_products');
 
-Route::get('products/sort-by-price=desc', 'PageController@priceDesc');
-Route::get('products/sort-by-price=asc', 'PageController@priceAsc');
-Route::get('products/sort-by-name=desc', 'PageController@nameDesc');
-Route::get('products/sort-by-name=asc', 'PageController@nameAsc');
+Route::get('brand/{alias}', 'PageController@brand_products');
 
-Route::get('category/sort-by-price=desc/{alias}', 'PageController@catPriceDesc');
-Route::get('category/sort-by-price=asc/{alias}', 'PageController@catPriceAsc');
-Route::get('category/sort-by-name=desc/{alias}', 'PageController@catNameDesc');
-Route::get('category/sort-by-name=asc/{alias}', 'PageController@catNameAsc');
+Route::get('products/sort-by-price=desc', 'SortController@priceDesc');
+Route::get('products/sort-by-price=asc', 'SortController@priceAsc');
+Route::get('products/sort-by-name=desc', 'SortController@nameDesc');
+Route::get('products/sort-by-name=asc', 'SortController@nameAsc');
+
+Route::get('category/sort-by-price=desc/{alias}', 'SortController@catPriceDesc');
+Route::get('category/sort-by-price=asc/{alias}', 'SortController@catPriceAsc');
+Route::get('category/sort-by-name=desc/{alias}', 'SortController@catNameDesc');
+Route::get('category/sort-by-name=asc/{alias}', 'SortController@catNameAsc');
+
+Route::get('brand/sort-by-price=desc/{alias}', 'SortController@braPriceDesc');
+Route::get('brand/sort-by-price=asc/{alias}', 'SortController@braPriceAsc');
+Route::get('brand/sort-by-name=desc/{alias}', 'SortController@braNameDesc');
+Route::get('brand/sort-by-name=asc/{alias}', 'SortController@braNameAsc');
+
 
 Route::group(['prefix'=>'cart'],function(){
     Route::get('/', 'CartController@home');

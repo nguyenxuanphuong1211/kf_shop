@@ -26,7 +26,21 @@
                         <h3 class="wg-title2">Categories</h3>
                         <ul>
                             @foreach($categories as $category)
-                            <li><a href="{{ url('category/'.$category->alias) }}">{{ $category ->name }} ( {{ count($category->products) }} )</a></li>
+                            <li>
+                                <a href="{{ url('category/'.$category->alias) }}">{{ $category ->name }}</a>
+                                <span class="count">( {{ count($category->products) }} )</span>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <div class="shop-one">
+                        <h3 class="wg-title2">Our Brand</h3>
+                        <ul class="product-categories">
+                            @foreach($brands as $brand)
+                            <li class="cat-item">
+                                <a href="{{ url('brand/'.$brand->alias) }}">{{ $brand ->name }}</a>
+                                <span class="count">( {{ count($brand->products) }} )</span>
+                            </li>
                             @endforeach
                         </ul>
                     </div>
