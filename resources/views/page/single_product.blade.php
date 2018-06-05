@@ -70,7 +70,12 @@
                                 <p>{{ $product->description_brief }}</p>
                             </div>
                             <div class="pre-box">
-                                <span class="special-price">$ {{ $product->promotion_price }}</span>
+                                @if(isset($product->promotion_price))
+                                <span class="special-price" style="color:#EF6644;">${{ $product ->promotion_price }} <h3 class="price" style="color:grey; text-decoration: line-through;">${{ $product->unit_price }}</h3> </span>
+
+                                @else
+                                <span class="special-price" style="color:#EF6644;">${{ $product ->unit_price }}</span>
+                                @endif
                             </div>
                             <div class="add-to-box1">
                                 <div class="add-to-box add-to-box2">
@@ -218,7 +223,11 @@
                                         <a href="{{ url('view-detail-product/'.$productresionship->alias) }}">{{ $productresionship->name }}</a>
                                     </div>
                                     <div class="tb-product-price font-noraure-3">
-                                        <span class="amount">${{number_format($productresionship->promotion_price)}}</span>
+                                        @if(isset($productresionship->promotion_price))
+                                        <span class="amount" style="color:#EF6644;">${{ number_format($productresionship ->promotion_price) }}</span>&nbsp&nbsp&nbsp&nbsp
+                                        @else
+                                        <span class="amount" style="color:#EF6644;">${{ number_format($productresionship ->unit_price) }}</span>
+                                        @endif
                                     </div>
                                 </div>
                             </li>

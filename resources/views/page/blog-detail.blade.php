@@ -55,7 +55,7 @@
                 <div class="zo-recent-posts">
                     <h3 class="wg-title">Latest Posts</h3>
                     <ul>
-                        @foreach($blogs_last as $blog_last)
+                        @foreach($blogs_last->take(5) as $blog_last)
                         <li>
                             <div class="tb-recent-thumbb">
                                 <a href="{{ url('blog/'.$blog_last->alias) }}">

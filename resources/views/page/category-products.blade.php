@@ -244,16 +244,9 @@
                             <div class="shop-all-tab-cr shop-bottom">
                                 <div class="two-part">
                                     <div class="shop5 page">
-                                        <ul>
-                                            <li>
-                                                <a class="active" href="#">1</a>
-                                                <a href="#">2</a>
-                                                <a href="#">3</a>
-                                                <a href="#">4</a>
-                                                <a href="#">5</a>
-                                                <a href="#"><i class="fa fa-arrow-right"></i></a>
-                                            </li>
-                                        </ul>
+                                        <div class="pagination-box" style="text-align: center;">
+                                            {{$products->links()}}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
