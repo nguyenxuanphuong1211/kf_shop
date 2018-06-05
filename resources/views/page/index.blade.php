@@ -71,18 +71,25 @@
                         <div class="col-xs-12">
                             <div class="single-product">
                                 <div class="product-img">
+                                    @if($hot_product->deals ==1)
                                     <div class="pro-type">
                                         <span>sale</span>
                                     </div>
+                                    @endif
                                     <a href="{{ url('/view-detail-product/'.$hot_product->alias)}}">
-                                        <img src="{{asset('page/img/products/'.$hot_product->image)}}" alt="Product Title" />
-                                        <img class="secondary-image" alt="Product Title" src="{{asset('page/img/products/'.$hot_product->image)}}">
+                                        <img src="{{asset('page/img/products/'.$hot_product->image)}}" alt="{{ $hot_product->name }}" />
+                                        <img class="secondary-image" alt="{{ $hot_product->name }}" src="{{asset('page/img/products/'.$hot_product->image)}}">
                                     </a>
                                 </div>
                                 <div class="product-dsc">
                                     <h3><a href="#">{{ $hot_product ->name }}</a></h3>
                                     <div class="star-price">
-                                        <span class="price-left">$52.00</span>
+                                        @if(isset($hot_product->promotion_price))
+                                        <span class="price-left" style="color:#EF6644;">${{ $hot_product ->promotion_price }}</span>&nbsp&nbsp&nbsp&nbsp
+                                        <span class="price-right" style="color:grey; text-decoration: line-through;">${{ $hot_product->unit_price }}</span>
+                                        @else
+                                        <span class="price-left" style="color:#EF6644;">${{ $hot_product ->unit_price }}</span>
+                                        @endif
                                         <span class="star-right">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -111,15 +118,25 @@
                         <div class="col-xs-12">
                             <div class="single-product">
                                 <div class="product-img">
+                                    @if($product->deals ==1)
+                                    <div class="pro-type">
+                                        <span>sale</span>
+                                    </div>
+                                    @endif
                                     <a href="{{ url('/view-detail-product/'.$product->alias)}}">
-                                        <img src="{{asset('page/img/products/'.$product ->image )}}" alt="Product Title" />
-                                        <img class="secondary-image" alt="Product Title" src="{{asset('page/img/products/'.$product ->image )}}">
+                                        <img src="{{asset('page/img/products/'.$product ->image )}}" alt="{{$product->name}}" />
+                                        <img class="secondary-image" alt="{{ $product->name }}" src="{{asset('page/img/products/'.$product ->image )}}">
                                     </a>
                                 </div>
                                 <div class="product-dsc">
                                     <h3><a href="#">{{ $product ->name}}</a></h3>
                                     <div class="star-price">
-                                        <span class="price-left">$52.00</span>
+                                        @if(isset($product->promotion_price))
+                                        <span class="price-left" style="color:#EF6644;">${{ $product ->promotion_price }}</span>&nbsp&nbsp&nbsp&nbsp
+                                        <span class="price-right" style="color:grey; text-decoration: line-through;">${{ $product->unit_price }}</span>
+                                        @else
+                                        <span class="price-left" style="color:#EF6644;">${{ $product ->unit_price }}</span>
+                                        @endif
                                         <span class="star-right">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -164,22 +181,29 @@
             </div>
             <div class="row">
                 <div id="new-products" class="owl-carousel product-slider owl-theme">
-                    @foreach($deals_products as $deals_product)
+                    @foreach($new_products as $new_product)
                     <div class="col-xs-12">
                         <div class="single-product">
                             <div class="product-img">
+                                @if($new_product->deals==1)
                                 <div class="pro-type">
                                     <span>sale</span>
                                 </div>
-                                <a href="{{ url('/view-detail-product/'.$deals_product->alias)}}">
-                                    <img src="{{asset('page/img/products/'.$deals_product->image)}}" alt="Product Title" />
-                                    <img class="secondary-image" alt="Product Title" src="{{asset('page/img/products/'.$deals_product->image)}}">
+                                @endif
+                                <a href="{{ url('/view-detail-product/'.$new_product->alias)}}">
+                                    <img src="{{asset('page/img/products/'.$new_product->image)}}" alt="{{ $new_product->name }}" />
+                                    <img class="secondary-image" alt="{{ $new_product->name }}" src="{{asset('page/img/products/'.$new_product->image)}}">
                                 </a>
                             </div>
                             <div class="product-dsc">
-                                <h3><a href="#">{{ $deals_product ->name }}</a></h3>
+                                <h3><a href="#">{{ $new_product ->name }}</a></h3>
                                 <div class="star-price">
-                                    <span class="price-left">$52.00</span>
+                                    @if(isset($new_product->promotion_price))
+                                    <span class="price-left" style="color:#EF6644;">${{ $new_product ->promotion_price }}</span>&nbsp&nbsp&nbsp&nbsp
+                                    <span class="price-right" style="color:grey; text-decoration: line-through;">${{ $new_product->unit_price }}</span>
+                                    @else
+                                    <span class="price-left" style="color:#EF6644;">${{ $new_product ->unit_price }}</span>
+                                    @endif
                                     <span class="star-right">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -191,8 +215,8 @@
                             </div>
                             <div class="actions-btn">
                                 <a href="#" data-placement="top" data-target="#quick-view" data-trigger="hover" data-toggle="modal" data-original-title="Quick View"><i class="fa fa-eye"></i></a>
-                                <a data-placement="top" data-toggle="tooltip" href="{{ url('/view-detail-product/'.$deals_product->alias)}}" data-original-title="View detail"><i class="fa fa-search-plus "></i></a>
-                                <a class="add_to_card" href="{{ url('cart/add-cart-product/'.$deals_product->id)}}" id="{{ $deals_product->id }}" name="{{ $deals_product ->name }}" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a>
+                                <a data-placement="top" data-toggle="tooltip" href="{{ url('/view-detail-product/'.$new_product->alias)}}" data-original-title="View detail"><i class="fa fa-search-plus "></i></a>
+                                <a class="add_to_card" href="{{ url('cart/add-cart-product/'.$new_product->id)}}" id="{{ $new_product->id }}" name="{{ $new_product ->name }}" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a>
                             </div>
                         </div>
                     </div>

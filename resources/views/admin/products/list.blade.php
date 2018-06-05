@@ -54,7 +54,7 @@
                             <td>{{ $product ->brand->name }}</td>
                             <td>{{ $product ->quantity }}</td>
                             <td>${{ $product ->unit_price }}</td>
-                            <td>${{ $product ->promotion_price}}</td>
+                            <td>@if(isset($product->promotion_price)) ${{ $product ->promotion_price}} @endif</td>
                             <td>@if($product->hot==1) Yes @else No @endif</td>
                             <td>@if($product->deals==1) Yes @else No @endif</td>
                             <td><a href="{{url('admin-shop/product/edit')}}/{{ $product->id }}"><i class="fa fa-edit"></i> Edit</a><br>
