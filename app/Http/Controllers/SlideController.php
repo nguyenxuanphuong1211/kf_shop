@@ -40,10 +40,6 @@ class SlideController extends Controller
     {
         $this->validate($request,
         [
-            'title_1' => 'required',
-            'title_2' => 'required',
-            'title_3' => 'required',
-            'link' => 'required',
             'image' => 'required|max:2000',
         ]);
         $data = Input::except('image');
@@ -92,10 +88,6 @@ class SlideController extends Controller
     {
         $this->validate($request,
         [
-            'title_1' => 'required',
-            'title_2' => 'required',
-            'title_3' => 'required',
-            'link' => 'required',
             'image' => 'max:2000',
         ]);
         $data = Input::except('image');

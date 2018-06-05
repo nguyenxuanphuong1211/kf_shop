@@ -95,7 +95,7 @@
                 <div class="form-group">
                     {!! Form::label('deals', 'Sale') !!}
                     <div class="form-controls {{ $errors->has('deals') ? 'has-error' : '' }}">
-                        {!! Form::select('deals' , ['1' => 'Yes', '0' => 'No'], null, ['placeholder'=>'Select'])!!}
+                        {!! Form::select('deals' , ['1' => 'Yes', '0' => 'No'], null, ['placeholder'=>'Select', 'id'=>'sale', 'onchange'=>'isSale()'])!!}
                         @if ( $errors->has('deals') )
                             <span style="color: red!important;" class="text-warning">
                                 <strong> {{ $errors->first('deals') }} </strong>
@@ -133,7 +133,7 @@
         <div class="form-group">
             {!! Form::label('promotion_price', 'Promotion Price') !!}
             <div class="form-controls {{ $errors->has('promotion_price') ? 'has-error' : '' }}">
-                {!! Form::number('promotion_price', null, ['class'=>'form-control']) !!}
+                {!! Form::number('promotion_price', null, ['class'=>'form-control', 'id'=>'promotion']) !!}
                 @if ( $errors->has('promotion_price') )
                     <span style="color: red!important;" class="text-warning">
                         <strong> {{ $errors->first('promotion_price') }} </strong>
@@ -227,4 +227,21 @@
     }
 
     document.querySelector('#file-input').addEventListener("change", previewImages, false);
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+    isSale();
+});
+
+function isSale() {
+    // $( "#sale" ).onchange(function() {
+    if ($('select#sale option:selected').val()==0) {
+        $('input[name=promotion_price]').val('');
+        console.log($('input[name=promotion_price]').val());
+        $('#promotion').attr('disabled', true);
+    }
+    if ($('select#sale option:selected').val()==1) {
+        $('#promotion').attr('disabled', false);
+    }
+}
 </script>
