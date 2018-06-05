@@ -83,7 +83,7 @@
                                     <input type="hidden" name="token" value="{{ csrf_token() }}">
                                     <p class="form-row form-row-wide">
                                         <label>
-                                            <span class="required">* required</span>
+                                            <span class="required">* First Name</span>
                                         </label>
                                         <input type="text" placeholder="Enter First Name" name="first_name" >
                                     </p>
@@ -95,7 +95,7 @@
                                     <br>
                                     <p class="form-row form-row-wide">
                                         <label>
-                                            <span class="required">* required</span>
+                                            <span class="required">* Last Name</span>
                                         </label>
                                         <input type="text" placeholder="Enter Last Name" name="last_name" >
                                     </p>
@@ -107,7 +107,7 @@
                                     <br>
                                     <p class="form-row form-row-wide">
                                         <label>
-                                            <span class="required">* required</span>
+                                            <span class="required">* Emai</span>
                                         </label>
                                         <input type="text" placeholder="Enter Email" name="email" >
                                         
@@ -120,7 +120,7 @@
                                     <br>
                                     <p class="form-row form-row-wide">
                                         <label>
-                                            <span class="required">* required</span>
+                                            <span class="required">* Phone Number</span>
                                         </label>
                                         <input type="text" placeholder="Enter Phone Number" name="phone_number" >
                                     </p>
@@ -132,7 +132,7 @@
                                     <br>
                                     <p class="form-row form-row-wide">
                                         <label>
-                                            <span class="required">* required</span>
+                                            <span class="required">* Order Address</span>
                                         </label>
                                         <input type="text" placeholder="Enter Order Address" name="order_address" >
                                     </p>
@@ -205,7 +205,7 @@
                         <p class="return-to-shop">
                             <a class="button wc-backward" href="{{url('/')}}">Continue Shopping</a>
                         </p>
-                        <input type="submit" value="Confirm Order">
+                        <!-- <input type="submit" value="Confirm Order"> -->
                         <!-- <a class="wc-forward" href="{{ url('checkout') }}"></a> -->
                     </div>
                 </div>
