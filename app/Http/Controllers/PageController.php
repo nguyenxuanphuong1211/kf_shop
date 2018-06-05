@@ -28,7 +28,7 @@ class PageController extends Controller
 
     public function allBlog()
     {
-        $blogs = Blog::orderBy('id', 'desc')->get();
+        $blogs = Blog::orderBy('id', 'desc')->paginate(3);
         return view('page.blog', compact('blogs'));
     }
 
@@ -41,21 +41,21 @@ class PageController extends Controller
 
     public function allProduct()
     {
-        $products = Product::orderBy('id', 'desc')->get();
+        $products = Product::orderBy('id', 'desc')->paginate(12);
         return view('page.products', compact('products'));
     }
 
     public function category_products($alias)
     {
         $category = Category::where('alias', $alias)->first();
-        $products = Product::where('category_id', $category->id)->orderBy('id', 'desc')->get();
+        $products = Product::where('category_id', $category->id)->orderBy('id', 'desc')->paginate(12);
         return view('page.category-products', compact('products', 'category' ));
     }
 
     public function brand_products($alias)
     {
         $brand = Brand::where('alias', $alias)->first();
-        $products = Product::where('brand_id', $brand->id)->orderBy('id', 'desc')->get();
+        $products = Product::where('brand_id', $brand->id)->orderBy('id', 'desc')->paginate(12);
         return view('page.brand-products', compact('products', 'brand'));
     }
 }

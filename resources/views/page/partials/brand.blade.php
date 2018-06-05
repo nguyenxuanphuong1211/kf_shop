@@ -8,7 +8,7 @@
                         @foreach($brands as $brand)
                         <div class="col-xs-12">
                             <div class="single-brand">
-                                <a href="#"><img src="{{asset('page/img/brand/'.$brand->image)}}" alt="" /></a>
+                                <a href="{{url('brand/'.$brand->alias)}}"><img src="{{asset('page/img/brand/'.$brand->image)}}" alt="" /></a>
                             </div>
                         </div>
                         @endforeach
