@@ -131,6 +131,7 @@
                            $('#total1').text(data[2]);
                            $('#total_cart').text(data[2]);
                            $('#qtyspcart').text(data[1]);
+                           $('.floatright').text(data[2]);
                         }
                     });
                 });

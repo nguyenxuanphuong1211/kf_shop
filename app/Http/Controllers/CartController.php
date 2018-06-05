@@ -27,15 +27,23 @@ class CartController extends Controller
     {
 
         $product = Product::find($id);
+        if($product->promotion_price !=null){
         Cart::add(['id' => $id, 'name' => $product->name, 'qty' => 1, 'price' => $product->promotion_price, 'options' => ['image' => $product->image, 'quantity' => $product->quantity]]);
-        return redirect()->route('home');
+        }else{
+            Cart::add(['id' => $id, 'name' => $product->name, 'qty' => 1, 'price' => $product->unit_price, 'options' => ['image' => $product->image, 'quantity' => $product->quantity]]);
+        }
+        return redirect()->route('view-cart');
     }
 
     public function addProductView(Request $rq){
         $id = $rq->id;
         $qty = $rq->qty;
         $product_buy = Product::find($id);
-        Cart::add(['id' => $product_buy->id, 'name' => $product_buy->name, 'qty' => $qty, 'price' => $product_buy->promotion_price, 'options' => ['image' => $product_buy->image, 'quantity' => $product_buy->quantity]]);
+         if($product_buy->promotion_price !=null){
+            Cart::add(['id' => $product_buy->id, 'name' => $product_buy->name, 'qty' => $qty, 'price' => $product_buy->promotion_price, 'options' => ['image' => $product_buy->image, 'quantity' => $product_buy->quantity]]);
+        }else{
+            Cart::add(['id' => $product_buy->id, 'name' => $product_buy->name, 'qty' => $qty, 'price' => $product_buy->unit_price, 'options' => ['image' => $product_buy->image, 'quantity' => $product_buy->quantity]]);
+        }
         return redirect()->route('view-cart');
     }
 

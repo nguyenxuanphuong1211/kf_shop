@@ -152,7 +152,7 @@
                                             <a  href="cart.html"><img src="{{asset('page/img/products/')}}" alt="" /></a>
                                             <div class="add-cart-text">
                                                 <p><a href="#">{{ $content->name }}</a></p>
-                                                <p>{{ $content->price }} x {{ $content->qty }}</p>
+                                                <p>${{ $content->price }} x {{ $content->qty }}</p>
                                                 <span>Color : Blue</span>
                                                 <span>Size   : SL</span>
                                             </div>
@@ -163,7 +163,7 @@
                                         @endforeach
                                         <li class="total-amount clearfix">
                                             <span class="floatleft">total</span>
-                                            <span class="floatright"><strong>= {{ \Cart::total() }}</strong></span>
+                                            <span class="floatright"><strong>= $ {{ \Cart::total() }}</strong></span>
                                         </li>
                                         <li>
                                             <!-- <div class="goto text-center">
