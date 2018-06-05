@@ -36,7 +36,7 @@
                                 </td>
                                 <td class="sop-cart an-sh" >
                                     <div class=" ray qty " id="{{$content->rowId}}">
-                                        <input class="input-text  qty1 text" name="qty1" type="number" size="4" title="Qty" value="{{ $content->qty }}" min="1" step="1">
+                                        <input class="input-text  qty1 text" name="qty1" type="number" size="4" title="Qty" value="{{ $content->qty }}" min="1" step="1" max="{{$content->options->quantity}}">
                                     </div>
                                     <a class="remove" href="{{ url('cart/delete-product-cart/'.$content->rowId) }}">
                                         <span>x</span>
